@@ -12,5 +12,4 @@ public class SnackController {
 	public String SnackPage() {
 		return "/store/snack";
 	}
-
 }
