@@ -1,8 +1,7 @@
-//package com.lotte.cinema.home.slider.entity;
+//package com.lotte.cinema.home.slider.dto;
 //
 //import java.sql.Timestamp;
 //
-//import javax.persistence.Entity;
 //import javax.persistence.Id;
 //
 //import org.hibernate.annotations.CreationTimestamp;
@@ -10,14 +9,15 @@
 //import lombok.Data;
 //
 //@Data
-//@Entity
-//public class Login {
+//public class ImgInfo {
 //
 //	@Id
-//	private String imgNum;
-//	private String imgName;
-//	private String imgPath;
+//	private String userId;
+//	
+//	private String password;
+//	private String userName;
 //	private String userRole;
 //	@CreationTimestamp
 //	private Timestamp regDt;
+//	
 //}
