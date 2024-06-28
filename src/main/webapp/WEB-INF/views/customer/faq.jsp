@@ -27,7 +27,7 @@
     />
   </head>
   <body>
-	<div id="contents" >
+	<div id="contents" > 
     <div class="container">
         <h1>Hello, Bootstrap!</h1>
         <button type="button" class="btn btn-primary">Primary Button</button>

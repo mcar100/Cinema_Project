@@ -11,7 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>스토어 목록 - 롯데시네마</title>
+<title>롯데시네마</title>
 <meta id="description"
 	content="Happy Memories 롯데시네마는 관람 홤경과 양질의 컨텐츠로 영화를 통해 고객에게 행복한 기억을 선물합니다.">
 <link rel="stylesheet" type="text/css"

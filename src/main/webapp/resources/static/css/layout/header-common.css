@@ -38,6 +38,22 @@
 	-o-border-radius: 4px;
 }
 
+.header .gnb .g_menu3 > li .btn_menu_all {
+    width: 17px;
+    margin-top: -2px;
+    border: none;
+    text-indent: -9999em;
+    background: url(../../Content/images/icon/nav_side_all.png) no-repeat center center;
+}
+
+.header .gnb {
+    position: relative;
+    width: 980px;
+    height: 70px;
+    margin: 0 auto;
+    border-bottom: 1px solid #B2B2B2;
+}
+
 .header .gnb .g_menu1 {
 	float: left;
 }
