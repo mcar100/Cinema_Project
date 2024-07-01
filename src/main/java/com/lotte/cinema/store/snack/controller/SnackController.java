@@ -19,7 +19,7 @@ public class SnackController {
 	
 	@GetMapping("/snack")
 	public String SnackPage(Model model) {
-		
+		snackService.snackList();
 		return "/store/snack";
 	}
 }
