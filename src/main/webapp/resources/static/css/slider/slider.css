@@ -55,17 +55,149 @@
 	border: none;
 }
 
+
+.info_left{
+	width: 31px;
+	height: 60px;
+	
+	background-image: url(/resources/static/img/leftBtn.png); 
+	background-color: rgba(0,0,0,0);
+	border: none;	
+}
+
+
+.info_right{
+	width: 31px;
+	height: 60px;
+	
+	background-image: url(/resources/static/img/rightBtn.png); 
+	background-color: rgba(0,0,0,0);
+	border: none;
+	
+}
+
 .header_img_section{
 	background-color: black;
 }
 
 .header_movie_list{
-	height: 200px;
-	background-color: black;
+	position: relative; /* 부모 요소인 header_movie_list를 relative로 설정 */
+    height: 510px;
+    background-color: black;
+    display: flex; /* flexbox를 사용하여 내부 요소들을 가로 정렬 */
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
 }
 
 
+.header_rank{
 
+	border: 1px solid #0000ff;
+    height: 400px;
+    width: 1000px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 요소의 중앙 정렬을 위해 사용 */
+    z-index: 1;
+    overflow: hidden;
+    
+}
+
+.rank_list{
+	height: 400px;
+    width: 4200px;
+    position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.header_rank_list ul {
+    display: flex;
+    justify-content: space-around; /* 각 항목들을 여백을 포함하여 정렬 */
+    width: 100%; /* ul 요소의 가로 폭을 100%로 설정 */
+}
+
+.header_rank_list li {
+    flex: 1; /* 각 li 요소가 동일한 너비를 가지도록 설정 */
+    text-align: center; /* 내용을 가운데 정렬 */
+}
+
+.rank_img img{
+	width: 200px;
+	height: 286px;
+}
+
+li{
+	list-style-type: none;
+}
+
+.image-container {
+    position: relative; /* 자식 요소인 overlay를 상대 위치시키기 위해 부모 요소를 상대 위치로 설정 */
+    display: inline-block; /* 이미지 크기에 맞게 div를 설정 */
+}
+
+/* .image-container img {
+    display: block; 이미지를 block 요소로 설정하여 다른 요소와 구별
+    width: 100%; 이미지가 부모 요소 안에서 꽉 차게 설정
+    height: auto; 비율 유지
+} */
+
+
+/* .overlay {
+    position: absolute; 상대 위치의 부모 요소를 기준으로 절대 위치
+    bottom: 0; 이미지의 아래쪽으로 위치
+    left: 0; 왼쪽부터 위치
+    width: 100%; 부모 요소의 너비만큼
+    height: 50px; overlay의 높이 설정
+    background-color: rgba(0, 0, 0, 0.5); 배경색과 투명도 설정
+    color: white; 텍스트 색상 설정
+    display: flex; 내부의 텍스트를 중앙에 정렬
+    display: inline-block; inline-block으로 설정하여 왼쪽 정렬이 가능하도록 함
+    align-items: center; 수직 정렬 설정
+    justify-content: center; 수평 정렬 설정
+    text-align: left;
+} */
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: white;
+    display: flex;
+    align-items: center; /* 수직 정렬 */
+    padding-left: 10px; /* 왼쪽 여백을 줘서 텍스트를 왼쪽에 붙임 */
+    font-weight: bold;
+    font-size: 26px;
+    font-style: italic;
+}
+
+.overlay p {
+    margin: 0; /* p 요소의 여백 제거 */
+}
+
+strong {
+    font-weight: bold;
+}
+
+.ic_grade {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    border-radius: 50%;
+    font-size: 0;
+    text-align: center;
+    vertical-align: middle;
+   
+}
+
+.btm_info{
+	 color: #FFF;
+}
 
 /* 모달 스타일 */
     .modal {
