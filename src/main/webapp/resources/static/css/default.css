@@ -28,3 +28,10 @@ a, a:link, a:visited, a:active, a:hover {
     text-decoration: none;
     cursor: pointer;
 }
+
+
+img {
+    border: none;
+    vertical-align: top;
+}
+

@@ -1,13 +1,13 @@
 #contents.contents_mall_home {
 	padding-top: 30px;
-	border: 1px solid black;
+	
 }
 
 #contents {
 	width: 980px;
 	margin: 0 auto;
 	padding: 50px 0 0 0;
-	border: 1px solid black;
+
 }
 
 ul, ol {
@@ -67,7 +67,6 @@ a, a:link, a:visited, a:active, a:hover {
 }
 
 .contents_mall_home .lc_wrap.ty3 {
-	border: 1px solid black;
 	margin-top: 30px;
 }
 
@@ -88,4 +87,20 @@ a, a:link, a:visited, a:active, a:hover {
 
 .contents_mall_home .lc_itm {
 	position: relative;
+}
+
+.contents_mall_home .lc_itm>.itm_img img {
+    width: 310px;
+    height: 250px;
+}
+
+.visual_top.visual_mall {
+    height: 296px;
+}
+
+.visual_top {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    background-color: #000;
 }
