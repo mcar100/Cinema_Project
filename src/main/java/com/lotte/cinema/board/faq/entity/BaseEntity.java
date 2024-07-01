@@ -1,6 +1,7 @@
 package com.lotte.cinema.board.faq.entity;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import javax.persistence.*;
 
@@ -17,12 +18,26 @@ import lombok.*;
 @EntityListeners(AuditingEntityListener.class)
 public class BaseEntity {
 	
+	@Transient
+	private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss:SSS");
+	
 	@CreatedDate
-	@Column(name="created_at", updatable=false)
-	private LocalDateTime createdAt;
+	@Column(name="created_at", updatable=false, length=23)
+	private String createdAt;
 	
 	@LastModifiedDate
-	@Column(name="updated_at")
-	private LocalDateTime updatedAt;
+	@Column(name="updated_at", length=23)
+	private String updatedAt;
 
+	@PrePersist
+	public void prePersist() {
+		LocalDateTime now = LocalDateTime.now();
+		this.createdAt = now.format(formatter);
+		this.updatedAt = now.format(formatter);
+	}
+
+	@PreUpdate
+	public void preUpdate() {
+		this.updatedAt = LocalDateTime.now().format(formatter);
+	}
 }
