@@ -14,9 +14,12 @@ import com.lotte.cinema.board.faq.entity.BaseEntity;
 import com.lotte.cinema.store.snack.enums.SnackCategory;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-
+import lombok.ToString;
+@ToString
 @Entity
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @SequenceGenerator(
@@ -49,14 +52,11 @@ public class Snack extends BaseEntity{
 	
 	private String availableTheaters; // 상영가능 영화관
 	
-	@Lob
 	private String guide; // 사용방법 
 	
 	private String notes; // 유의사항
 	
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
-	private SnackCategory category; 
-	
-	
+	private SnackCategory category; 	
 }
