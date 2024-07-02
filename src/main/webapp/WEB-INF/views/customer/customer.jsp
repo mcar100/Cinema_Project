@@ -7,14 +7,14 @@
     <meta charset="UTF-8">
     <title>FAQ 목록 - 롯데시네마</title>
 	<jsp:include page="../commons/vendorHead.jsp"/>
+
 	<link
-  		href="/resources/static/css/custom/custom_ss.css"
+  		href="/resources/static/css/default.css"
   		rel="stylesheet"
   		type="text/css"
 	/>
   </head>
   <body>
-  	<jsp:include page="../commons/vendorBody.jsp"/>
 	<div id="contents" class="container" >
 		<div class="title_top">
 			<h2 class="tit">고객센터</h2>
@@ -25,7 +25,7 @@
 			<button type="button" class="tab_tit" style="width:20%; left: 0%;">
 				<span>FAQ</span>
 			</button>
-			<jsp:include page="./faq/faq.jsp"/>			
+			<jsp:include page="./faq/faq.jsp"/>	
 		</li>
 		<li>
 			<button type="button" class="tab_tit" style="width:20%; left:20%;">
@@ -48,5 +48,6 @@
 			</button>
 		</li>
 	</ul>
+	<jsp:include page="../commons/vendorBody.jsp"/>
   </body>
 </html>

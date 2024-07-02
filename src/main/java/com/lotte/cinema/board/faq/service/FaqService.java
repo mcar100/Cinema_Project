@@ -46,6 +46,9 @@ public class FaqService {
 	}
 	
 	public List<FaqDTO> getFaqByCategoryId(Long categoryId) throws Exception{
+		if(categoryId==null) {
+			categoryId = (long)1;
+		}
 		List<FaqBoard> faqBoards = fr.findByCategoryId(categoryId);
 		List<FaqDTO> faqDTOs = new ArrayList<FaqDTO>();
 		FaqCategory category = fcr.findById(categoryId).orElseThrow(()-> new Exception("category not found"));
