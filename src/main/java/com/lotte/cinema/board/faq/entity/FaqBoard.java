@@ -19,12 +19,13 @@ public class FaqBoard extends BaseEntity {
 	@Column(nullable=false)
 	private String title;
 	
+	@Lob
 	@Column(nullable=false)
 	private String content;
 	
 	@ManyToOne
 	@JoinColumn(name="category_id", nullable=false)
-	private FaqCategory categoryId;
+	private FaqCategory category;
 	
 	@Column(nullable=false)
 	private String status;
@@ -34,5 +35,17 @@ public class FaqBoard extends BaseEntity {
 		if(this.status==null) {
 			this.status = "PUBLIC";
 		}
+	}
+	
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	public void setContent(String content) {
+		this.content = content;
+	}
+	
+	public void setCategory(FaqCategory category) {
+		this.category = category;
 	}
 }

@@ -8,7 +8,7 @@ import lombok.*;
 @Table(name="FAQ_Category")
 @Getter
 @NoArgsConstructor
-public class FaqCategory {
+public class FaqCategory extends BaseEntity {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="faq_category_id_generator")
@@ -17,4 +17,9 @@ public class FaqCategory {
 	
 	@Column(nullable=false)
 	private String name;
+
+	public void setName(String name) {
+		// TODO Auto-generated method stub
+		this.name = name;
+	}
 }
