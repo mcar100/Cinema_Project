@@ -94,7 +94,7 @@
 							</c:when>
 
 							<c:when test="${snack.category eq 'TICKET'}">
-								<div id="store13" class="lc_wrap ty3" tabindex="0"
+								<div id="store3" class="lc_wrap ty3" tabindex="0"
 									style="outline: none;">
 									<h3 class="lc_tit mt50">관람권</h3>
 									<a href="#none" class="lc_itm">
@@ -116,7 +116,7 @@
 								</div>
 							</c:when>
 							<c:when test="${snack.category eq 'SNACK_DRINK'}">
-								<div id="store13" class="lc_wrap ty3" tabindex="0"
+								<div id="store4" class="lc_wrap ty3" tabindex="0"
 									style="outline: none;">
 									<h3 class="lc_tit mt50">스낵음료</h3>
 									<a href="#none" class="lc_itm">
