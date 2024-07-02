@@ -77,7 +77,7 @@
 		})
 		.catch( /* ... */ );
 	</script>
-	<jsp:include page="../../commons/vendorBody.jsp"/>
 	<script type="module" src="/resources/static/js/admin/faqWriter.js"></script>
+	<jsp:include page="../../commons/vendorBody.jsp"/>
   </body>
 </html>
