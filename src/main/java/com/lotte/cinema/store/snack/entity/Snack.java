@@ -7,11 +7,9 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.SequenceGenerator;
 
 import com.lotte.cinema.board.faq.entity.BaseEntity;
-import com.lotte.cinema.store.snack.enums.SnackCategory;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -59,4 +57,5 @@ public class Snack extends BaseEntity{
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
 	private SnackCategory category; 	
+
 }
