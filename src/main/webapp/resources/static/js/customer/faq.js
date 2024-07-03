@@ -16,10 +16,23 @@ async function changeFaqType(faqTypeId){
 		if(!faqTable){
 			throw new Error('faqTable 리로드에 실패했습니다.')
 		}
-		$("#faqTable").html(faqTable);	
+		$("#faqTable").html(faqTable);
+		updateBtnStyle($(".link-btn"),faqTypeId);
 	}
 	catch(e){
 		alert(e.message);
 	}	
+}
+
+function updateBtnStyle(btnList,faqTypeId){
+	console.log(btnList);
+	btnList.forEach(btn=>{
+		if(btn.data('id')===faqTypeId){
+			btn.addClass("active");
+		}
+		else{
+			btn.removeClass("active");
+		}
+	})
 }
 

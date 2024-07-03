@@ -5,13 +5,13 @@
 <% 
 	List<FaqDTO> faqList = (List<FaqDTO>) request.getAttribute("faqList");
 %>
-<table class="tb_acc_wrap container" summary="FAQ 표입니다. 구분, 질문 순서로 행이 구성되어 있습니다.">
+<table class="tb_acc_wrap" summary="FAQ 표입니다. 구분, 질문 순서로 행이 구성되어 있습니다.">
 	<caption>FAQ</caption>
 	<colgroup>
 		<col style="width: 20%;">
 		<col style="width: auto;">
 	</colgroup>
-	<thead class="container">
+	<thead>
 		<tr>
 			<th scope="col" id="thead0">구분</th>
 			<th scope="col" id="thead1">질문</th>
@@ -21,7 +21,7 @@
 		  	<%
 	  			if(faqList!=null){
 				 for (FaqDTO faq : faqList) { %>
-					<tr class="acc_head container" aria-expanded="false" role="button" id="tr_<%= faq.getId() %>">
+					<tr class="acc_head" aria-expanded="false" role="button" id="tr_<%= faq.getId() %>">
 						<td id="row0" headers="thead0"><%= faq.getCategoryName() %></td>
 						<td headers="thead1 row0" class="text_l">
 						<a class="ic_q btn collapsed" title="열기" data-toggle="collapse" href="#collapse<%= faq.getId()%>" role="button" aria-expanded="false" aria-controls="collapse<%=faq.getId()%>" >
@@ -29,11 +29,10 @@
 							<span>질문</span>
 						</strong>
 						<%= faq.getTitle()%>
-						<button>▽</button>
 						</a>
 					</td>
 				</tr>
-				<tr class="acc_body container collapse" role="region" id="collapse<%=faq.getId()%>">
+				<tr class="acc_body collapse" role="region" id="collapse<%=faq.getId()%>">
      				<td colspan="2" headers="thead1 row0">
 					<div class="ic_a">
 						<strong class="txt_qna a">
