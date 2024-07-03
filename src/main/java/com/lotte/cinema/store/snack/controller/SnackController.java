@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.lotte.cinema.store.snack.dto.SnackListRespDto;
+<<<<<<< HEAD
+=======
+import com.lotte.cinema.store.snack.dto.SnackRespDto;
+>>>>>>> branch 'dev' of https://github.com/HyenaTree/Cinema_Project.git
 import com.lotte.cinema.store.snack.service.SnackService;
 
 import lombok.RequiredArgsConstructor;
@@ -32,10 +36,13 @@ public class SnackController {
 		return "/store/snack";
 	}
 
-// stores/snack/detail?snackId=15 
 	@GetMapping("/snack/detail")
-	public String SnackDetailPage(@RequestParam("snackId") String snackId, Model model) {
+	public String SnackDetailPage(@RequestParam("snackId") Long snackId, Model model) throws Exception {
 		log.info("SnackDetailPage() 로직 실행 snackId = {}", snackId);
+		
+		SnackRespDto snackDetail = snackService.findBySnackId(snackId);
+		log.info("snackDetail = {}", snackDetail);
+		model.addAttribute("snackDetail", snackDetail);
 		return "/store/store-detail";
 	}
 }
