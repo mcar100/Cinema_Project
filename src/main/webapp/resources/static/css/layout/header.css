@@ -1,0 +1,294 @@
+.header {
+    position: relative;
+    height: 114px;
+    border-bottom: 1px solid #EEE;
+    background-color: #fff;
+}
+
+.header .logo {
+    position: absolute;
+    z-index: 1;
+    top: 18px;
+    left: 50%;
+    margin-left: -109px;
+    text-indent: -9999em;
+    background: url(../../img/common/logo.png) no-repeat center center;
+}
+
+h1, h2, h3, h4, h5, h6, address, caption, em, th {
+    font-style: normal;
+    font-weight: normal;
+}
+
+body, h1, h2, h3, h4, h5, h6, fieldset, ul, ol, dl, dt, dd, p, figure {
+    margin: 0;
+    padding: 0;
+}
+
+.header .logo a {
+    display: block;
+    width: 219px;
+    height: 37px;
+}
+
+a, a:link, a:visited, a:active, a:hover {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.header .gnb {
+    position: relative;
+    width: 980px;
+    height: 70px;
+    margin: 0 auto;
+    border-bottom: 1px solid #B2B2B2;
+}
+
+.header .gnb .g_menu1 {
+    float: left;
+}
+
+.header .gnb > ul {
+    margin-top: 40px;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+.header .gnb .g_menu1 > li {
+    margin-right: 14px;
+}
+
+.header .gnb > ul > li {
+    float: left;
+}
+
+.header .gnb .g_menu1 > li a.btn_facebook {
+    padding-left: 18px;
+    background-image: url(../../img/common/gnb_facebook.png);
+}
+
+.header .gnb .g_menu1 > li > a {
+    height: 14px;
+    line-height: 14px;
+    background-repeat: no-repeat;
+    background-position: 0 center;
+}
+
+.header .gnb > ul > li > a {
+    display: block;
+    font-size: 12px;
+    color: #656565;
+}
+
+.header .gnb .g_menu1 > li a.btn_youtube {
+    padding-left: 19px;
+    background-image: url(../../img/common/gnb_youtube.png);
+}
+
+.header .gnb .g_menu1 > li a.btn_follow {
+    padding-left: 17px;
+    background-image: url(../../img/common/gnb_follow2.png);
+}
+
+.header .gnb > ul:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.header .gnb .g_menu2 {
+    float: right;
+}
+
+.header .gnb .g_menu2 > li {
+    margin-left: 14px;
+}
+
+.header .gnb .g_menu3 {
+    position: absolute;
+    right: 0;
+    top: 88px;
+    margin-top: 0;
+}
+
+.header .gnb .g_menu3 > li {
+    margin-left: 25px;
+}
+
+.header .gnb .g_menu3 > li .btn_my {
+    padding-left: 15px;
+    background: url(../../img/common/nav_side_my.png) no-repeat 0 center;
+}
+
+.header .gnb .g_menu3 > li > a, .header .gnb .g_menu3 > li > button {
+    height: 14px;
+    line-height: 14px;
+    font-size: 11px;
+}
+
+.header .gnb .g_menu3 > li .btn_reserve {
+    margin-top: 0;
+    padding-left: 18px;
+    border: none;
+    background: url(../../img/common/nav_side_reserve.png) no-repeat 0 2px;
+}
+
+.header .gnb .g_menu3 > li .btn_menu_all {
+    width: 17px;
+    margin-top: -2px;
+    border: none;
+    text-indent: -9999em;
+    background: url(../../img/common/nav_side_all.png) no-repeat center center;
+}
+
+.header .gnb:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+#nav {
+    width: 980px;
+    margin: 3px auto 0;
+    text-align: center;
+}
+
+#nav > ul > li {
+    display: inline-block;
+    vertical-align: top;
+}
+
+#nav > ul > li > a {
+    display: block;
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 24px;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+}
+
+#nav > ul > li > div {
+    display: none;
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    top: 114px;
+    height: 38px;
+    text-align: center;
+    background-color: #F8F8F8;
+}
+
+#nav > ul > li > div > ul {
+    opacity: 0;
+    display: inline-block;
+}
+
+#nav > ul > li > div > ul > li {
+    float: left;
+    margin: 0 10px;
+}
+
+#nav > ul > li > div > ul > li > a {
+    display: block;
+    height: 38px;
+    line-height: 38px;
+    padding: 0 5px;
+    color: #666;
+}
+
+#nav > ul > li > a:before {
+    content: "";
+    opacity: .2;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 9px;
+    margin-top: -5px;
+    border-left: 1px solid #707070;
+}
+
+#nav > ul > li > div > ul > li > div > ul {
+    opacity: 0;
+    display: inline-block;
+    width: 980px;
+    margin: 10px 0;
+}
+
+#nav > ul > li > div > ul > li > div > ul > li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+#nav > ul > li > div > ul > li > div > ul > li > a {
+    display: block;
+    opacity: .6;
+    height: 18px;
+    line-height: 18px;
+    padding: 0 5px;
+    color: #FFF;
+}
+
+#nav.area__gnbmovingbar .wrap_nav_underline {
+    position: relative;
+    width: 980px;
+    height: 2px;
+    margin-top: -2px;
+}
+
+#nav.area__gnbmovingbar > ul > li:nth-child(2).is-current ~ .wrap_nav_underline .nav_underline {
+    left: 354px;
+    width: 76px;
+    opacity: 1;
+}
+
+#nav.area__gnbmovingbar > ul > li ~ .wrap_nav_underline .nav_underline {
+    left: 277px;
+    width: 77px;
+    opacity: 0;
+}
+
+#nav.area__gnbmovingbar .nav_underline {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 65px;
+    height: 2px;
+    background: #FF1744;
+    transition: all .3s ease-in-out;
+}
+
+#nav > ul:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.layer_wrap200 {
+    z-index: 200 !important;
+}
+
+.layer_wrap {
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+    width: 0px;
+    height: 0px;
+    border: none;
+}
+
+.layerMultiType {
+    z-index: 150 !important;
+    width: 500px;
+}
+
+
+
+
+
+
