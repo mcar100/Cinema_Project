@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,17 +15,22 @@
 </head>
 
 <body>
+
+
+<%@ include file="/WEB-INF/views/layout/header.jsp" %>
+
+
 <div class="header_img_section">
 	<div class="wrap">
 		<ul class="img_list">
 			<li>
-				<a title="영상표출" class="video-link" href="javascript:void(0);" onclick="openModal('https://cf2.lottecinema.co.kr/lotte_image/2024/LoveLiesBleeding/LoveLiesBleeding_1280720.mp4');">
+				<a title="영상표출" class="video-link" href="javascript:void(0);" onclick="openModal('https://cf2.lottecinema.co.kr/lotte_image/2024/Beautyfool/Beautyfool_1280720.mp4');">
 					<img src="resources/static/img/home/Beautyfool_main.jpg">
 				</a>
 				
 			</li>
 			<li>
-				<a title="영상표출" class="video-link" href="javascript:void(0);" onclick="openModal('https://cf2.lottecinema.co.kr/lotte_image/2024/LoveLiesBleeding/LoveLiesBleeding_1280720.mp4');">
+				<a title="영상표출" class="video-link" href="javascript:void(0);" onclick="openModal('https://cf.lottecinema.co.kr//Media/MovieFile/MovieMedia/202406/21179_301_1.mp4');">
 					<img src="resources/static/img/home/Junsu_main.jpg">
 				</a>
 			</li>
@@ -33,7 +40,7 @@
 				</a>
 			</li>
 			<li>
-				<a title="영상표출" class="video-link" href="javascript:void(0);" onclick="openModal('https://cf2.lottecinema.co.kr/lotte_image/2024/LoveLiesBleeding/LoveLiesBleeding_1280720.mp4');">
+				<a title="영상표출" class="video-link" href="javascript:void(0);" onclick="openModal('https://cf.lottecinema.co.kr//Media/MovieFile/MovieMedia/202406/21201_301_1.mp4');">
 					<img src="resources/static/img/home/NoWayUp_main.jpg">
 				</a>
 			</li>
@@ -60,6 +67,12 @@
 						<div class="image-container">
 							<img src="resources/static/img/home/20970_101_1.jpg">
 							<em class="overlay">1</em> <!-- 이미지 위에 위치할 overlay div -->
+							<div class="over_box">
+								<div class="inner" style="margin-top: -33px;">
+									<a href="#" class="btn_col3 ty3" title="화면이동">예매하기</a>
+									<a href="#none" class="btn_col3 ty3" title="화면이동">상세정보</a>
+								</div>
+							</div>
 						</div>
 						<div class="btm_info">
 						   <strong class="tit_info">
@@ -234,7 +247,7 @@
 <div id="myModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal()">&times;</span>
-    <video id="videoSource" controls autoplay style="width: 100%;">
+    <video width="920" height="517.5" id="videoSource" controls autoplay>
         <!-- 비디오 소스 -->
         <!-- <source id="videoSource" type="video/mp4">   -->
  <!-- <source id="videoSource" src="https://cf2.lottecinema.co.kr/lotte_image/2024/LoveLiesBleeding/LoveLiesBleeding_1280720.mp4" type="video/mp4"> -->
@@ -242,100 +255,8 @@
   </div>
 </div>
     
-    
-    <div id="footer_section" class="footer">
-      <div class="inner">
-         <span class="f_logo">
-            <img src="https://www.lottecinema.co.kr/NLCHS/Content/images/common/logo_footer.gif" alt="lotte cinema">
-         </span>   
-            <ul class="f_menu type1">
-               <li>
-                  <a href="https://www.lottecultureworks.com/index.aspx" title="회사소개" target="_self">회사소개</a>
-               </li>
-               <li>
-                  <a href="https://www.lottecinema.co.kr/NLCHS/Etc/MemberClause" title="이용약관" target="_self">이용약관</a>
-               </li>
-               <li>
-                  <a href="https://www.lottecinema.co.kr/NLCHS/Etc/IndividualInfomationHandlingPolicy" title="개인정보처리방침" target="_self">
-                     <strong>개인정보처리방침</strong>
-                  </a>
-               </li>
-               <li>
-                  <a href="https://www.lottecinema.co.kr/NLCHS/Etc/EmailCollectionRefusal" title="이메일무단수집거부" target="_self">이메일무단수집거부</a>
-               </li>
-               <li>
-                  <a href="https://www.lottecinema.co.kr/NLCHS/Etc/ElectronicManagementPolicy" title="고정형 영상정보처리기기 운영 및 관리방침" target="_self">고정형 영상정보처리기기 운영 및 관리방침</a>
-               </li>
-               <li>
-                  <a href="https://www.lottecinema.co.kr/NLCHS/Membership/l_point" title="L.POINT회원안내" target="_self">L.POINT회원안내</a>
-               </li>
-               <li>
-                  <a href="https://www.lottecinema.co.kr/NLCHS/Etc/AssignStandard" title="배정기준" target="_self">배정기준</a>
-               </li>
-               <li>
-                  <a href="https://www.lottecultureworks.com/Contents/employ/individuals.aspx" title="채용안내" target="_self">채용안내</a>
-               </li>
-               <li>
-                  <a href="https://www.lottecultureworks.com/Contents/ad/advertinquiry.aspx" title="광고/임대문의" target="_self">광고/임대문의</a>
-               </li>
-               <li>
-                  <a href="https://www.lottecultureworks.com/Contents/ethical/ethicsintroduce.aspx" title="사회적책임" target="_self">사회적책임</a>
-               </li>
-            </ul>
-         <div class="bx_address type1">
-            <address>서울특별시 송파구 올림픽로 295 삼성생명 잠실빌딩 18F</address><br>
-            <span>대표 이메일
-               <em class="roboto pl5">lottecultureworks@lotte.net</em>
-            </span>
-            <span class="bar">고객센터
-               <em class="roboto">1544-8555</em>
-               (유료)
-            </span>
-            <span class="bar">사업자등록번호
-               <em class="roboto">313-87-00979</em>
-            </span>
-            <span class="bar">통신판매업신고번호 제
-               <em class="roboto">1184</em>
-               호
-            </span>
-            <a href="#none" title="사업자정보확인 팝업창 열림" class="txt_underline">사업자정보확인</a><br>
-            <span>대표이사 최병환</span>
-            <span class="bar">개인정보 보호 책임자 이수민</span>
-            <span class="bar">호스팅 제공자 롯데이노베이트</span>            
-         </div>
-         <p class="copyright">Copyright © LOTTE Cultureworks All Right Reserved.</p>
-      </div>
-      <div class="article_award">
-         <div class="inner">
-            <ul>
-               <li>
-                  <img src="https://www.lottecinema.co.kr/NLCHS/Content/images/common/footer_award_NCSI8.PNG?v=22042601" alt="NCSI / NCSI 영화관부문 8년 연속 1위">
-               </li>
-               <li>
-                  <img src="https://www.lottecinema.co.kr/NLCHS/Content/images/common/footer_award_kcsi.png?v=21020102" alt="KCSI 영화관부문 7년 연속 1위(총12회)">
-               </li>
-               <li>
-                  <img src="https://www.lottecinema.co.kr/NLCHS/Content/images/common/footer_award_kssqi-11.png?v=22111001" alt="KS-SQI 영화관부문 11년 연속 1위(총14회)">
-               </li>
-               <li>
-                  <img src="https://www.lottecinema.co.kr/NLCHS/Content/images/common/footer_award_brandcinema.png?v=21020101" alt="올해의 브랜드대상 영화관 부문 10년 연속 1위">
-               </li>
-               <li>
-                  <img src="https://www.lottecinema.co.kr/NLCHS/Content/images/common/footer_award_greenstar.png?v=21020101" alt="그린스타 영화관 부문 4년 연속 1위">
-               </li>
-               <li>
-                  <img src="https://www.lottecinema.co.kr/NLCHS/Content/images/common/footer_award_brandstar.png?v=21020101" alt="대한민국 브랜드 스타 영화관 부문 1위">
-               </li>
-               <li>
-                  <img src="https://www.lottecinema.co.kr/NLCHS/Content/images/common/footer_award_familyship.png?v=21020101" alt="가족친화 인증기업 선정">
-               </li>
-               <li>
-                  <img src="https://www.lottecinema.co.kr/NLCHS/Content/images/common/footer_award_winner.png?v=21020101" alt="소셜미디어 브랜드분야 WINNER 수상">
-               </li>
-            </ul>
-         </div>
-      </div>
-   </div>
+    <%@ include file="/WEB-INF/views/layout/footer.jsp" %>
+   
 </body>
 
 <script>
@@ -348,10 +269,25 @@ $(document).ready(function(){
            $('.img_list li') .first().appendTo('.img_list');
            $('.img_list').css('left',0);
        });
-    },5000);
+    },500000);
     
     $('#info_right').css('display','none');
 });
+
+
+
+const img = document.querySelector('.rank_img img');
+const overBox = document.querySelector('.over_box');
+
+img.addEventListener('mouseover', function() {
+	overBox.style.overflow = 'visible';
+});
+
+img.addEventListener('mouseout', function() {
+	overBox.style.overflow = 'hidden';
+});
+
+
 
 
 //포스터 슬라이드 왼쪽 버튼
