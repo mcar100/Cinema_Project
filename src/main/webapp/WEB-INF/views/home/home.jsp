@@ -18,23 +18,23 @@
 		<ul class="img_list">
 			<li>
 				<a title="영상표출" class="video-link" href="javascript:void(0);" onclick="openModal('https://cf2.lottecinema.co.kr/lotte_image/2024/LoveLiesBleeding/LoveLiesBleeding_1280720.mp4');">
-					<img src="resources/static/img/Beautyfool_main.jpg">
+					<img src="resources/static/img/home/Beautyfool_main.jpg">
 				</a>
 				
 			</li>
 			<li>
 				<a title="영상표출" class="video-link" href="javascript:void(0);" onclick="openModal('https://cf2.lottecinema.co.kr/lotte_image/2024/LoveLiesBleeding/LoveLiesBleeding_1280720.mp4');">
-					<img src="resources/static/img/Junsu_main.jpg">
+					<img src="resources/static/img/home/Junsu_main.jpg">
 				</a>
 			</li>
 			<li>
 				<a title="영상표출" class="video-link" href="javascript:void(0);" onclick="openModal('https://cf2.lottecinema.co.kr/lotte_image/2024/LoveLiesBleeding/LoveLiesBleeding_1280720.mp4');">
-					<img src="resources/static/img/LoveLiesBleeding_main.jpg">
+					<img src="resources/static/img/home/LoveLiesBleeding_main.jpg">
 				</a>
 			</li>
 			<li>
 				<a title="영상표출" class="video-link" href="javascript:void(0);" onclick="openModal('https://cf2.lottecinema.co.kr/lotte_image/2024/LoveLiesBleeding/LoveLiesBleeding_1280720.mp4');">
-					<img src="resources/static/img/NoWayUp_main.jpg">
+					<img src="resources/static/img/home/NoWayUp_main.jpg">
 				</a>
 			</li>
 		</ul>
@@ -48,148 +48,169 @@
   <div style="border:1px solid red; height: 400px; width: 1200px; position:relative;">
 	
 	   <div class="header_rank">
+	   		<span class="movi_info_txt">
+	   			<a href="https://www.lottecinema.co.kr/NLCHS/Movie/List?flag=1"><em>07.02 15:05</em>&nbsp;기준</a>
+	   		</span>
 	   <div class="rank_list">
 			<ul class="rank_img" style="display: flex;">
-				
+						
 				<li>
-					<div style="text-align: center;">
+					<div style="text-align: center;"> 
+					
 						<div class="image-container">
-							<img src="resources/static/img/20970_101_1.jpg">
-							 <em class="overlay">1</em> <!-- 이미지 위에 위치할 overlay div -->
+							<img src="resources/static/img/home/20970_101_1.jpg">
+							<em class="overlay">1</em> <!-- 이미지 위에 위치할 overlay div -->
 						</div>
 						<div class="btm_info">
 						   <strong class="tit_info">
-						   <span class="ic_grade gr_12">12</span>프렌치 수프
-						   </strong><span class="sub_info1">
-						   <br>
-						   <span class="rate_info">예매율&nbsp;<em>0.1%</em></span><span class="star_info" style="cursor: pointer;">8.8</span></span>
-						   </div>
+						   		<span class="ic_grade gr_all">전체</span>인사이드 아웃2
+						   </strong>
+						   <span class="sub_info1">
+						   	   <span class="rate_info">예매율&nbsp;<em>30.1%</em></span>
+						   	   
+						   	   <span class="star_info" style="cursor: pointer;">9.5</span>
+						   </span>
+						</div>
+					</div>
+				</li>
+				
+				<li>
+					<div style="text-align: center;"> 
+					
+						<div class="image-container">
+							<img src="resources/static/img/home/21144_101_1.jpg">
+							<em class="overlay">2</em> <!-- 이미지 위에 위치할 overlay div -->
+						</div>
+						<div class="btm_info">
+						   <strong class="tit_info">
+						   		<span class="ic_grade gr_12">12</span>인사이드 아웃2
+						   </strong>
+						   <span class="sub_info1">
+						   	   <span class="rate_info">예매율&nbsp;<em>24.4%</em></span>
+						   	   
+						   	   <span class="remain_info" style="cursor: pointer;">D-1</span>
+						   </span>
+						</div>
 					</div>
 				</li>
 				<li>
 					<div class="image-container">
-						<img src="resources/static/img/21144_101_1.jpg">
-						<em class="overlay">2</em>
-					</div>
-				</li>
-				<li>
-					<div class="image-container">
-							<img src="resources/static/img/21170_101_1.jpg">
+							<img src="resources/static/img/home/21170_101_1.jpg">
 							<em class="overlay">3</em>
 					</div>
 				</li>
 				<li>
 					<div class="image-container">
-							<img src="resources/static/img/21173_101_1.jpg">
+							<img src="resources/static/img/home/21173_101_1.jpg">
 							<em class="overlay">4</em>
 					</div>
 				</li>
 				<li>
 					<div class="image-container">
-							<img src="resources/static/img/LotteCard_184262.png">
+							<img src="resources/static/img/home/LotteCard_184262.png">
 							<em class="overlay">ad</em>
 					</div>
 				</li>
 			   
 			    <li>
 			    	<div class="image-container">
-							<img src="resources/static/img/21252_101_1.jpg">
+							<img src="resources/static/img/home/21252_101_1.jpg">
 							<em class="overlay">5</em>
 					</div>
 			    </li>
 				<li>
 					<div class="image-container">
-							<img src="resources/static/img/21204_101_1.jpg">
+							<img src="resources/static/img/home/21204_101_1.jpg">
 							<em class="overlay">6</em>
 					</div>	
 				</li>
 				<li>
 					<div class="image-container">
-							<img src="resources/static/img/16598_101_1.jpg">
+							<img src="resources/static/img/home/16598_101_1.jpg">
 							<em class="overlay">7</em>
 					</div>
 				</li>
 				<li>
 					<div class="image-container">
-							<img src="resources/static/img/21303_101_1.jpg">
+							<img src="resources/static/img/home/21303_101_1.jpg">
 							<em class="overlay">8</em>
 					</div>
 				</li>
 				<li>
 					<div class="image-container">
-							<img src="resources/static/img/15666_101_1.jpg">
+							<img src="resources/static/img/home/15666_101_1.jpg">
 							<em class="overlay">9</em>
 					</div>
 				</li>
 				<li>
 					<div class="image-container">
-							<img src="resources/static/img/21179_101_1.jpg">
+							<img src="resources/static/img/home/21179_101_1.jpg">
 							<em class="overlay">10</em>
 					</div>
 				</li>
 				<li>
 					<div class="image-container">
-							<img src="resources/static/img/16078_101_1.jpg">
+							<img src="resources/static/img/home/16078_101_1.jpg">
 							<em class="overlay">11</em>
 					</div>
 				</li>
 				<li>
 					<div class="image-container">
-							<img src="resources/static/img/21159_101_1.jpg">
+							<img src="resources/static/img/home/21159_101_1.jpg">
 							<em class="overlay">12</em>
 					</div>
 				</li>
 				<li>
 					<div class="image-container">
-							<img src="resources/static/img/20998_101_1.jpg">
+							<img src="resources/static/img/home/20998_101_1.jpg">
 							<em class="overlay">13</em>
 					</div>
 				</li>
 				<li>
 					<div class="image-container">
-							<img src="resources/static/img/21085_101_1.jpg">
+							<img src="resources/static/img/home/21085_101_1.jpg">
 							<em class="overlay">14</em>
 					</div>
 				</li>
 				<li>
 					<div class="image-container">
-							<img src="resources/static/img/17298_101_1.jpg">
+							<img src="resources/static/img/home/17298_101_1.jpg">
 							<em class="overlay">15</em>
 					</div>
 				</li>
 				<li>
 					<div class="image-container">
-							<img src="resources/static/img/21090_101_1.jpg">
+							<img src="resources/static/img/home/21090_101_1.jpg">
 							<em class="overlay">16</em>
 					</div>
 				</li>
 				<li>
 					<div class="image-container">
-							<img src="resources/static/img/21171_101_1.jpg">
+							<img src="resources/static/img/home/21171_101_1.jpg">
 							<em class="overlay">17</em>
 					</div>
 				</li>
 				<li>
 					<div class="image-container">
-							<img src="resources/static/img/21187_101_1.jpg">
+							<img src="resources/static/img/home/21187_101_1.jpg">
 							<em class="overlay">18</em>
 					</div>
 				</li>
 				<li>
 					<div class="image-container">
-							<img src="resources/static/img/20930_101_1.jpg">
+							<img src="resources/static/img/home/20930_101_1.jpg">
 							<em class="overlay">19</em>
 					</div>
 				</li>
 				<li>
 					<div class="image-container">
-							<img src="resources/static/img/21209_101_1.jpg">
+							<img src="resources/static/img/home/21209_101_1.jpg">
 							<em class="overlay">20</em>
 					</div>
 				</li>
 				<li>
 					<div class="image-container">
-							<img src="resources/static/img/21135_101_1.jpg">
+							<img src="resources/static/img/home/21135_101_1.jpg">
 							<em class="overlay">21</em>
 					</div>
 				</li>
@@ -319,6 +340,7 @@
 
 <script>
 
+
 $(document).ready(function(){
 	$('.img_list li').last().prependTo('.img_list');
     setInterval(function(){
@@ -332,25 +354,28 @@ $(document).ready(function(){
 });
 
 
-
+//포스터 슬라이드 왼쪽 버튼
 function leftBtn() {
-	console.log($('.img_list').css('left'));
+	
 	if($('.img_list').css('left') === '0px'){
-		console.log('왼쪽 버튼 동작함');
+		
 	 	 $('.img_list').animate({left:'-='+1920},'slow',function(){
 	       	 $('.img_list li') .first().appendTo('.img_list');
 	       	 $('.img_list').css('left',0);
 	 	 });
 	}
+	
 }
 
+// 포스터 슬라이드 오른쪽 버튼
 function rightBtn() {
-	console.log($('.img_list').css('left'));
+	
 	if($('.img_list').css('left') === '0px'){
-		console.log('오른쪽 버튼 동작함');
+		
 		 $('.img_list').css('left', '-1920px');
-	        $('.img_list li').last().prependTo('.img_list');
-	        $('.img_list').animate({left:'+='+1920},'slow');
+	     $('.img_list li').last().prependTo('.img_list');
+	     $('.img_list').animate({left:'+='+1920},'slow');
+	        
 	 	/*  $('.img_list').animate({left:'+='+1920},'slow',function(){
 	       	 $('.img_list li').last().prependTo('.img_list');
 	       	 $('.img_list').css('left',0);
@@ -359,36 +384,38 @@ function rightBtn() {
 	    
 }
 
+//영화순위 왼쪽 버튼
 function info_left(){
 		
-		console.log('인포 왼쪽 버튼 동작함');
-	 	 $('.rank_list').animate({left:'-='+200},'fast',function(){
-	 		 if($('#info_right').css('left') === '200px')
-	 		 console.log($('.rank_list').css('left'));
-	 		 if($('.rank_list').css('left') === '-3400px'){
-	 			 /* $('#info_left').css('background-image','none'); */
-	 			 $('#info_left').css('display','none');
-	 			 console.log('그만!~~');
-	 		 }
+	console.log('인포 왼쪽 버튼 동작함');
+	$('.rank_list').animate({left:'-='+200},'fast',function(){
+	 	
+		if($('.rank_list').css('left') === '-200px'){
+	 		    $('#info_right').css('display','block');
+	 	}
+	 	if($('.rank_list').css('left') === '-3400px'){
+	 			$('#info_left').css('display','none');
+	 	}
   	 
-	 	 });
-	
+	});
 }
 
+// 영화순위 오른쪽 버튼
 function info_right(){
 	
-	console.log('인포 왼쪽 버튼 동작함');
+	 console.log('인포 오른쪽 버튼 동작함');
  	 $('.rank_list').animate({left:'+='+200},'fast',function(){
- 		 console.log($('.rank_list').css('left'));
- 		 if($('.rank_list').css('left') === '0px'){
- 			 $('#info_right').css('background-image','none');
- 			 console.log('그만!~~');
+ 		
+ 		 if($('.rank_list').css('left') === '-3200px'){
+ 			    $('#info_left').css('display','block');
  		 }
+ 		 if($('.rank_list').css('left') === '0px'){
+ 			    $('#info_right').css('display','none');
+ 		 }   
  		 
-       	 
  	 });
-
 }
+
 
 //모달 열기 함수
 function openModal(videoUrl) {
@@ -405,21 +432,17 @@ function openModal(videoUrl) {
 
 // 모달 닫기 함수
 function closeModal() {
-    var modal = document.getElementById('myModal');
+    let modal = document.getElementById('myModal');
     modal.style.display = 'none'; // 모달 숨김
 }
 
 // 모달 외부 클릭 시 닫기
 window.onclick = function(event) {
-    var modal = document.getElementById('myModal');
+    let modal = document.getElementById('myModal');
     if (event.target == modal) {
         modal.style.display = "none";
     }
 }
-
-
-
-
 
 </script>
 </html>

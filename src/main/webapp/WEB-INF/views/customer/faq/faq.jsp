@@ -12,7 +12,7 @@
 		<%
 	  			if(fcList!=null){
 					for (FaqCategory fc : fcList) { %>
-                    	<button  class="active ico_0<%=fc.getId()%>" data-id="<%=fc.getId()%>">
+                    	<button class="active ico_0<%=fc.getId()%> link-btn" data-id="<%=fc.getId()%>">
                     		<a href="/customer/faq/<%=fc.getId()%>"><%= fc.getName() %></a>
                     	</button>
      
@@ -26,9 +26,15 @@
 <jsp:include page="../commons/searchbar.jsp"/>
 			
 <!-- Table -->
-<jsp:include page="../commons/table.jsp">
-	<jsp:param name="faqType" value="${fcList[0].id}" />
-</jsp:include>
+<div id="faqTable">
+	<jsp:include page="../commons/table.jsp" />
+</div>
+
+
 			
 <!-- pagination -->
 <jsp:include page="../commons/pagination.jsp"/>
+
+<a href="/customer/faqWrite">faqWrite 이동</a>
+<!-- my script -->
+<script type="module" src="/resources/static/js/customer/faq.js"></script>

@@ -1,7 +1,7 @@
+import { callAjax } from "../api/ajax.js";
 import { convertFormDataToObj } from "../utils/convertor.js";
 
 $(document).ready(function(){
-	console.log('hi');
 	$("#faqWriterForm").submit(function(e){
 		handleFormSubmit(e,createFaq);
 	});
@@ -11,27 +11,19 @@ function handleFormSubmit(e, callbackApi){
 	e.preventDefault();
 	const formData = $(e.target).serializeArray();
 	const formObj = convertFormDataToObj(formData);
-	try{
-		console.log(formObj);
-		callbackApi(formObj);
-	}
-	catch(thrown){
-		console.log(thrown);
-	}
+	callbackApi(formObj);
 }
 
-function createFaq(formObj){
-	$.ajax({
-		url: "http://localhost:9090/customer/faqWrite",
-		type: 'POST',
-		contentType: 'application/json',
-		data: JSON.stringify(formObj),
-		success: function(response){
-			console.log(response);
-		},
-		error: function(xhr,status,error){
-			console.error('통신 실패 ',status,error);
+async function createFaq(formObj){
+	try{
+		const result = await callAjax('POST','/customer/faqWrite', formObj);
+		console.log(result);
+		if(!result){
+			throw new Error('등록에 실패했습니다.');
 		}
-		
-	})
+		alert('등록되었습니다.');
+	}
+	catch(e){
+		alert(e.message);
+	}
 }

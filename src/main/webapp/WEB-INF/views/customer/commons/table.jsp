@@ -22,7 +22,7 @@
 	  			if(faqList!=null){
 				 for (FaqDTO faq : faqList) { %>
 					<tr class="acc_head container" aria-expanded="false" role="button" id="tr_<%= faq.getId() %>">
-						<td id="row0" headers="thead0">영화관 이용</td>
+						<td id="row0" headers="thead0"><%= faq.getCategoryName() %></td>
 						<td headers="thead1 row0" class="text_l">
 						<a class="ic_q btn collapsed" title="열기" data-toggle="collapse" href="#collapse<%= faq.getId()%>" role="button" aria-expanded="false" aria-controls="collapse<%=faq.getId()%>" >
 							<strong class="txt_qna q">
@@ -58,8 +58,7 @@
 
 	</tbody>
 </table>
-<a href="/customer/faqWrite">faqWrite 이동</a>
-<script>
+<script type="module">
 $(document).ready(function(){
 	  $('.collapse').on('show.bs.collapse', function() {
 		    $('.collapse').not(this).collapse('hide');

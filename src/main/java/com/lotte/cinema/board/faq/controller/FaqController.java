@@ -33,8 +33,8 @@ public class FaqController {
     }
 	
 	
-	@GetMapping(value={"/faq/{faqType}", "/faq"})
-	public String goFaq(@PathVariable(name="faqType", required=false) Long faqType, HttpServletRequest request, Model model) {
+	@GetMapping("/faq")
+	public String goFaq(HttpServletRequest request, Model model) {
 		log.info(request.getMethod()+" "+request.getRequestURI()+"");
 		try {
 			List<FaqCategory> faqCategoryList = faqService.getCategoryList();
@@ -44,6 +44,24 @@ public class FaqController {
 			}
 			model.addAttribute("faqCategoryList", faqCategoryList);
 		
+			List<FaqDTO> faqDTOs = faqService.getFaqByCategoryId((long) 1);
+			
+			if(faqDTOs==null) {
+				throw new Exception("failed to get faq dtos");
+			}
+			model.addAttribute("faqList", faqDTOs);
+		}
+		catch(Exception e) {
+			log.error(e.getMessage());
+			model.addAttribute("faqList", null);
+		}
+		return "/customer/customer";
+	}
+	
+	@GetMapping("/faq/{faqType}")
+	public String getFaq(@PathVariable(name="faqType", required=false) Long faqType, HttpServletRequest request, Model model) {
+		log.info(request.getMethod()+" "+request.getRequestURI()+"");
+		try {
 			if(faqType==null) {
 				faqType = (long) 1;
 			}
@@ -58,7 +76,7 @@ public class FaqController {
 			log.error(e.getMessage());
 			model.addAttribute("faqList", null);
 		}
-		return "/customer/customer";
+		return "/customer/commons/table";
 	}
 
 	
@@ -95,9 +113,5 @@ public class FaqController {
 			e.printStackTrace();
 			return ResponseEntity.ok().body(false);	
 		}
-
-		
-				
-
 	}
 }
