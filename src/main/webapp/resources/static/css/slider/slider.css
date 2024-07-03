@@ -1,0 +1,545 @@
+@charset "UTF-8";
+
+*{
+	margin:0px;
+	padding:0px;
+	box-sizing: border-box;
+	/* min-width:1024px; */
+}
+
+.wrap{
+	width: 1920px;
+    height: 774px;
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+}
+	
+.img_list{
+	width: 3840px;
+	height: 774px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+    
+.img_list li{
+    float: left;
+    list-style: none;
+}
+    
+.img_list img{
+	width: 1920px;
+	height: 774px;
+}
+	
+.btn_left{
+	width: 31px;
+	height: 60px;
+	left: 30px;
+	top: 30%;
+	position: absolute;
+	background-image: url(/resources/static/img/home/leftBtn.png); 
+	background-color: rgba(0,0,0,0);
+	border: none;
+}
+	 
+.btn_right{
+	width: 31px;
+	height: 60px;
+	right: 30px;
+	top: 30%;
+	position: absolute;
+	background-image: url(/resources/static/img/home/rightBtn.png); 
+	background-color: rgba(0,0,0,0);
+	border: none;
+}
+
+
+.info_left{
+	width: 31px;
+	height: 60px;
+	
+	background-image: url(/resources/static/img/home/leftBtn.png); 
+	background-color: rgba(0,0,0,0);
+	border: none;	
+}
+
+
+.info_right{
+	width: 31px;
+	height: 60px;
+	
+	background-image: url(/resources/static/img/home/rightBtn.png); 
+	background-color: rgba(0,0,0,0);
+	border: none;
+	
+}
+
+.header_img_section{
+	background-color: black;
+}
+
+.header_movie_list{
+	position: relative; /* 부모 요소인 header_movie_list를 relative로 설정 */
+    height: 510px;
+    background-color: black;
+    display: flex; /* flexbox를 사용하여 내부 요소들을 가로 정렬 */
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+}
+
+
+.header_rank{
+
+	border: 1px solid #0000ff;
+    height: 400px;
+    width: 1000px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 요소의 중앙 정렬을 위해 사용 */
+    z-index: 1;
+    overflow: hidden;
+    
+}
+
+.rank_list{
+	height: 400px;
+    width: 4200px;
+    position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.header_rank_list ul {
+    display: flex;
+    justify-content: space-around; /* 각 항목들을 여백을 포함하여 정렬 */
+    width: 100%; /* ul 요소의 가로 폭을 100%로 설정 */
+}
+
+.header_rank_list li {
+    flex: 1; /* 각 li 요소가 동일한 너비를 가지도록 설정 */
+    text-align: center; /* 내용을 가운데 정렬 */
+}
+
+.rank_img img{
+	width: 200px;
+	height: 286px;
+}
+
+.rank_img {
+	padding-top: 40px;
+}
+li{
+	list-style-type: none;
+}
+
+.image-container {
+    position: relative; /* 자식 요소인 overlay를 상대 위치시키기 위해 부모 요소를 상대 위치로 설정 */
+    display: inline-block; /* 이미지 크기에 맞게 div를 설정 */
+}
+
+/* .image-container img {
+    display: block; 이미지를 block 요소로 설정하여 다른 요소와 구별
+    width: 100%; 이미지가 부모 요소 안에서 꽉 차게 설정
+    height: auto; 비율 유지
+} */
+
+
+/* .overlay {
+    position: absolute; 상대 위치의 부모 요소를 기준으로 절대 위치
+    bottom: 0; 이미지의 아래쪽으로 위치
+    left: 0; 왼쪽부터 위치
+    width: 100%; 부모 요소의 너비만큼
+    height: 50px; overlay의 높이 설정
+    background-color: rgba(0, 0, 0, 0.5); 배경색과 투명도 설정
+    color: white; 텍스트 색상 설정
+    display: flex; 내부의 텍스트를 중앙에 정렬
+    display: inline-block; inline-block으로 설정하여 왼쪽 정렬이 가능하도록 함
+    align-items: center; 수직 정렬 설정
+    justify-content: center; 수평 정렬 설정
+    text-align: left;
+} */
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: white;
+    display: flex;
+    align-items: center; /* 수직 정렬 */
+    padding-left: 10px; /* 왼쪽 여백을 줘서 텍스트를 왼쪽에 붙임 */
+    font-weight: bold;
+    font-size: 26px;
+    font-style: italic;
+}
+
+.overlay p {
+    margin: 0; /* p 요소의 여백 제거 */
+}
+
+strong {
+    font-weight: bold;
+}
+
+.ic_grade {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    border-radius: 50%;
+    font-size: 0;
+    text-align: center;
+    vertical-align: middle;
+    padding-right: 30px;
+}
+
+.ic_grade.gr_all:before, .ic_grade.gr_12:before, .ic_grade.gr_15:before, .ic_grade.gr_18:before, .ic_grade.gr_19:before, .ic_grade.gr_non:before, .ic_grade:before {
+    content: "";
+    display: block;
+    width: 22px;
+    height: 22px;
+    border-radius: 3px
+}
+
+.ic_grade.gr_12:before {
+    background: #229c56 url("/resources/static/img/home/grade_12.png") 0 0 no-repeat;
+    background-size: 100%; 
+}
+
+.ic_grade.gr_all:before {
+    background: #229c56 url("/resources/static/img/home/grade_all.png") 0 0 no-repeat;
+    background-size: 100%; 
+}
+
+.txt_grade.gr_all:before {
+    background: #229c56 url("/resources/static/img/home/grade_all.png") 0 0 no-repeat;
+    background-size: 100%;
+}
+
+.ic_grade.gr_all {
+    background-color: transparent;
+}
+
+sub_info1 > span:before{
+	content: '';
+    display: inline-block;
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 1px;
+    height: 8px;
+    background: #B2B2B2;
+}
+
+.star_info {
+    font-weight: bold;
+    background: url("/resources/static/img/home/ic_star.png") no-repeat 1px 50%;
+    padding-left:13px;
+    position: relative;
+}
+
+.star_info:before {
+	content: '';
+    position: absolute;
+    top: 4px;
+    left: 0;
+    width: 1px;
+    height: 8px;
+    background: #B2B2B2
+}
+
+
+.rate_info em {
+    font-weight: bold;
+}
+
+.sub_info1 > span:first-child {
+    margin-left: 0;
+}
+
+
+/*  ===================== */
+.remain_info{
+	position: relative;
+	padding-left: 10px;
+    color: #ED4C6B;
+    font-size: 11px;
+	
+}
+
+ .remain_info:before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 4px;
+    left: 0;
+    width: 1px;
+    height: 8px;
+    background: #B2B2B2
+}
+
+/*  ===================== */
+
+/* .sub_info1 > span:before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 1px;
+    height: 8px;
+    background: #B2B2B2
+} */
+
+.sub_info1 > span:nth-child(3):before {
+    content: '';
+   /*  display: inline-block; */
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 1px;
+    height: 8px;
+    background: #B2B2B2
+}
+
+
+.sub_info1 {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+
+ .sub_info1 > span {
+    position: relative;
+    margin-left: 8px;
+    
+}
+
+.btm_info{
+	 color: #FFF;
+     margin-top: 15px;
+}
+
+.movi_info_txt{
+	position: relative;
+    right: 10px;
+    top: 10px;
+    float: right;
+    color: #fff;
+    font-size: 13px;
+}
+
+.movi_info_txt a{
+	display: block;
+    position: relative;
+    z-index: 1;
+    color: #FFF;
+    text-decoration: none;
+}
+
+.movi_info_txt em{
+	font-family: 'Roboto';
+    font-size: 12px;
+    padding-left: 16px;
+    background: url(/resources/static/img/home/time2.png) no-repeat 0 1px;
+}
+
+
+
+
+/* 모달 스타일 */
+    .modal {
+        display: none; /* 초기에는 숨김 */
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        overflow: auto;
+    }
+    .modal-content {
+        position: relative;
+        margin: 10% auto;
+        padding: 20px;
+        max-width: 600px;
+        background-color: #fefefe;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    /* 반응형 이미지 스타일 */
+    .video-link {
+        display: block;
+        margin: 20px auto;
+        max-width: 100%;
+        height: auto;
+    }
+/*==================================================*/
+
+
+
+
+.footer{
+    padding: 80px;
+}
+
+.footer .inner {
+    position: relative;
+    width: 980px;
+    margin: 0 auto;
+}
+
+.footer .f_logo {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.footer .f_menu {
+    margin-bottom: 15px;
+}
+
+.footer .f_menu li:first-child {
+    padding-left: 0;
+}
+
+.footer .f_menu li {
+    position: relative;
+    float: left;
+    margin-right: 10px;
+    padding-left: 10px;
+}
+
+.footer .f_menu.type1 li a {
+    color: #4d4d4d;
+}
+
+.footer .f_menu li a {
+    display: block;
+    font-size: 12px;
+}
+
+.footer .f_menu li:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    height: 10px;
+    border-left: 1px solid #707070;
+}
+
+.footer .f_menu li:first-child:before {
+    content: none;
+}
+
+.footer .f_menu.type1 li a strong {
+    color: #000;
+    text-decoration: underline;
+}
+
+.footer .f_menu:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.footer .bx_address {
+    line-height: 1.5;
+    font-size: 12px;
+    color: #4D4D4D;
+}
+
+.footer .bx_address address {
+    display: inline;
+    margin-right: 10px;
+}
+
+h1, h2, h3, h4, h5, h6, address, caption, em, th {
+    font-style: normal;
+    font-weight: normal;
+}
+
+.footer .bx_address.type1 span {
+    border: 0;
+}
+
+.footer .bx_address span {
+    margin-right: 10px;
+}
+
+.pl5 {
+    padding-left: 5px !important;
+}
+
+.footer .bx_address span.bar {
+    position: relative;
+    padding-left: 10px;
+}
+
+.footer .bx_address.type1 span.bar:before {
+    opacity: .6;
+}
+
+.footer .bx_address span.bar:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 4px;
+    height: 10px;
+    border-left: 1px solid #707070;
+}
+
+.footer .bx_address .txt_underline {
+    text-decoration: underline;
+}
+
+.footer .copyright {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    color: #4D4D4D;
+}
+
+.footer .article_award {
+    margin: 50px auto 0;
+    padding: 20px 0;
+    background: #f5f5f5;
+}
+
+.footer .article_award ul li:first-child {
+    margin-left: 0;
+}
+
+.footer .article_award ul li {
+    float: left;
+    margin: 0 4px;
+}
+
+.footer .article_award ul:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+ul{
+    list-style: none;
+}

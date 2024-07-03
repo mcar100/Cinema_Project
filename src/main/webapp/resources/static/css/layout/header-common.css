@@ -1,0 +1,313 @@
+/* 공통 */
+.ad_wrap {
+	margin-top: 70px;
+}
+
+.clear:after {
+	content: '';
+	display: table;
+	clear: both;
+}
+
+.fl_l {
+	float: left !important;
+}
+
+.fl_r {
+	float: right !important;
+}
+
+.b_none {
+	border: 0 none !important;
+}
+
+.text_c {
+	text-align: center !important;
+}
+
+.text_l {
+	text-align: left !important;
+}
+
+.text_r {
+	text-align: right !important;
+}
+
+.txt_form {
+	font-size: 13px;
+	color: #666666;
+	letter-spacing: -0.5px;
+}
+
+.w_full {
+	width: 100%;
+}
+
+.header {
+	position: relative;
+	height: 114px;
+	border-bottom: 1px solid #EEE;
+	background-color: #fff;
+}
+
+.header .logo a {
+	display: block;
+	width: 219px;
+	height: 37px;
+}
+
+.quick_wrap .quick_menu {
+	overflow: hidden;
+	background: #fff;
+	width: 76px;
+	padding-top: 15px;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+	z-index: 91;
+	text-align: center;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+}
+
+.header .gnb .g_menu3>li .btn_menu_all {
+	width: 17px;
+	margin-top: -2px;
+	border: none;
+	text-indent: -9999em;
+	background-image: url('https://www.lottecinema.co.kr/NLCHS/Content/images/icon/nav_side_all.png')
+}
+
+.header .gnb {
+	position: relative;
+	width: 980px;
+	height: 70px;
+	margin: 0 auto;
+	border-bottom: 1px solid #B2B2B2;
+}
+
+.header .gnb .g_menu1 {
+	float: left;
+}
+
+.header .gnb>ul {
+	margin-top: 40px;
+}
+
+ul, ol {
+	list-style: none;
+}
+
+.header .logo {
+	position: absolute;
+	z-index: 1;
+	top: 18px;
+	left: 50%;
+	margin-left: -109px;
+}
+
+div {
+	display: block;
+	unicode-bidi: isolate;
+}
+
+.quick_wrap {
+	position: absolute;
+	z-index: 11;
+	right: 20px;
+	padding-top: 50px;
+	width: 82px;
+	text-align: center;
+}
+
+body, input, button, select, textarea {
+	font-family: "Noto Sans KR", "Roboto", "dotum", "sans-serif";
+	font-size: 12px;
+	color: #000;
+}
+
+body, h1, h2, h3, h4, h5, h6, fieldset, ul, ol, dl, dt, dd, p, figure {
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	display: block;
+	list-style: none;
+	list-style-type: disc;
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+	padding-inline-start: 40px;
+	unicode-bidi: isolate;
+}
+
+.header .gnb .g_menu1>li>a {
+	height: 14px;
+	line-height: 14px;
+	background-repeat: no-repeat;
+	background-position: 0 center;
+}
+
+.header .gnb>ul>li>a {
+	display: block;
+	font-size: 12px;
+	color: #656565;
+}
+
+.header .gnb .g_menu2 {
+	float: right;
+}
+
+ul, ol {
+	list-style: none;
+}
+
+li {
+	display: list-item;
+	text-align: -webkit-match-parent;
+	unicode-bidi: isolate;
+	list-style: none;
+}
+
+body, textarea {
+	line-height: 1.1;
+	letter-spacing: -0.03em;
+}
+
+#nav {
+	width: 980px;
+	margin: 3px auto 0;
+	text-align: center;
+}
+
+#nav>ul>li {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.header .gnb .g_menu1>li {
+	margin-right: 14px;
+}
+
+.header .gnb .g_menu2>li {
+	margin-left: 14px;
+}
+
+.header .gnb .g_menu3 {
+	position: absolute;
+	right: 0;
+	top: 88px;
+	margin-top: 0;
+}
+
+.header .gnb>ul>li {
+	float: left;
+}
+
+.header .gnb>ul:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+ul {
+	display: block;
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+	padding-inline-start: 40px;
+	unicode-bidi: isolate;
+}
+
+#nav>ul>li>a {
+	display: block;
+	position: relative;
+	height: 40px;
+	line-height: 40px;
+	padding: 0 24px;
+	font-size: 14px;
+	letter-spacing: 0.1em;
+	white-space: nowrap;
+}
+
+a, a:link, a:visited, a:active, a:hover {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.header .gnb>ul {
+	margin-top: 40px;
+}
+
+#nav>ul>li {
+	display: inline-block;
+	vertical-align: top;
+}
+
+li {
+	display: list-item;
+	text-align: -webkit-match-parent;
+	unicode-bidi: isolate;
+}
+
+#nav {
+	width: 980px;
+	margin: 3px auto 0;
+	text-align: center;
+}
+
+#nav>ul>li {
+	display: inline-block;
+	vertical-align: top;
+}
+
+#nav>ul>li>div>ul>li>a {
+	display: block;
+	height: 38px;
+	line-height: 38px;
+	padding: 0 5px;
+	color: #666;
+}
+
+.header .gnb .g_menu1>li a img {
+	vertical-align: middle;
+	padding-right: 2px;
+}
+
+.header .gnb .g_menu1>li a.btn_facebook {
+	padding-left: 18px;
+}
+
+.header .gnb .g_menu1>li a.btn_youtube {
+	padding-left: 19px;
+}
+
+.header .gnb .g_menu1>li a.btn_follow {
+	padding-left: 17px;
+}
+
+.header .gnb .g_menu1>li>a {
+	height: 14px;
+	line-height: 14px;
+	background-repeat: no-repeat;
+	background-position: 0 center;
+}
+
+.header .gnb>ul>li>a {
+	display: block;
+	font-size: 12px;
+	color: #656565;
+}
+
+.header .gnb .g_menu3>li .btn_my {
+	padding-left: 15px;
+}
+
+.header .gnb .g_menu3>li {
+	margin-left: 25px;
+}
