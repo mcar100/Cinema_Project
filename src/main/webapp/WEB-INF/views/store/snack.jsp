@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ page session="true"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page session = "true" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <c:set var="serverUrl"
 	value="https://cf.lottecinema.co.kr//Media/WebAdmin" />
@@ -42,7 +42,8 @@
 				<h3 class="lc_tit mt50">베스트</h3>
 				<c:forEach var="snack" items="${snackList}">
 					<c:if test="${snack.salesRate > 1000 }">
-						<a href="#none" class="lc_itm">
+						<a href="${contextPath}/stores/snack/detail?snackId=${snack.id}"
+							class="lc_itm">
 							<div class="itm_img">
 								<img src="${serverUrl}/${snack.imageUUID}"
 									alt="${snack.snackName}" />
@@ -66,8 +67,8 @@
 				<h3 class="lc_tit mt50">포토카드</h3>
 				<c:forEach var="snack" items="${snackList}">
 					<c:if test="${snack.category == 'PHOTO_CARD'}">
-
-						<a href="#none" class="lc_itm">
+						<a href="${contextPath}/stores/snack/detail?snackId=${snack.id}"
+							class="lc_itm">
 							<div class="itm_img">
 								<img src="${serverUrl}/${snack.imageUUID}"
 									alt="${snack.snackName}" />
@@ -91,8 +92,8 @@
 				<h3 class="lc_tit mt50">관람권</h3>
 				<c:forEach var="snack" items="${snackList}">
 					<c:if test="${snack.category == 'TICKET'}">
-
-						<a href="#none" class="lc_itm">
+						<a href="${contextPath}/stores/snack/detail?snackId=${snack.id}"
+							class="lc_itm">
 							<div class="itm_img">
 								<img src="${serverUrl}/${snack.imageUUID}"
 									alt="${snack.snackName}" />
@@ -117,8 +118,8 @@
 				<h3 class="lc_tit mt50">스낵음료</h3>
 				<c:forEach var="snack" items="${snackList}">
 					<c:if test="${snack.category eq 'SNACK_DRINK'}">
-
-						<a href="#none" class="lc_itm">
+						<a href="${contextPath}/stores/snack/detail?snackId=${snack.id}"
+							class="lc_itm">
 							<div class="itm_img">
 								<img src="${serverUrl}/${snack.imageUUID}"
 									alt="${snack.snackName}" />

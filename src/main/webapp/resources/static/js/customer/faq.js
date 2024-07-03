@@ -26,13 +26,16 @@ async function changeFaqType(faqTypeId){
 
 function updateBtnStyle(btnList,faqTypeId){
 	console.log(btnList);
-	btnList.forEach(btn=>{
+	for(const [key, btn] of Object.entries(btnList) ){
+		console.log(key,btn);
+		/*
 		if(btn.data('id')===faqTypeId){
 			btn.addClass("active");
 		}
 		else{
 			btn.removeClass("active");
 		}
-	})
+		*/
+	}
 }
 

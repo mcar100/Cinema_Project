@@ -53,7 +53,7 @@
 			</li>
 		</ul>
 	</div>
-	
+	<jsp:include page="../layout/footer.jsp"/>
 	<jsp:include page="../commons/vendorBody.jsp"/>
   </body>
 </html>
