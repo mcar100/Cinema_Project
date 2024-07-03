@@ -19,6 +19,7 @@
             	<% } 
 	  			}
 	  		%>
+	  		<div>${pageContext.request.contextPath}</div>
 	</div>
 </div>
 			

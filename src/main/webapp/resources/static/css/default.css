@@ -1,3 +1,4 @@
+@charset "utf-8";
 
 body, h1, h2, h3, h4, h5, h6, fieldset, ul, ol, dl, dt, dd, p, figure {
     margin: 0;
@@ -35,10 +36,6 @@ img {
     border: none;
     vertical-align: top;
 }
-
-
-@charset "utf-8";
-
 /* ==============================
 ver : 1.00
 ============================== */
