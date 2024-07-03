@@ -7,7 +7,6 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.SequenceGenerator;
 
 import com.lotte.cinema.board.faq.entity.BaseEntity;
@@ -56,7 +55,10 @@ public class Snack extends BaseEntity{
 	
 	private String notes; // 유의사항
 	
+	private Long salesRate; // 판매량
+	
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
 	private SnackCategory category; 	
+
 }

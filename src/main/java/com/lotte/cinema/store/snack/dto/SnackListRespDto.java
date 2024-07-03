@@ -17,10 +17,10 @@ public class SnackListRespDto { // 스토어 목록 반환하는 응답 dto
 	private String price; 
 	private String items;
 	private String category;
-	
+	private Long salesRate;
 
 	@Builder
-	public SnackListRespDto(Long id, String snackName, String imageUUID, String price, String items, String category) {
+	public SnackListRespDto(Long id, String snackName, String imageUUID, String price, String items, String category, Long salesRate) {
 	
 		this.id = id;
 		this.snackName = snackName;
@@ -28,6 +28,7 @@ public class SnackListRespDto { // 스토어 목록 반환하는 응답 dto
 		this.price = price;
 		this.items = items;
 		this.category = category;
+		this.salesRate = salesRate;
 	} 
 
 	

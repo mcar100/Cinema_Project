@@ -28,12 +28,20 @@
 		<div class="gnb">
 			<ul class="g_menu1">
 				<li><a href="https://www.facebook.com/LotteCinema.kr"
-					class="btn_facebook" target="_blank" title="롯데시네마 페이스북 새창열림">페이스북</a></li>
+					class="btn_facebook" target="_blank" title="롯데시네마 페이스북 새창열림"> <img
+						src="https://www.lottecinema.co.kr/NLCHS/Content/images/icon/gnb_facebook.png" />
+						페이스북
+				</a></li>
 				<li><a
 					href="https://www.youtube.com/channel/UCi4KivcV3a3yhkycFsjpalQ"
-					class="btn_youtube" target="_blank" title="롯데시네마 유튜브 새창열림">유튜브</a></li>
+					class="btn_youtube" target="_blank" title="롯데시네마 유튜브 새창열림"> <img
+						src="https://www.lottecinema.co.kr/NLCHS/Content/images/icon/gnb_youtube.png" />
+						유튜브
+				</a></li>
 				<li><a href="https://www.instagram.com/lottecinema_official/"
-					class="btn_follow" target="_blank" title="롯데시네마 인스타그램 새창열림">인스타그램</a></li>
+					class="btn_follow" target="_blank" title="롯데시네마 인스타그램 새창열림"> <img
+						src="https://www.lottecinema.co.kr/NLCHS/Content/images/icon/gnb_follow2.png">인스타그램
+				</a></li>
 			</ul>
 			<ul class="g_menu2">
 				<li><a
@@ -46,9 +54,11 @@
 			<ul class="g_menu3">
 				<li><a
 					href="https://www.lottecinema.co.kr/NLCHS/Membership/l_point"
-					class="btn_my">회원가입</a></li>
+					class="btn_my">
+					<img alt="회원가입" src="https://www.lottecinema.co.kr/NLCHS/Content/images/icon/nav_side_my.png">회원가입</a></li>
 				<li><a href="https://www.lottecinema.co.kr/NLCHS/Ticketing"
-					class="btn_reserve">바로 예매</a></li>
+					class="btn_reserve">
+					<img alt="바로 예매" src="	https://www.lottecinema.co.kr/NLCHS/Content/images/icon/nav_side_reserve.png">바로 예매</a></li>
 				<li><button class="btn_menu_all">전체 메뉴 레이어 열기</button>
 					<div id="allmenu"></div></li>
 			</ul>
@@ -138,11 +148,11 @@
 
 	</div>
 	<div id="nav" class="area__gnbmovingbar"></div>
-	
+
 	<div id="layerCommonAlert" class="layer_wrap layer_alert laye_wrap200"></div>
 	<ul id="layerPopupMulti" class="layer_wrap layerMultiType"></ul>
 
-	
+
 </body>
 
 </html>

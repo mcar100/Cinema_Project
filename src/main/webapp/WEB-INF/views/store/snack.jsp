@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="true"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <c:set var="serverUrl"
@@ -37,112 +37,106 @@
 			<li class="wrap_nav_underline"><span class="nav_underline"></span></li>
 		</ul>
 		<div class="tab_con_lnk">
-
-			<c:choose>
-				<c:when test="${empty snackList}">
-					<tr>
-						<td colspan="5" align="center">데이터가 없습니다.</td>
-					</tr>
-				</c:when>
-				<c:when test="${!empty snackList}">
-					<c:forEach var="snack" items="${snackList}">
-
-						<c:choose>
-							<c:when test="${snack.category eq 'BEST'}">
-								<div id="store2" class="lc_wrap ty3" tabindex="0"
-									style="outline: none">
-									<h3 class="lc_tit mt50">베스트</h3>
-									<a href="#none" class="lc_itm">
-										<div class="itm_img">
-											<img src="${serverUrl}/${snack.imageUUID}.jpg"
-												alt="${snack.snackName}" />
-										</div>
-										<div class="itm_cont">
-											<div class="badge_wrap"></div>
-											<div class="itm_tit">
-												<h4>${snack.snackName}</h4>
-												<p>${snack.items}</p>
-											</div>
-											<div class="txt_price_wrap">
-												<span class="txt_price">${snack.price}<em>원</em></span>
-											</div>
-										</div>
-									</a>
+			<div id="store2" class="lc_wrap ty3" tabindex="0"
+				style="outline: none">
+				<h3 class="lc_tit mt50">베스트</h3>
+				<c:forEach var="snack" items="${snackList}">
+					<c:if test="${snack.salesRate > 1000 }">
+						<a href="#none" class="lc_itm">
+							<div class="itm_img">
+								<img src="${serverUrl}/${snack.imageUUID}"
+									alt="${snack.snackName}" />
+							</div>
+							<div class="itm_cont">
+								<div class="badge_wrap"></div>
+								<div class="itm_tit">
+									<h4>${snack.snackName}</h4>
+									<p>${snack.items}</p>
 								</div>
-							</c:when>
-							<c:when test="${snack.category eq 'PHOTO_CARD'}">
-								<div id="store13" class="lc_wrap ty3" tabindex="0"
-									style="outline: none;">
-									<h3 class="lc_tit mt50">포토카드</h3>
-									<a href="#none" class="lc_itm">
-										<div class="itm_img">
-											<img src="${serverUrl}/${snack.imageUUID}.jpg"
-												alt="${snack.snackName}" />
-										</div>
-										<div class="itm_cont">
-											<div class="badge_wrap"></div>
-											<div class="itm_tit">
-												<h4>${snack.snackName}</h4>
-												<p>${snack.items}</p>
-											</div>
-											<div class="txt_price_wrap">
-												<span class="txt_price">${snack.price}<em>원</em></span>
-											</div>
-										</div>
-									</a>
+								<div class="txt_price_wrap">
+									<span class="txt_price">${snack.price}<em>원</em></span>
 								</div>
-							</c:when>
+							</div>
+						</a>
+					</c:if>
+				</c:forEach>
+			</div>
+			<div id="store13" class="lc_wrap ty3" tabindex="0"
+				style="outline: none;">
+				<h3 class="lc_tit mt50">포토카드</h3>
+				<c:forEach var="snack" items="${snackList}">
+					<c:if test="${snack.category == 'PHOTO_CARD'}">
 
-							<c:when test="${snack.category eq 'TICKET'}">
-								<div id="store3" class="lc_wrap ty3" tabindex="0"
-									style="outline: none;">
-									<h3 class="lc_tit mt50">관람권</h3>
-									<a href="#none" class="lc_itm">
-										<div class="itm_img">
-											<img src="${serverUrl}/${snack.imageUUID}.jpg"
-												alt="${snack.snackName}" />
-										</div>
-										<div class="itm_cont">
-											<div class="badge_wrap"></div>
-											<div class="itm_tit">
-												<h4>${snack.snackName}</h4>
-												<p>${snack.items}</p>
-											</div>
-											<div class="txt_price_wrap">
-												<span class="txt_price">${snack.price}<em>원</em></span>
-											</div>
-										</div>
-									</a>
+						<a href="#none" class="lc_itm">
+							<div class="itm_img">
+								<img src="${serverUrl}/${snack.imageUUID}"
+									alt="${snack.snackName}" />
+							</div>
+							<div class="itm_cont">
+								<div class="badge_wrap"></div>
+								<div class="itm_tit">
+									<h4>${snack.snackName}</h4>
+									<p>${snack.items}</p>
 								</div>
-							</c:when>
-							<c:when test="${snack.category eq 'SNACK_DRINK'}">
-								<div id="store4" class="lc_wrap ty3" tabindex="0"
-									style="outline: none;">
-									<h3 class="lc_tit mt50">스낵음료</h3>
-									<a href="#none" class="lc_itm">
-										<div class="itm_img">
-											<img src="${serverUrl}/${snack.imageUUID}.jpg"
-												alt="${snack.snackName}" />
-										</div>
-										<div class="itm_cont">
-											<div class="badge_wrap"></div>
-											<div class="itm_tit">
-												<h4>${snack.snackName}</h4>
-												<p>${snack.items}</p>
-											</div>
-											<div class="txt_price_wrap">
-												<span class="txt_price">${snack.price}<em>원</em></span>
-											</div>
-										</div>
-									</a>
+								<div class="txt_price_wrap">
+									<span class="txt_price">${snack.price}<em>원</em></span>
 								</div>
-							</c:when>
-							<c:otherwise></c:otherwise>
-						</c:choose>
+							</div>
+						</a>
+					</c:if>
+				</c:forEach>
+			</div>
+			<div id="store3" class="lc_wrap ty3" tabindex="0"
+				style="outline: none;">
+				<h3 class="lc_tit mt50">관람권</h3>
+				<c:forEach var="snack" items="${snackList}">
+					<c:if test="${snack.category == 'TICKET'}">
 
-					</c:forEach>
-				</c:when>
-			</c:choose>
+						<a href="#none" class="lc_itm">
+							<div class="itm_img">
+								<img src="${serverUrl}/${snack.imageUUID}"
+									alt="${snack.snackName}" />
+							</div>
+							<div class="itm_cont">
+								<div class="badge_wrap"></div>
+								<div class="itm_tit">
+									<h4>${snack.snackName}</h4>
+									<p>${snack.items}</p>
+								</div>
+								<div class="txt_price_wrap">
+									<span class="txt_price">${snack.price}<em>원</em></span>
+								</div>
+							</div>
+						</a>
+
+					</c:if>
+				</c:forEach>
+			</div>
+			<div id="store4" class="lc_wrap ty3" tabindex="0"
+				style="outline: none;">
+				<h3 class="lc_tit mt50">스낵음료</h3>
+				<c:forEach var="snack" items="${snackList}">
+					<c:if test="${snack.category eq 'SNACK_DRINK'}">
+
+						<a href="#none" class="lc_itm">
+							<div class="itm_img">
+								<img src="${serverUrl}/${snack.imageUUID}"
+									alt="${snack.snackName}" />
+							</div>
+							<div class="itm_cont">
+								<div class="badge_wrap"></div>
+								<div class="itm_tit">
+									<h4>${snack.snackName}</h4>
+									<p>${snack.items}</p>
+								</div>
+								<div class="txt_price_wrap">
+									<span class="txt_price">${snack.price}<em>원</em></span>
+								</div>
+							</div>
+						</a>
+					</c:if>
+				</c:forEach>
+			</div>
 		</div>
 	</div>
 </body>
