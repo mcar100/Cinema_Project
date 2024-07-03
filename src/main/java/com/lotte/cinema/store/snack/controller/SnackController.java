@@ -9,10 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.lotte.cinema.store.snack.dto.SnackListRespDto;
-<<<<<<< HEAD
-=======
 import com.lotte.cinema.store.snack.dto.SnackRespDto;
->>>>>>> branch 'dev' of https://github.com/HyenaTree/Cinema_Project.git
 import com.lotte.cinema.store.snack.service.SnackService;
 
 import lombok.RequiredArgsConstructor;

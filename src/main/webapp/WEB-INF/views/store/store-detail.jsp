@@ -19,8 +19,7 @@
 </head>
 
 <body>
-
-	<script type="text/javascript">
+<script type="text/javascript">
 // 페이지 로드 시 tabMenu 함수 호출
 $(document).ready(function() {
     tabMenu();
