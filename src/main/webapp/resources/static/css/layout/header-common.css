@@ -76,8 +76,7 @@
 	margin-top: -2px;
 	border: none;
 	text-indent: -9999em;
-	background: url(../../Content/images/icon/nav_side_all.png) no-repeat
-		center center;
+	background-image: url('https://www.lottecinema.co.kr/NLCHS/Content/images/icon/nav_side_all.png')
 }
 
 .header .gnb {
@@ -106,8 +105,6 @@ ul, ol {
 	top: 18px;
 	left: 50%;
 	margin-left: -109px;
-	background: url(../../Content/images/common/logo.png) no-repeat center
-		center;
 }
 
 div {
@@ -277,6 +274,11 @@ li {
 	color: #666;
 }
 
+.header .gnb .g_menu1>li a img {
+	vertical-align: middle;
+	padding-right: 2px;
+}
+
 .header .gnb .g_menu1>li a.btn_facebook {
 	padding-left: 18px;
 }
@@ -304,8 +306,6 @@ li {
 
 .header .gnb .g_menu3>li .btn_my {
 	padding-left: 15px;
-	background: url(../../Content/images/icon/nav_side_my.png) no-repeat 0
-		center;
 }
 
 .header .gnb .g_menu3>li {

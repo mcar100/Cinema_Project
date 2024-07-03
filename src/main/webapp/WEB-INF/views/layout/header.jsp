@@ -54,13 +54,20 @@
 			<ul class="g_menu3">
 				<li><a
 					href="https://www.lottecinema.co.kr/NLCHS/Membership/l_point"
-					class="btn_my">
-					<img alt="회원가입" src="https://www.lottecinema.co.kr/NLCHS/Content/images/icon/nav_side_my.png">회원가입</a></li>
+					class="btn_my"> <img alt="회원가입"
+						src="https://www.lottecinema.co.kr/NLCHS/Content/images/icon/nav_side_my.png">회원가입
+				</a></li>
 				<li><a href="https://www.lottecinema.co.kr/NLCHS/Ticketing"
-					class="btn_reserve">
-					<img alt="바로 예매" src="	https://www.lottecinema.co.kr/NLCHS/Content/images/icon/nav_side_reserve.png">바로 예매</a></li>
-				<li><button class="btn_menu_all">전체 메뉴 레이어 열기</button>
-					<div id="allmenu"></div></li>
+					class="btn_reserve"> <img alt="바로 예매"
+						src="	https://www.lottecinema.co.kr/NLCHS/Content/images/icon/nav_side_reserve.png">바로
+						예매
+				</a></li>
+				<li>
+					<button class="btn_menu_all">
+						전체 메뉴 레이어 열기
+					</button>
+					<div id="allmenu"></div>
+				</li>
 			</ul>
 		</div>
 
