@@ -9,7 +9,7 @@ import lombok.ToString;
 @Setter
 @Getter
 @NoArgsConstructor
-public class SnackRespDto { // 스토어 목록 반환하는 응답 dto
+public class SnackListRespDto { // 스토어 목록 반환하는 응답 dto
 
 	private Long id;
 	private String snackName; 
@@ -20,7 +20,7 @@ public class SnackRespDto { // 스토어 목록 반환하는 응답 dto
 	private Long salesRate;
 
 	@Builder
-	public SnackRespDto(Long id, String snackName, String imageUUID, String price, String items, String category, Long salesRate) {
+	public SnackListRespDto(Long id, String snackName, String imageUUID, String price, String items, String category, Long salesRate) {
 	
 		this.id = id;
 		this.snackName = snackName;
