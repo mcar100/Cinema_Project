@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.lotte.cinema.store.snack.dto.SnackListRespDto;
+import com.lotte.cinema.store.snack.dto.SnackRespDto;
 import com.lotte.cinema.store.snack.entity.Snack;
 import com.lotte.cinema.store.snack.repository.SnackRepository;
 
@@ -20,7 +20,7 @@ public class SnackServiceImpl implements SnackService {
 	private final SnackRepository snackRepository;
 	
 	@Override
-	public List<SnackListRespDto> findAll() {
+	public List<SnackRespDto> findAll() {
 
 	
 		List<Snack> snackList = snackRepository.findAll();
@@ -29,9 +29,9 @@ public class SnackServiceImpl implements SnackService {
 		return snackList.stream().map(this::convertToSnackListDto).collect(Collectors.toList());
 	}
 
-	public SnackListRespDto convertToSnackListDto(Snack snack) {
+	public SnackRespDto convertToSnackListDto(Snack snack) {
 		
-		return SnackListRespDto.builder().id(snack.getSnackId())
+		return SnackRespDto.builder().id(snack.getSnackId())
 		.snackName(snack.getSnackName())
 		.imageUUID(snack.getImageUUID())
 		.items(snack.getItems())
