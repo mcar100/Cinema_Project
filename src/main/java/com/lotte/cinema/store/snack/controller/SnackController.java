@@ -32,4 +32,10 @@ public class SnackController {
 
 		return "/store/snack";
 	}
+	
+	@GetMapping("/detail")
+	public String SnackDetailPage(Model model) {
+		log.info("SnackDetailPage() 로직 실행");
+		return "/store/storeDetail";
+	}
 }
