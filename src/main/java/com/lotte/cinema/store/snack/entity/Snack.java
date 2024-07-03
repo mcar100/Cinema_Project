@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
 import com.lotte.cinema.board.faq.entity.BaseEntity;
+import com.lotte.cinema.store.snack.enums.SnackCategory;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -53,6 +54,8 @@ public class Snack extends BaseEntity{
 	private String guide; // 사용방법 
 	
 	private String notes; // 유의사항
+	
+	private Long salesRate; // 판매량
 	
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)

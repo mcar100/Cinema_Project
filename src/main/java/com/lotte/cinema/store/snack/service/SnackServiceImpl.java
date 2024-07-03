@@ -36,7 +36,8 @@ public class SnackServiceImpl implements SnackService {
 		.imageUUID(snack.getImageUUID())
 		.items(snack.getItems())
 		.price(snack.getPrice())
-		.category(snack.getCategory().toString()).build();
+		.category(snack.getCategory().toString())
+		.salesRate(snack.getSalesRate()).build();
 		
 	}
 
