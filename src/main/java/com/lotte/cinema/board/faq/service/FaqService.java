@@ -2,8 +2,6 @@ package com.lotte.cinema.board.faq.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,16 +49,32 @@ public class FaqService {
 		}
 		List<FaqBoard> faqBoards = fr.findByCategoryId(categoryId);
 		List<FaqDTO> faqDTOs = new ArrayList<FaqDTO>();
-		FaqCategory category = fcr.findById(categoryId).orElseThrow(()-> new Exception("category not found"));
 		
 		for(FaqBoard origin: faqBoards){
 			FaqDTO target = new FaqDTO();
 			BeanUtils.copyProperties(origin, target);
-			target.setCategoryName(category.getName());
+			target.setCategoryName(origin.getCategory().getName());
 			faqDTOs.add(target);
 		}
 		
 		return faqDTOs;
+	}
+	
+	public List<FaqDTO> searchFaqByTitle(String title) throws Exception{
+		if(title==null) title="";
+		
+		List<FaqBoard> faqBoards = fr.findByTitleContaining(title);
+		List<FaqDTO> faqDTOs = new ArrayList<FaqDTO>();
+		
+		for(FaqBoard origin: faqBoards){
+			FaqDTO target = new FaqDTO();
+			BeanUtils.copyProperties(origin, target);
+			target.setCategoryName(origin.getCategory().getName());
+			faqDTOs.add(target);
+		}
+		
+		return faqDTOs;
+		
 	}
 	
 }

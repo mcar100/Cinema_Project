@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.lotte.cinema.board.faq.dto.FaqDTO;
 import com.lotte.cinema.board.faq.entity.FaqCategory;
@@ -79,6 +80,25 @@ public class FaqController {
 		return "/customer/commons/table";
 	}
 
+	@GetMapping("/faq/search")
+	public String searchFaq(@RequestParam(value="title", required=true) String title, HttpServletRequest request, Model model) throws Exception {
+		log.info(request.getMethod()+" "+request.getRequestURI()+"");
+		try {
+			if(title==null) {
+				throw new Exception("no title");
+			}
+			List<FaqDTO> faqDTOs = faqService.searchFaqByTitle(title);
+			if(faqDTOs==null) {
+				throw new Exception("no searched data");
+			}
+			model.addAttribute("faqList", faqDTOs);
+		}
+		catch(Exception e) {
+			log.error(e.getMessage());
+			model.addAttribute("faqList", null);
+		}
+		return "/customer/commons/table";
+	}
 	
 	@GetMapping("/faqWrite")
 	public String goFaqWrite(HttpServletRequest request, Model model) {
