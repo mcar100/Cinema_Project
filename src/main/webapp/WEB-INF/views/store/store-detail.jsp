@@ -19,13 +19,17 @@
 </head>
 
 <body>
+
+
 <script type="text/javascript">
 // 페이지 로드 시 tabMenu 함수 호출
 $(document).ready(function() {
     tabMenu();
 });
+
 //tab : event
 function tabMenu() {
+	console.log("hi");
   $(".tab_wrap > li:not(.active) .tab_wrap.inner > li .tab_tit").attr("tabindex", "-1");
   $(".tab_wrap .tab_tit").off().on("click focusin", function () {
       $(this).parent("li").addClass("active").siblings("li").removeClass("active");
@@ -33,7 +37,7 @@ function tabMenu() {
           $(this).parents(".tab_wrap").find(".tab_wrap.inner > li .tab_tit").attr("tabindex", "-1");
           $(this).siblings(".tab_con").find(".tab_wrap.inner > li .tab_tit").attr("tabindex", "0");
       }
-};
+}};
 </script>
 	<%@ include file="../layout/header.jsp"%>
 	<div id="sub_section">

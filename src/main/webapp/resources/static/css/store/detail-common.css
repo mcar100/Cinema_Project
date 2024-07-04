@@ -243,6 +243,8 @@ table {
 
 .tab_wrap>li>.tab_tit {
 	border: none;
+	position: absolute;
+	top: 0;
 }
 
 .tab_wrap.outer {
@@ -253,7 +255,7 @@ table {
 	position: relative;
 }
 
-.area__movingbar.litype2 .tab_wrap.outer.actionmovingbar .wrap_nav_underline
+.area__movingbar.litype2 .tab_wrap.outer.actionmovingbar .wrap_nav_underlinemmmcccc
 	{
 	position: absolute;
 	top: 50px;
