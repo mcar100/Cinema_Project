@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.lotte.cinema.store.snack.dto.SnackListRespDto;
 import com.lotte.cinema.store.snack.dto.SnackRespDto;
-//github.com/HyenaTree/Cinema_Project.git
 import com.lotte.cinema.store.snack.service.SnackService;
 
 import lombok.RequiredArgsConstructor;
