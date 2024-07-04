@@ -69,14 +69,22 @@
 .tb_acc_wrap tbody tr.acc_head{ cursor: pointer; }
 .tb_acc_wrap tbody .ic_q{ padding: 0 0 0 30px; }
 
+.tb_acc_wrap tbody tr.acc_body td{ padding: 0; }
+.tb_acc_wrap tbody tr.acc_body td>div{ position:relative; background-color: #f8f8f8; }
+.tb_acc_wrap tbody .ic_a{ padding: 20px; padding-left: 246px; }
+.tb_acc_wrap tbody .ic_q, .tb_acc_wrap tbody .ic_a{ text-align: left; }
+.tb_acc_wrap tbody .ic_a .txt_qna.a{ left:216px; }
+
 .txt_qna{ overflow: hidden; display: inline-block; width: 24px; height: 24px; line-height: 24px; border-radius: 50%; text-align: center; }
 .txt_qna.q{ background-color: #ff7787; margin-top: 2px; }
 .txt_qna:before{ font-family: "Roboto"; font-size: 18px; color: #fff; }
 .txt_qna.q:before{ content: "Q"; }
 .txt_qna span{ display: block; text-indent: -9999em; }
 .tb_acc_wrap .txt_qna{ position: absolute; top: 20px; left: 20px; }
+.txt_qna.a{ background-color: #7bdbd1; }
+.txt_qna.a:before{ content:"A"; }
 
-/*==== Bootstrap Collapse ====*/
+/*==== Bootstrap Collapse + Table====*/
 .tb_acc_wrap tbody tr.acc_head td:last-child a:after{ 
 	content: '';
 	display: inline-block;
@@ -88,10 +96,23 @@
 	vertical-align: middle;
 	transition: all 0.3s ease;
 }
-.tb_acc_wrap tbody tr.acc_head td:last-child .ic_q:after{
-	transform: rotate(180deg);
+.tb_acc_wrap tbody tr.acc_head td:last-child .ic_q:after{ transform: rotate(180deg); }
+.tb_acc_wrap tbody tr.acc_head td:last-child .ic_q.collapsed:after{ transform: rotate(0deg); }
+
+/*==== Pagination ====*/
+.brd_paginate{ position: relative; margin-top: 45px; text-align: center; }
+.brd_paginate ol{ display: inline-block; margin: 0; vertical-align: middle; }
+.brd_paginate ol li{ float: left; }
+.brd_paginate ol li a, .brd_paginate ol li strong{
+	display: inline-block;
+	width: 16px;
+	height: 17px;
+	line-height: 17px;
+	padding: 0 5px;
+	font-size: 15px;
+	color: #000;
+	opacity: .6;
+	vertical-align: middle;
 }
-.tb_acc_wrap tbody tr.acc_head td:last-child .ic_q.collapsed:after{
-	transform: rotate(0deg);
-}
+.brd_paginate ol li a.active, .brd_paginate ol li a:hover, .brd_paginate ol li strong{ text-decoration: underline; opacity: 1; }
 

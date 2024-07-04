@@ -23,7 +23,6 @@ h2{
 
 .contents_customer ul{
 	display: block;
-    list-style-type: disc;
     margin-block-start: 1em;
     margin-block-end: 1em;
     margin-inline-start: 0px;
@@ -123,4 +122,9 @@ li{ display: list-item; text-align: -webkit-match-parent; unicode-bidi: isolate;
 	background-position: center 20px;
 }
 
-
+/*==== Faq  ====*/
+.contents_customer .ic_q{
+	text-align: start;
+	width: 100%;
+	padding-left: 10px;
+}

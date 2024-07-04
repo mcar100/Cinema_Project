@@ -32,6 +32,6 @@
 <!-- pagination -->
 <jsp:include page="../commons/pagination.jsp"/>
 
-<a href="/customer/faqWrite">faqWrite 이동</a>
+<a href="/customer/faqWrite">faq 등록 페이지 이동 ></a>
 <!-- my script -->
 <script type="module" src="/resources/static/js/customer/faq.js"></script>
