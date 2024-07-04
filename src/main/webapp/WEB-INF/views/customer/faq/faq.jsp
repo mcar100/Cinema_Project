@@ -12,7 +12,7 @@
 		<%
 	  			if(fcList!=null){
 					for (FaqCategory fc : fcList) { %>
-                    	<button class="active ico_0<%=fc.getId()%> link-btn" data-id="<%=fc.getId()%>"><%= fc.getName() %></button>
+                    	<button class="ico_0<%=fc.getId()%> link-btn" data-id="<%=fc.getId()%>"><%= fc.getName() %></button>
      
             	<% } 
 	  			}
