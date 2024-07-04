@@ -1,6 +1,5 @@
 @charset "utf-8";
 
-@import url("../default.css");
 /*
 ===========================
 	ver: 1.00
@@ -74,6 +73,9 @@
 .tb_acc_wrap tbody .ic_a{ padding: 20px; padding-left: 246px; }
 .tb_acc_wrap tbody .ic_q, .tb_acc_wrap tbody .ic_a{ text-align: left; }
 .tb_acc_wrap tbody .ic_a .txt_qna.a{ left:216px; }
+.tb_acc_wrap caption{
+	padding: 0;
+}
 
 .txt_qna{ overflow: hidden; display: inline-block; width: 24px; height: 24px; line-height: 24px; border-radius: 50%; text-align: center; }
 .txt_qna.q{ background-color: #ff7787; margin-top: 2px; }
@@ -113,6 +115,7 @@
 	color: #000;
 	opacity: .6;
 	vertical-align: middle;
+	box-sizing: content-box;
 }
 .brd_paginate ol li a.active, .brd_paginate ol li a:hover, .brd_paginate ol li strong{ text-decoration: underline; opacity: 1; }
 
