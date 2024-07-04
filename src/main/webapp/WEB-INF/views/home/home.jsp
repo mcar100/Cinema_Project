@@ -68,7 +68,7 @@
 							<img src="resources/static/img/home/20970_101_1.jpg">
 							<em class="overlay">1</em> <!-- 이미지 위에 위치할 overlay div -->
 							<div class="over_box">
-								<div class="inner" style="margin-top: -33px;">
+								<div class="inner">
 									<a href="#" class="btn_col3 ty3" title="화면이동">예매하기</a>
 									<a href="#none" class="btn_col3 ty3" title="화면이동">상세정보</a>
 								</div>
@@ -271,22 +271,26 @@ $(document).ready(function(){
        });
     },500000);
     
-    $('#info_right').css('display','none');
+    /* $('#info_right').css('display','none'); */
 });
 
+let currentTaget = '';
 
 
-const img = document.querySelector('.rank_img img');
-const overBox = document.querySelector('.over_box');
 
-img.addEventListener('mouseover', function() {
-	overBox.style.overflow = 'visible';
-});
+$('.rank_img').find('li').mouseover(function(e){
+	e.target.classList.add('active');
+	// $(this).addClass('active'); // 현재 요소에 active 클래스 추가
+	// e.target.find('.over_box').css('z-index', '1001');
+	// 현재 요소 안에서 .over_box 요소를 찾아 z-index를 변경
+    $(this).find('.over_box').css('z-index', '1001');
+})
 
-img.addEventListener('mouseout', function() {
-	overBox.style.overflow = 'hidden';
-});
 
+
+$('.rank_img').find('li').mouseout(function(e){
+	e.target.classList.remove('active');
+})
 
 
 
