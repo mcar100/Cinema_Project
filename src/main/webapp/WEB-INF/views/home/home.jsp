@@ -69,8 +69,8 @@
 							<em class="overlay">1</em> <!-- 이미지 위에 위치할 overlay div -->
 							<div class="over_box">
 								<div class="inner">
-									<a href="#" class="btn_col3 ty3" title="화면이동">예매하기</a>
-									<a href="#none" class="btn_col3 ty3" title="화면이동">상세정보</a>
+									<a href="#" class="btn_col3 ty3" title="화면이동" style="display: block; margin-top: 100px; ">예매하기</a>
+									<a href="#none" class="btn_col3 ty3" title="화면이동" style="display: block; ">상세정보</a>
 								</div>
 							</div>
 						</div>
@@ -278,18 +278,24 @@ let currentTaget = '';
 
 
 
-$('.rank_img').find('li').mouseover(function(e){
+$('.rank_img').find('.image-container').mouseover(function(e){
 	e.target.classList.add('active');
+	$(this).find('.over_box').addClass('active');
+	 $(e.target).find('.inner').addClass('active'); 
 	// $(this).addClass('active'); // 현재 요소에 active 클래스 추가
 	// e.target.find('.over_box').css('z-index', '1001');
 	// 현재 요소 안에서 .over_box 요소를 찾아 z-index를 변경
-    $(this).find('.over_box').css('z-index', '1001');
+    /* $(this).find('.over_box').css('z-index', '1001'); */ 
+	/* $(this).find('.over_box').css('display', 'block'); */
 })
 
 
 
-$('.rank_img').find('li').mouseout(function(e){
+$('.rank_img').find('.image-container').mouseout(function(e){
 	e.target.classList.remove('active');
+	$(this).find('.over_box').removeClass('active');
+	/* $(this).find('.over_box').css('display', 'none'); */
+	/* $(this).find('.over_box').css('z-index', '0');  */
 })
 
 
