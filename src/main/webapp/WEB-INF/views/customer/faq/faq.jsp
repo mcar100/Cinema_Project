@@ -28,9 +28,6 @@
 <div id="faqTable">
 	<jsp:include page="../commons/table.jsp" />
 </div>
-			
-<!-- pagination -->
-<jsp:include page="../commons/pagination.jsp"/>
 
 <a href="/customer/faqWrite">faq 등록 페이지 이동 ></a>
 <!-- my script -->

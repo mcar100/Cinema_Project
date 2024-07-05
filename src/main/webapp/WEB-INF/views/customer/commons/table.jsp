@@ -57,6 +57,9 @@
 
 	</tbody>
 </table>
+<!-- pagination -->
+<jsp:include page="../commons/pagination.jsp"/>
+
 <script type="module">
 $(document).ready(function(){
 	  $('.collapse').on('show.bs.collapse', function() {
