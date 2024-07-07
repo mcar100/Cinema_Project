@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script src="resources/static/vendor/jquery/jquery.min.js"></script>
-<link href="resources/static/css/slider/slider.css" rel="stylesheet" type="text/css">
+<link href="resources/static/css/home/Home.css" rel="stylesheet" type="text/css">
 
 <title>롯데시네마</title>
 </head>
@@ -20,39 +20,28 @@
 <%@ include file="/WEB-INF/views/layout/header.jsp" %>
 
 
-<div class="header_img_section">
+<div class="home header_img_section">
 	<div class="wrap">
 		<ul class="img_list">
-			<li>
-				<a title="영상표출" class="video-link" href="javascript:void(0);" onclick="openModal('https://cf2.lottecinema.co.kr/lotte_image/2024/Beautyfool/Beautyfool_1280720.mp4');">
-					<img src="resources/static/img/home/Beautyfool_main.jpg">
-				</a>
-				
-			</li>
-			<li>
-				<a title="영상표출" class="video-link" href="javascript:void(0);" onclick="openModal('https://cf.lottecinema.co.kr//Media/MovieFile/MovieMedia/202406/21179_301_1.mp4');">
-					<img src="resources/static/img/home/Junsu_main.jpg">
-				</a>
-			</li>
-			<li>
-				<a title="영상표출" class="video-link" href="javascript:void(0);" onclick="openModal('https://cf2.lottecinema.co.kr/lotte_image/2024/LoveLiesBleeding/LoveLiesBleeding_1280720.mp4');">
-					<img src="resources/static/img/home/LoveLiesBleeding_main.jpg">
-				</a>
-			</li>
-			<li>
-				<a title="영상표출" class="video-link" href="javascript:void(0);" onclick="openModal('https://cf.lottecinema.co.kr//Media/MovieFile/MovieMedia/202406/21201_301_1.mp4');">
-					<img src="resources/static/img/home/NoWayUp_main.jpg">
-				</a>
-			</li>
+		
+			  <c:forEach var="item" items="${info}">
+        		   <li>
+        		   		<a title="영상표출" class="video-link" href="javascript:void(0);"
+        		   		   onclick="openModal('${item.moveVidPath}');">
+        		   		     	<img src="${item.moveImgPath}${item.moveImgName}">
+        		   		</a>
+        		   </li>
+    		  </c:forEach>
 		</ul>
+		
 		<button type="button" class="btn_left" id="btn_left" onclick="leftBtn();"></button>
 		<button type="button" class="btn_right" id="btn_right" onclick="rightBtn();"></button>
 	</div>
 </div>
 
 
-<div class="header_movie_list">
-  <div style="border:1px solid red; height: 400px; width: 1200px; position:relative;">
+<div class="home header_movie_list">
+  <div style="height: 400px; width: 1200px; position:relative;">
 	
 	   <div class="header_rank">
 	   		<span class="movi_info_txt">
@@ -60,7 +49,10 @@
 	   		</span>
 	   <div class="rank_list">
 			<ul class="rank_img" style="display: flex;">
-						
+					
+				<c:forEach var="item" items="${rankInfo}">
+				
+				</c:forEach>		
 				<li>
 					<div style="text-align: center;"> 
 					

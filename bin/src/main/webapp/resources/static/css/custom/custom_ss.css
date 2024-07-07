@@ -1,0 +1,27 @@
+#contents{
+		width: 980px;
+		margin: 0 auto;
+		padding: 50px 0 0 0;
+}
+
+.container{
+	border: 1px solid black;
+}
+
+table{
+	display: table;
+	box-sizing: border-box;
+	text-indent: initial;
+	unicode-bidi: isolate;
+}
+
+caption{
+	display: table-caption;
+	text-align: -webkit-center;
+	unicode-bidi: isolate;	
+}
+
+colgroup{
+	display:table-column-group;
+	unicode-bidi: isolate;
+}
