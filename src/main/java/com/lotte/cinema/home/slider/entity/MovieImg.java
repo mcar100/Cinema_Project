@@ -8,13 +8,19 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name = "movie_img")
+@Getter
+@Setter
 public class MovieImg {
 	
 	 @Id
 	 @Column(name = "movie_name")
 	 private String movieName;
+
 
      @Column(name = "movie_img_name")
      private String movieImgName;

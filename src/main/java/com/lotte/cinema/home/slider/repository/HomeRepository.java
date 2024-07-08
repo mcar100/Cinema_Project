@@ -7,6 +7,5 @@ import com.lotte.cinema.home.slider.entity.HomeEntity.MainSlider;
 
 @Repository
 public interface HomeRepository extends JpaRepository<MainSlider, Integer>{
-
 	
 }
