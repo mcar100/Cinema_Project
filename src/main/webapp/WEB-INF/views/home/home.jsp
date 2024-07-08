@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script src="resources/static/vendor/jquery/jquery.min.js"></script>
-<link href="resources/static/css/slider/slider.css" rel="stylesheet" type="text/css">
+<link href="resources/static/css/home/Home.css" rel="stylesheet" type="text/css">
 
 <title>롯데시네마</title>
 </head>
@@ -20,39 +20,28 @@
 <%@ include file="/WEB-INF/views/layout/header.jsp" %>
 
 
-<div class="header_img_section">
+<div class="home header_img_section">
 	<div class="wrap">
 		<ul class="img_list">
-			<li>
-				<a title="영상표출" class="video-link" href="javascript:void(0);" onclick="openModal('https://cf2.lottecinema.co.kr/lotte_image/2024/Beautyfool/Beautyfool_1280720.mp4');">
-					<img src="resources/static/img/home/Beautyfool_main.jpg">
-				</a>
-				
-			</li>
-			<li>
-				<a title="영상표출" class="video-link" href="javascript:void(0);" onclick="openModal('https://cf.lottecinema.co.kr//Media/MovieFile/MovieMedia/202406/21179_301_1.mp4');">
-					<img src="resources/static/img/home/Junsu_main.jpg">
-				</a>
-			</li>
-			<li>
-				<a title="영상표출" class="video-link" href="javascript:void(0);" onclick="openModal('https://cf2.lottecinema.co.kr/lotte_image/2024/LoveLiesBleeding/LoveLiesBleeding_1280720.mp4');">
-					<img src="resources/static/img/home/LoveLiesBleeding_main.jpg">
-				</a>
-			</li>
-			<li>
-				<a title="영상표출" class="video-link" href="javascript:void(0);" onclick="openModal('https://cf.lottecinema.co.kr//Media/MovieFile/MovieMedia/202406/21201_301_1.mp4');">
-					<img src="resources/static/img/home/NoWayUp_main.jpg">
-				</a>
-			</li>
+		
+			  <c:forEach var="item" items="${info}">
+        		   <li>
+        		   		<a title="영상표출" class="video-link" href="javascript:void(0);"
+        		   		   onclick="openModal('${item.moveVidPath}');">
+        		   		     	<img src="${item.moveImgPath}${item.moveImgName}">
+        		   		</a>
+        		   </li>
+    		  </c:forEach>
 		</ul>
+		
 		<button type="button" class="btn_left" id="btn_left" onclick="leftBtn();"></button>
 		<button type="button" class="btn_right" id="btn_right" onclick="rightBtn();"></button>
 	</div>
 </div>
 
 
-<div class="header_movie_list">
-  <div style="border:1px solid red; height: 400px; width: 1200px; position:relative;">
+<div class="home header_movie_list">
+  <div style="height: 400px; width: 1200px; position:relative;">
 	
 	   <div class="header_rank">
 	   		<span class="movi_info_txt">
@@ -60,7 +49,10 @@
 	   		</span>
 	   <div class="rank_list">
 			<ul class="rank_img" style="display: flex;">
-						
+					
+				<c:forEach var="item" items="${rankInfo}">
+				
+				</c:forEach>		
 				<li>
 					<div style="text-align: center;"> 
 					
@@ -68,9 +60,9 @@
 							<img src="resources/static/img/home/20970_101_1.jpg">
 							<em class="overlay">1</em> <!-- 이미지 위에 위치할 overlay div -->
 							<div class="over_box">
-								<div class="inner" style="margin-top: -33px;">
-									<a href="#" class="btn_col3 ty3" title="화면이동">예매하기</a>
-									<a href="#none" class="btn_col3 ty3" title="화면이동">상세정보</a>
+								<div class="inner">
+									<a href="#" class="btn_col3 ty3" title="화면이동" style="display: block; margin-top: 100px; ">예매하기</a>
+									<a href="#none" class="btn_col3 ty3" title="화면이동" style="display: block; ">상세정보</a>
 								</div>
 							</div>
 						</div>
@@ -271,22 +263,32 @@ $(document).ready(function(){
        });
     },500000);
     
-    $('#info_right').css('display','none');
+    /* $('#info_right').css('display','none'); */
 });
 
+let currentTaget = '';
 
 
-const img = document.querySelector('.rank_img img');
-const overBox = document.querySelector('.over_box');
 
-img.addEventListener('mouseover', function() {
-	overBox.style.overflow = 'visible';
-});
+$('.rank_img').find('.image-container').mouseover(function(e){
+	e.target.classList.add('active');
+	$(this).find('.over_box').addClass('active');
+	 $(e.target).find('.inner').addClass('active'); 
+	// $(this).addClass('active'); // 현재 요소에 active 클래스 추가
+	// e.target.find('.over_box').css('z-index', '1001');
+	// 현재 요소 안에서 .over_box 요소를 찾아 z-index를 변경
+    /* $(this).find('.over_box').css('z-index', '1001'); */ 
+	/* $(this).find('.over_box').css('display', 'block'); */
+})
 
-img.addEventListener('mouseout', function() {
-	overBox.style.overflow = 'hidden';
-});
 
+
+$('.rank_img').find('.image-container').mouseout(function(e){
+	e.target.classList.remove('active');
+	$(this).find('.over_box').removeClass('active');
+	/* $(this).find('.over_box').css('display', 'none'); */
+	/* $(this).find('.over_box').css('z-index', '0');  */
+})
 
 
 
