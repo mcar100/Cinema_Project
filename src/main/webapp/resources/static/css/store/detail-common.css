@@ -294,6 +294,10 @@ table {
 	height: 0;
 }
 
+.area__movingbar.litype2 .tab_wrap.outer.actionmovingbar > li:nth-child(2).active ~ .wrap_nav_underline .nav_underline {
+    left: 490px;
+}
+
 .contents_mall_detail .pd_tab .active .tab_con {
 	padding: 30px 0;
 }
@@ -304,3 +308,4 @@ table {
 	width: auto;
 	height: auto;
 }
+
