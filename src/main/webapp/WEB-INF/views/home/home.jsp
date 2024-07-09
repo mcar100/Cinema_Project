@@ -52,43 +52,47 @@
 					
 				<c:forEach var="item" items="${rankInfo}">
 				
-				</c:forEach>		
-				<li>
-					<div style="text-align: center;"> 
-					
-						<div class="image-container">
-							<img src="resources/static/img/home/20970_101_1.jpg">
-							<em class="overlay">1</em> <!-- 이미지 위에 위치할 overlay div -->
-							<div class="over_box">
-								<div class="inner">
-									<a href="#" class="btn_col3 ty3" title="화면이동" style="display: block; margin-top: 100px; ">예매하기</a>
-									<a href="#none" class="btn_col3 ty3" title="화면이동" style="display: block; ">상세정보</a>
+				</c:forEach>
+				<c:forEach var="subItem" items="${subInfo}">		
+					<li>
+						<div style="text-align: center;"> 
+						
+							<div class="image-container">
+								<img src="${subItem.movieImgPath}${subItem.movieImgName}">
+								<em class="overlay">1</em> <!-- 이미지 위에 위치할 overlay div -->
+								<div class="over_box">
+									<div class="inner">
+										<a href="#" class="btn_col3 ty3" title="화면이동" style="display: block; margin-top: 100px; ">예매하기</a>
+										<a href="#none" class="btn_col3 ty3" title="화면이동" style="display: block; ">상세정보</a>
+									</div>
 								</div>
 							</div>
+							<div class="btm_info" style="overflow: hidden;
+													     white-space: nowrap;
+													     text-overflow: ellipsis;">
+							   <strong class="tit_info">
+							   		<span class="ic_grade gr_${subItem.rankDto.movieGrade}">전체</span>${subItem.movieName}
+							   </strong>
+							   <span class="sub_info1">
+							   	   <span class="rate_info">예매율&nbsp;<em>${subItem.rankDto.movieCount}%</em></span>
+							   	   
+							   	   <span class="star_info" style="cursor: pointer;">${subItem.rankDto.movieStar}</span>
+							   </span>
+							</div>
 						</div>
-						<div class="btm_info">
-						   <strong class="tit_info">
-						   		<span class="ic_grade gr_all">전체</span>인사이드 아웃2
-						   </strong>
-						   <span class="sub_info1">
-						   	   <span class="rate_info">예매율&nbsp;<em>30.1%</em></span>
-						   	   
-						   	   <span class="star_info" style="cursor: pointer;">9.5</span>
-						   </span>
-						</div>
-					</div>
-				</li>
-				
-				<li>
+					</li>
+				</c:forEach>
+				<!-- <li>
 					<div style="text-align: center;"> 
 					
 						<div class="image-container">
 							<img src="resources/static/img/home/21144_101_1.jpg">
-							<em class="overlay">2</em> <!-- 이미지 위에 위치할 overlay div -->
+							<em class="overlay">2</em> 이미지 위에 위치할 overlay div
 						</div>
 						<div class="btm_info">
 						   <strong class="tit_info">
-						   		<span class="ic_grade gr_12">12</span>인사이드 아웃2
+						   		<span class="ic_grade gr_12">12</span
+						   		/>인사이드 아웃2
 						   </strong>
 						   <span class="sub_info1">
 						   	   <span class="rate_info">예매율&nbsp;<em>24.4%</em></span>
@@ -218,7 +222,7 @@
 							<img src="resources/static/img/home/21135_101_1.jpg">
 							<em class="overlay">21</em>
 					</div>
-				</li>
+				</li> -->
 			</ul>
 		
 	    </div>

@@ -8,28 +8,30 @@ public class HomeDto {
 
 	@Data
 	public static class MainSlider{
-		
 		private  String  moveImgName;
 		private  String  moveImgPath;
 		private  String  moveVidName;
 		private  String  moveVidPath;
 	}
 	
-	@Data
-	public static class MovieRankDto{
-		
-		private String movieName;
-		private int movieCount;
-		private Date movieStartDay;
-		private String movieEnd;
-		private int movieStar;
-	}
 	
 	@Data
-	public static class MovieImgDto{
-		
-		private String movieImgName;
-		private String movieImgPath;
-		
+	public static class MovieRankDto{
+		private int     movieRank;
+		private String  movieName;
+		private double  movieCount;
+		private Date    movieStartDay;
+		private String  movieEnd;
+		private double  movieStar;
+		private String  movieGrade;
+	}
+	
+	
+	@Data
+	public static class MovieImgDto {
+		private MovieRankDto rankDto;
+		private String       movieName;
+		private String       movieImgName;
+		private String       movieImgPath;
 	}
 }
