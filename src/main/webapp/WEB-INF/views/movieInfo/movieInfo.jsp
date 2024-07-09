@@ -615,6 +615,7 @@
 	// 영화정보 스크립트
 	document.addEventListener('DOMContentLoaded', (event) => {
 	const listItems = document.querySelectorAll('.movie_list li');
+	console.log(listItems);
 		listItems.forEach((item) => {
 			item.addEventListener('mouseenter', () => {
 				item.classList.add('active');
