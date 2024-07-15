@@ -10,7 +10,7 @@ import com.lotte.cinema.home.slider.entity.MovieImg;
 @Repository
 public interface SubSliderRepository  extends JpaRepository<MovieImg, String> {
 
-//	 List<MovieImg> findByMovieRankIsNotNull();
+//	 List<MovieImg> findByMovieRankIsN ㅍ  otNull();
 //	 List<MovieImg> findByMovieRankIsNotNullOrderByMovieRankMovieCountAsc();
 	 List<MovieImg> findByMovieRankIsNotNullOrderByMovieRankMovieCountDesc();
 //	 return subSliderRepository.findByMovieRankIsNotNullOrderByMovieRankMovieCountDesc();
