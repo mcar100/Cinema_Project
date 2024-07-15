@@ -6,10 +6,9 @@
   	List<FaqCategory> fcList = (List<FaqCategory>)request.getAttribute("faqCategoryList");
   %>
   <body>
-  	
   	<div class="container">
-  		<h3>FAQ</h3>
-  		<hr/>
+		<h3>공지사항</h3>
+		<hr/>
 	  	<form action="#" id="faqWriterForm">
 	  		<%
 	  			if(fcList!=null){
