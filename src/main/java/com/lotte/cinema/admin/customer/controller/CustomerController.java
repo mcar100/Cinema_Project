@@ -20,11 +20,8 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/customer")
 public class CustomerController {
 	
-	private final FaqService faqService;
-	
-	    public CustomerController(FaqService faqService) {
-	        this.faqService = faqService;
-	    }
+	@Autowired
+	private FaqService faqService;
 	 
 		@GetMapping("/faqWrite")
 		public String goFaqWrite(HttpServletRequest request, Model model) {

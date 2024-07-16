@@ -22,16 +22,11 @@ import com.lotte.cinema.board.faq.repository.FaqRepository;
 @Service
 public class FaqService {
 	
-	private final FaqRepository fr;
-	private final FaqCategoryRepository fcr;
-	private final int PAGE_SIZE = 10;
-	
 	@Autowired
-	public FaqService(FaqRepository fr, FaqCategoryRepository fcr) {
-		this.fr = fr;
-		this.fcr = fcr;
-		
-	}
+	private FaqRepository fr;
+	@Autowired
+	private FaqCategoryRepository fcr;
+	private final int PAGE_SIZE = 10;
 	
 	public List<FaqCategory> getCategoryList(){
 		return fcr.findAll();
