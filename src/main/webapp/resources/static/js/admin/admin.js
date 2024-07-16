@@ -1,7 +1,7 @@
 import { callAjax } from "../api/ajax.js";
 
 $(document).ready(function(){
-	reload(1,"/admin/faqWrite");
+	reload(1,"/customer/faqWrite");
 	$("#pageLink > li > .tab_tit").click(handleLinkClick);
 })
 
