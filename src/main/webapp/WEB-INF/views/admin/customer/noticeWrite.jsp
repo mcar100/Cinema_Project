@@ -2,35 +2,63 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.*" %>
 <%@ page import="com.lotte.cinema.board.faq.entity.FaqCategory" %>
-  <%
+ <%
   	List<FaqCategory> fcList = (List<FaqCategory>)request.getAttribute("faqCategoryList");
   %>
   <body>
-  	<div class="container">
-		<h3>공지사항</h3>
+	<div class="container">
+		<h3 class="con_tit ty2">공지사항</h3>
 		<hr/>
-	  	<form action="#" id="faqWriterForm">
-	  		<%
-	  			if(fcList!=null){
-	  		%>
-	  			<label for="categorySelect">질문 유형:</label>
-	  			<select id="categorySelect" name="categoryName">
-                <% for (FaqCategory fc : fcList) { %>
-                    <option value="<%= fc.getName() %>"><%= fc.getName() %></option>
-     
-            	<% } %>
-	  			</select>	
-	  		<%
-	  			}
-	  		%>
-	  		<br/>
-  			<input name="title" placeholder="질문 내용" />
-			<textarea id="editor" name="content" placeholder="답변 내용" ></textarea>
-    		<button type="submit">submit</button>
-  		</form>  	
-  		<div id="faqWriteBoard"></div>
-  		<a href="/customer/faq">faq 이동</a>
-  	</div>
+		<form action="#" id="customerForm" class="tbl_form" data-url="/admin/customer/noticeWrite">
+		<table>
+			<colgroup>
+				<col style="width: 15%;">
+				<col style="width: auto;">
+			</colgroup>
+			<tbody>
+				<tr>
+					<th scope="row" class="req"><label for="categorySelect">공지 유형</label></th>
+					<td>
+						<select id="categorySelect" name="categoryName">
+							<option value="entire">전체 공지</option>
+							<option value="theater">영화관 공지</option>
+						</select>	
+					</td>
+				</tr>
+				<tr class="selectbox-hidden hidden">
+					<th scope="row" class="req"><label for="categorySelect">지역/영화관</label></th>
+					<td>
+						<select id="regionSelect" name="region">
+							<option value="">지역</option>
+							<option value="서울">서울</option>
+							<option value="경기/인천">경기/인천</option>
+						</select>	
+						<select id="theaterSelect" name="theaterName">
+							<option value="">영화관명</option>	
+							<option value="광교아울렛">광교아울렛</option>
+							<option value="광명(광명사거리)">광명(광명사거리)</option>
+						</select>	
+					</td>
+				</tr>
+				<tr>
+					<th scope="row" class="req">공지 제목</th>
+					<td>
+						<div class="bx_textarea">
+							<input type="text" class="ty2 w_full" name="title" placeholder="공지 제목" />
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row" class="req">공지 내용</th>
+					<td><textarea id="editor" class="ty2" name="content" placeholder="공지 내용" ></textarea></td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="btn_btm_wrap">
+			<button class="btn_col2 ty6" type="submit">등록</button>
+		</div>
+		</form>  	
+	</div>
 
 	<script type="module">
 		import {
@@ -56,5 +84,18 @@
 		})
 		.catch( /* ... */ );
 	</script>
-	<script type="module" src="/resources/static/js/admin/faqWriter.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("#categorySelect").change(handleSelectBoxChange);
+		})
+		function handleSelectBoxChange(){
+			const value = $(this).val();
+			if(value==="theater"){
+				$("#customerForm .selectbox-hidden").removeClass("hidden");
+			}
+			else{
+				$("#customerForm .selectbox-hidden").addClass("hidden");
+			}
+		}
+	</script>
   </body>

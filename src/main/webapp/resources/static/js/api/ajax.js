@@ -13,8 +13,13 @@ function callAjax(method="POST", url="/", formObj){
 		ajaxObj["success"] =  function(result){
 			resolve(result)
 		}
-		ajaxObj["error"] = function(request,status,error){
-			reject(error);
+		ajaxObj["error"] = function(jqxHr,textError,errorThrown){
+			if(jqxHr.status===404){
+				reject({message:"API Not Found"});
+			}
+			else{
+				reject(errorThrown);
+			}
 		}
 		$.ajax(ajaxObj)
 	})

@@ -2,8 +2,7 @@
 
 /*
 ===========================
-	ver: 1.00
-	type: li
+	ver: 1.01
 ===========================
 */
 
@@ -13,7 +12,6 @@
 	margin: 0 auto;
 	padding: 50px 0 0 0;
 }
-
 
 /*==== Title ====*/
 #contents > .title_top{ margin-bottom: 20px; padding: 25px 0 14px; border-bottom: 1px solid #eee; }
@@ -49,6 +47,11 @@
     vertical-align: middle;
     background-color: #414141;
 }
+.btn_col2.ty6{
+	height: 45px;
+	line-height: 43px;
+	padding: 0 18px;
+}
 
 .search_wrap .txt_help_wrap{
 	float: right;
@@ -73,9 +76,7 @@
 .tb_acc_wrap tbody .ic_a{ padding: 20px; padding-left: 246px; }
 .tb_acc_wrap tbody .ic_q, .tb_acc_wrap tbody .ic_a{ text-align: left; }
 .tb_acc_wrap tbody .ic_a .txt_qna.a{ left:216px; }
-.tb_acc_wrap caption{
-	padding: 0;
-}
+.tb_acc_wrap caption{ padding: 0; }
 
 .txt_qna{ overflow: hidden; display: inline-block; width: 24px; height: 24px; line-height: 24px; border-radius: 50%; text-align: center; }
 .txt_qna.q{ background-color: #ff7787; margin-top: 2px; }
@@ -85,6 +86,23 @@
 .tb_acc_wrap .txt_qna{ position: absolute; top: 20px; left: 20px; }
 .txt_qna.a{ background-color: #7bdbd1; }
 .txt_qna.a:before{ content:"A"; }
+
+.tbl_form{ border-top: 1px solid #bbb; margin-bottom: 60px; }
+.tbl_form th{ font-weight: bold; text-align: left; }
+.tbl_form th, .tbl_form td{
+	border-bottom: 1px solid #eee;
+	height: 40px;
+	padding: 7px 4px;
+	font-size: 15px;
+}
+.tbl_form th.req:after{
+	content: "*";
+	margin-left: 10px;
+	color: #ff253e;
+}
+.bx_textarea{ position: relative;}
+.bx_textarea textarea { margin-bottom: 5px; }
+.w_full{ width: 100%; }
 
 /*==== Bootstrap Collapse + Table====*/
 .tb_acc_wrap tbody tr.acc_head td:last-child a:after{ 
@@ -100,6 +118,10 @@
 }
 .tb_acc_wrap tbody tr.acc_head td:last-child .ic_q:after{ transform: rotate(180deg); }
 .tb_acc_wrap tbody tr.acc_head td:last-child .ic_q.collapsed:after{ transform: rotate(0deg); }
+
+/*==== custom ck-editor + Table ====*/
+.ck.ck-editor__main .ck-content{ min-height: 250px; background-color: #F8F8F8; border-color: #DDD; }
+.ck.ck-editor__main > .ck.ck-editor__editable{ background-color: #F8F8F8;  }
 
 /*==== Pagination ====*/
 .brd_paginate{ position: relative; margin-top: 45px; text-align: center; }

@@ -128,3 +128,11 @@ li{ display: list-item; text-align: -webkit-match-parent; unicode-bidi: isolate;
 	width: 100%;
 	padding-left: 10px;
 }
+
+/*==== Customer Admin ===*/
+.container > .con_tit {
+	font-size: 20px;
+	margin: 20px 0;
+}
+
+#adminContent .btn_col2{ min-width: 120px; margin: 0 3px; }

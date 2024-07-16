@@ -8,29 +8,49 @@
   <body>
   	
   	<div class="container">
-  		<h3>FAQ</h3>
+  		<h3 class="con_tit ty2">FAQ</h3>
   		<hr/>
-	  	<form action="#" id="faqWriterForm">
-	  		<%
-	  			if(fcList!=null){
-	  		%>
-	  			<label for="categorySelect">질문 유형:</label>
-	  			<select id="categorySelect" name="categoryName">
-                <% for (FaqCategory fc : fcList) { %>
-                    <option value="<%= fc.getName() %>"><%= fc.getName() %></option>
-     
-            	<% } %>
-	  			</select>	
-	  		<%
-	  			}
-	  		%>
-	  		<br/>
-  			<input name="title" placeholder="질문 내용" />
-			<textarea id="editor" name="content" placeholder="답변 내용" ></textarea>
-    		<button type="submit">submit</button>
+	  	<form action="#" id="customerForm" class="tbl_form" data-url="/admin/customer/faqWrite">
+			<table>
+				<colgroup>
+					<col style="width: 15%;">
+					<col style="width: auto;">
+				</colgroup>
+				<tbody>
+					<%
+						if(fcList!=null){
+					%>
+					<tr>
+						<th scope="row" class="req"><label for="categorySelect">질문 유형</label></th>
+						<td>
+							<select id="categorySelect" name="categoryName">
+							<% for (FaqCategory fc : fcList) { %>
+								<option value="<%= fc.getName() %>"><%= fc.getName() %></option>
+							<% } %>
+							</select>	
+						</td>
+					</tr>
+					<%
+						}
+					%>
+					<tr>
+						<th scope="row" class="req">질문 내용</th>
+						<td>
+							<div class="bx_textarea">
+								<input type="text" class="ty2 w_full" name="title" placeholder="질문 내용" />
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" class="req">답변 내용</th>
+						<td><textarea id="editor" class="ty2" name="content" placeholder="답변 내용" ></textarea>	</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="btn_btm_wrap">
+				<button class="btn_col2 ty6" type="submit">등록</button>
+			</div>
   		</form>  	
-  		<div id="faqWriteBoard"></div>
-  		<a href="/customer/faq">faq 이동</a>
   	</div>
 
 	<script type="module">
@@ -57,5 +77,4 @@
 		})
 		.catch( /* ... */ );
 	</script>
-	<script type="module" src="/resources/static/js/admin/faqWriter.js"></script>
   </body>
