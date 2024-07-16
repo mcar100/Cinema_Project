@@ -23,7 +23,7 @@ public class MovieRank {
 	private String movieName;
 	
 	@Column(name="movie_count")
-	private int movieCount;
+	private double movieCount;
 	
 	@Column(name="movie_start_day")
 	@Temporal(TemporalType.DATE)
@@ -33,7 +33,9 @@ public class MovieRank {
     private String movieEnd;
 
     @Column(name = "move_star")
-    private int movieStar;
-	
+    private double movieStar;
+    
+    @Column(name = "movie_grade")
+    private String movieGrade;
 	
 }
