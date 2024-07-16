@@ -16,7 +16,7 @@ function handleFormSubmit(e, callbackApi){
 
 async function createFaq(formObj){
 	try{
-		const result = await callAjax('POST','/customer/faqWrite', formObj);
+		const result = await callAjax('POST','/admin/customer/faqWrite', formObj);
 		console.log(result);
 		if(!result){
 			throw new Error('등록에 실패했습니다.');

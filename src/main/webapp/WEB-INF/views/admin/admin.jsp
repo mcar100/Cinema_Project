@@ -20,8 +20,8 @@
   	<div id="contents">
 		<div class="title_top"><h2 class="tit">Admin Page</h2></div>
 		<ul id="pageLink" class="tab_wrap outer">
-			<li class="active"><button class="tab_tit" data-id="1" data-link="/customer/faqWrite" style="width: 20%; left: 0%;"><span>FAQ</span></button></li>
-			<li><button class="tab_tit" data-id="2" data-link="/customer/noticeWrite" style="width: 20%; left:20%;"><span>공지사항</span></button></li>
+			<li class="active"><button class="tab_tit" data-id="1" data-link="/admin/customer/faq" style="width: 20%; left: 0%;"><span>FAQ</span></button></li>
+			<li><button class="tab_tit" data-id="2" data-link="/admin/customer/notice" style="width: 20%; left:20%;"><span>공지사항</span></button></li>
 		</ul>
 		<hr/>
 		<div id="adminContent">
