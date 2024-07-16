@@ -68,7 +68,7 @@ li{
 .home.header_movie_list .header_rank{
 	/* border: 1px solid #0000ff; */
     height: 400px;
-    width: 1000px;
+    width: 1100px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -115,6 +115,10 @@ li{
 .home .rank_img {
 	padding-top: 40px;
 }	
+
+.home .rank_img li{
+	margin-right: 20px;
+}	
 	
 .home .rank_img img{
 	width: 200px;
@@ -127,6 +131,10 @@ li{
     overflow: auto;
     opacity: 0.3;
 } 
+
+.home .poster-container{
+	width:200px;
+}
 	
 .home .image-container {
     position: relative; /* 자식 요소인 overlay를 상대 위치시키기 위해 부모 요소를 상대 위치로 설정 */

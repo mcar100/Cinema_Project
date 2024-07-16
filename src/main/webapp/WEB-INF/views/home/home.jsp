@@ -55,11 +55,11 @@
 				</c:forEach>
 				<c:forEach var="subItem" items="${subInfo}">		
 					<li>
-						<div style="text-align: center;"> 
+						<div class="poster-container" style="text-align: center;"> 
 						
 							<div class="image-container">
 								<img src="${subItem.movieImgPath}${subItem.movieImgName}">
-								<em class="overlay">1</em> <!-- 이미지 위에 위치할 overlay div -->
+								<em class="overlay">${subItem.rankDto.movieRank}</em> <!-- 이미지 위에 위치할 overlay div -->
 								<div class="over_box">
 									<div class="inner">
 										<a href="#" class="btn_col3 ty3" title="화면이동" style="display: block; margin-top: 100px; ">예매하기</a>
@@ -71,7 +71,7 @@
 													     white-space: nowrap;
 													     text-overflow: ellipsis;">
 							   <strong class="tit_info">
-							   		<span class="ic_grade gr_${subItem.rankDto.movieGrade}">전체</span>${subItem.movieName}
+							   		<span class="ic_grade gr_${subItem.rankDto.movieGrade}">${subItem.rankDto.movieGrade}</span>${subItem.movieName}
 							   </strong>
 							   <span class="sub_info1">
 							   	   <span class="rate_info">예매율&nbsp;<em>${subItem.rankDto.movieCount}%</em></span>
@@ -82,149 +82,7 @@
 						</div>
 					</li>
 				</c:forEach>
-				<!-- <li>
-					<div style="text-align: center;"> 
-					
-						<div class="image-container">
-							<img src="resources/static/img/home/21144_101_1.jpg">
-							<em class="overlay">2</em> 이미지 위에 위치할 overlay div
-						</div>
-						<div class="btm_info">
-						   <strong class="tit_info">
-						   		<span class="ic_grade gr_12">12</span
-						   		/>인사이드 아웃2
-						   </strong>
-						   <span class="sub_info1">
-						   	   <span class="rate_info">예매율&nbsp;<em>24.4%</em></span>
-						   	   
-						   	   <span class="remain_info" style="cursor: pointer;">D-1</span>
-						   </span>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="image-container">
-							<img src="resources/static/img/home/21170_101_1.jpg">
-							<em class="overlay">3</em>
-					</div>
-				</li>
-				<li>
-					<div class="image-container">
-							<img src="resources/static/img/home/21173_101_1.jpg">
-							<em class="overlay">4</em>
-					</div>
-				</li>
-				<li>
-					<div class="image-container">
-							<img src="resources/static/img/home/LotteCard_184262.png">
-							<em class="overlay">ad</em>
-					</div>
-				</li>
-			   
-			    <li>
-			    	<div class="image-container">
-							<img src="resources/static/img/home/21252_101_1.jpg">
-							<em class="overlay">5</em>
-					</div>
-			    </li>
-				<li>
-					<div class="image-container">
-							<img src="resources/static/img/home/21204_101_1.jpg">
-							<em class="overlay">6</em>
-					</div>	
-				</li>
-				<li>
-					<div class="image-container">
-							<img src="resources/static/img/home/16598_101_1.jpg">
-							<em class="overlay">7</em>
-					</div>
-				</li>
-				<li>
-					<div class="image-container">
-							<img src="resources/static/img/home/21303_101_1.jpg">
-							<em class="overlay">8</em>
-					</div>
-				</li>
-				<li>
-					<div class="image-container">
-							<img src="resources/static/img/home/15666_101_1.jpg">
-							<em class="overlay">9</em>
-					</div>
-				</li>
-				<li>
-					<div class="image-container">
-							<img src="resources/static/img/home/21179_101_1.jpg">
-							<em class="overlay">10</em>
-					</div>
-				</li>
-				<li>
-					<div class="image-container">
-							<img src="resources/static/img/home/16078_101_1.jpg">
-							<em class="overlay">11</em>
-					</div>
-				</li>
-				<li>
-					<div class="image-container">
-							<img src="resources/static/img/home/21159_101_1.jpg">
-							<em class="overlay">12</em>
-					</div>
-				</li>
-				<li>
-					<div class="image-container">
-							<img src="resources/static/img/home/20998_101_1.jpg">
-							<em class="overlay">13</em>
-					</div>
-				</li>
-				<li>
-					<div class="image-container">
-							<img src="resources/static/img/home/21085_101_1.jpg">
-							<em class="overlay">14</em>
-					</div>
-				</li>
-				<li>
-					<div class="image-container">
-							<img src="resources/static/img/home/17298_101_1.jpg">
-							<em class="overlay">15</em>
-					</div>
-				</li>
-				<li>
-					<div class="image-container">
-							<img src="resources/static/img/home/21090_101_1.jpg">
-							<em class="overlay">16</em>
-					</div>
-				</li>
-				<li>
-					<div class="image-container">
-							<img src="resources/static/img/home/21171_101_1.jpg">
-							<em class="overlay">17</em>
-					</div>
-				</li>
-				<li>
-					<div class="image-container">
-							<img src="resources/static/img/home/21187_101_1.jpg">
-							<em class="overlay">18</em>
-					</div>
-				</li>
-				<li>
-					<div class="image-container">
-							<img src="resources/static/img/home/20930_101_1.jpg">
-							<em class="overlay">19</em>
-					</div>
-				</li>
-				<li>
-					<div class="image-container">
-							<img src="resources/static/img/home/21209_101_1.jpg">
-							<em class="overlay">20</em>
-					</div>
-				</li>
-				<li>
-					<div class="image-container">
-							<img src="resources/static/img/home/21135_101_1.jpg">
-							<em class="overlay">21</em>
-					</div>
-				</li> -->
 			</ul>
-		
 	    </div>
 	    
 		
@@ -330,12 +188,12 @@ function rightBtn() {
 function info_left(){
 		
 	console.log('인포 왼쪽 버튼 동작함');
-	$('.rank_list').animate({left:'-='+200},'fast',function(){
+	$('.rank_list').animate({left:'-='+220},'fast',function(){
 	 	
-		if($('.rank_list').css('left') === '-200px'){
+		if($('.rank_list').css('left') === '-220px'){
 	 		    $('#info_right').css('display','block');
 	 	}
-	 	if($('.rank_list').css('left') === '-3400px'){
+	 	if($('.rank_list').css('left') === '-3520px'){
 	 			$('#info_left').css('display','none');
 	 	}
   	 
@@ -346,9 +204,9 @@ function info_left(){
 function info_right(){
 	
 	 console.log('인포 오른쪽 버튼 동작함');
- 	 $('.rank_list').animate({left:'+='+200},'fast',function(){
+ 	 $('.rank_list').animate({left:'+='+220},'fast',function(){
  		
- 		 if($('.rank_list').css('left') === '-3200px'){
+ 		 if($('.rank_list').css('left') === '-3300px'){
  			    $('#info_left').css('display','block');
  		 }
  		 if($('.rank_list').css('left') === '0px'){

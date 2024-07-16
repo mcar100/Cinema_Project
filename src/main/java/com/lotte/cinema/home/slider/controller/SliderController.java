@@ -8,7 +8,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.lotte.cinema.home.slider.dto.HomeDto.MovieImgDto;
 import com.lotte.cinema.home.slider.entity.HomeEntity;
-import com.lotte.cinema.home.slider.entity.MovieImg;
 import com.lotte.cinema.home.slider.service.HomeService;
 
 import lombok.RequiredArgsConstructor;
