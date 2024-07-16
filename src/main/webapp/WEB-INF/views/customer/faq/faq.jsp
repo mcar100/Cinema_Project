@@ -26,9 +26,9 @@
 			
 <!-- Table -->
 <div id="faqTable">
-	<jsp:include page="../commons/table.jsp" />
+	<jsp:include page="../commons/collapseTable.jsp" />
 </div>
 
-<a href="/customer/faqWrite">faq 등록 페이지 이동 ></a>
+<a href="/admin">관리자 페이지 이동 ></a>
 <!-- my script -->
 <script type="module" src="/resources/static/js/customer/faq.js"></script>

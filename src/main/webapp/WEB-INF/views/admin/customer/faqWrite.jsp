@@ -2,25 +2,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.*" %>
 <%@ page import="com.lotte.cinema.board.faq.entity.FaqCategory" %>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>FAQ 목록 - 롯데시네마</title>
-	<jsp:include page="../../commons/vendorHead.jsp"/>
-	<link
-  		href="/resources/static/css/custom/custom_ss.css"
-  		rel="stylesheet"
-  		type="text/css"
-	/>
-    <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/42.0.0/ckeditor5.css">
-  </head>
   <%
   	List<FaqCategory> fcList = (List<FaqCategory>)request.getAttribute("faqCategoryList");
   %>
   <body>
   	
   	<div class="container">
+  		<h3>FAQ</h3>
+  		<hr/>
 	  	<form action="#" id="faqWriterForm">
 	  		<%
 	  			if(fcList!=null){
@@ -44,15 +33,6 @@
   		<a href="/customer/faq">faq 이동</a>
   	</div>
 
-
-	<script type="importmap">
-		{
-			"imports": {
-				"ckeditor5": "https://cdn.ckeditor.com/ckeditor5/42.0.0/ckeditor5.js",
-				"ckeditor5/": "https://cdn.ckeditor.com/ckeditor5/42.0.0/"
-			}
-		}
-	</script>
 	<script type="module">
 		import {
 			ClassicEditor,
@@ -78,6 +58,4 @@
 		.catch( /* ... */ );
 	</script>
 	<script type="module" src="/resources/static/js/admin/faqWriter.js"></script>
-	<jsp:include page="../../commons/vendorBody.jsp"/>
   </body>
-</html>

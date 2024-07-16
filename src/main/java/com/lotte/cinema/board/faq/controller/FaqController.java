@@ -26,14 +26,9 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 @RequestMapping("/customer")
 public class FaqController {
-	
-	private final FaqService faqService;
-	
+
     @Autowired
-    public FaqController(FaqService faqService) {
-        this.faqService = faqService;
-    }
-	
+	private FaqService faqService;
 	
 	@GetMapping("/faq")
 	public String goFaq(HttpServletRequest request, Model model) {
@@ -83,7 +78,7 @@ public class FaqController {
 			model.addAttribute("faqList", null);
 			model.addAttribute("pageInfo", null);
 		}
-		return "/customer/commons/table";
+		return "/customer/commons/collapseTable";
 	}
 
 	@GetMapping("/faq/search")
@@ -107,26 +102,7 @@ public class FaqController {
 			model.addAttribute("faqList", null);
 			model.addAttribute("pageInfo", null);
 		}
-		return "/customer/commons/table";
-	}
-	
-	@GetMapping("/faqWrite")
-	public String goFaqWrite(HttpServletRequest request, Model model) {
-		log.info(request.getMethod()+" "+request.getRequestURI()+"");
-		try {
-			List<FaqCategory> faqCategoryList = faqService.getCategoryList();
-			if(faqCategoryList == null) {
-				throw new Exception("failed to get faq category list");
-			}
-			
-			model.addAttribute("faqCategoryList", faqCategoryList);
-		}
-		
-		catch(Exception e) {
-			log.error(e.getMessage());
-			model.addAttribute("faqCategoryList", null);
-		}
-		return "/customer/faq/faqWrite";
+		return "/customer/commons/collapseTable";
 	}
 	
 	@PostMapping("/faqWrite")

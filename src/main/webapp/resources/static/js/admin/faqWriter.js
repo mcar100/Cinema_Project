@@ -2,7 +2,7 @@ import { callAjax } from "../api/ajax.js";
 import { convertFormDataToObj } from "../utils/convertor.js";
 
 $(document).ready(function(){
-	$("#faqWriterForm").submit(function(e){
+	$("#adminContent").on("submit","#faqWriterForm",function(e){
 		handleFormSubmit(e,createFaq);
 	});
 })
@@ -27,3 +27,4 @@ async function createFaq(formObj){
 		alert(e.message);
 	}
 }
+
