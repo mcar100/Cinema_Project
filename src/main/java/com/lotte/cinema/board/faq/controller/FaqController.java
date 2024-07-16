@@ -104,21 +104,4 @@ public class FaqController {
 		}
 		return "/customer/commons/collapseTable";
 	}
-	
-	@PostMapping("/faqWrite")
-	public ResponseEntity<Boolean> writeFaq(@RequestBody FaqDTO faqDTO, HttpServletRequest request) throws Exception {
-		log.info(request.getMethod()+" "+request.getRequestURI()+" data: "+faqDTO.getCategoryName()+" "+faqDTO.getTitle()+" "+faqDTO.getContent());
-		try {
-			long result = faqService.saveFaq(faqDTO);
-			if(result==0) {
-				throw new Exception("저장 결과 실패");
-			}
-			return ResponseEntity.ok().body(true);	
-		}
-		catch(Exception e) {
-			log.error("failed to insert faq");
-			e.printStackTrace();
-			return ResponseEntity.ok().body(false);	
-		}
-	}
 }
