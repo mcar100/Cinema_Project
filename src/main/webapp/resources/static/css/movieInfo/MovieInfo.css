@@ -666,6 +666,11 @@ a, a:link, a:visited, a:active, a:hover {
     background-size: 100%;
 }
 
+.ic_grade.gr_19:before {
+    background: #CD1327 url(../../img/movieInfo/grade_19.png) 0 0 no-repeat;
+    background-size: 100%;
+}
+
 strong {
     font-weight: bold;
 }

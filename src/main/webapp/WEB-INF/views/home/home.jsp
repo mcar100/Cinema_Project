@@ -45,7 +45,8 @@
 	
 	   <div class="header_rank">
 	   		<span class="movi_info_txt">
-	   			<a href="https://www.lottecinema.co.kr/NLCHS/Movie/List?flag=1"><em>07.02 15:05</em>&nbsp;기준</a>
+	   			<!-- <a href="https://www.lottecinema.co.kr/NLCHS/Movie/List?flag=1"><em>07.02 15:05</em>&nbsp;기준</a> -->
+	   			<a href="https://www.lottecinema.co.kr/NLCHS/Movie/List?flag=1"><em>${timeInfo}</em>&nbsp;기준</a>
 	   		</span>
 	   <div class="rank_list">
 			<ul class="rank_img" style="display: flex;">
@@ -136,11 +137,6 @@ $('.rank_img').find('.image-container').mouseover(function(e){
 	e.target.classList.add('active');
 	$(this).find('.over_box').addClass('active');
 	 $(e.target).find('.inner').addClass('active'); 
-	// $(this).addClass('active'); // 현재 요소에 active 클래스 추가
-	// e.target.find('.over_box').css('z-index', '1001');
-	// 현재 요소 안에서 .over_box 요소를 찾아 z-index를 변경
-    /* $(this).find('.over_box').css('z-index', '1001'); */ 
-	/* $(this).find('.over_box').css('display', 'block'); */
 })
 
 
@@ -148,8 +144,6 @@ $('.rank_img').find('.image-container').mouseover(function(e){
 $('.rank_img').find('.image-container').mouseout(function(e){
 	e.target.classList.remove('active');
 	$(this).find('.over_box').removeClass('active');
-	/* $(this).find('.over_box').css('display', 'none'); */
-	/* $(this).find('.over_box').css('z-index', '0');  */
 })
 
 
@@ -175,45 +169,44 @@ function rightBtn() {
 		 $('.img_list').css('left', '-1920px');
 	     $('.img_list li').last().prependTo('.img_list');
 	     $('.img_list').animate({left:'+='+1920},'slow');
-	        
-	 	/*  $('.img_list').animate({left:'+='+1920},'slow',function(){
-	       	 $('.img_list li').last().prependTo('.img_list');
-	       	 $('.img_list').css('left',0);
-	 	 }); */
-	}
-	    
+	 
+	}    
 }
 
 //영화순위 왼쪽 버튼
 function info_left(){
 		
 	console.log('인포 왼쪽 버튼 동작함');
-	$('.rank_list').animate({left:'-='+220},'fast',function(){
-	 	
-		if($('.rank_list').css('left') === '-220px'){
-	 		    $('#info_right').css('display','block');
-	 	}
-	 	if($('.rank_list').css('left') === '-3520px'){
-	 			$('#info_left').css('display','none');
-	 	}
-  	 
-	});
+	 $('.rank_list').animate({left:'+='+220},'fast',function(){
+		 /* console.log($('.rank_list').css('left')); */
+	/* 	 let leftPosition = parseInt($('.rank_list').css('left'),10);
+		 console.log(leftPosition);
+ */		 if($('.rank_list').css('left') === '-3300px'){
+			    $('#info_right').css('display','block');
+		 }
+		
+		  if($('.rank_list').css('left') === '0px'){
+			    $('#info_left').css('display','none');
+		 }    
+		 
+	 });
 }
 
 // 영화순위 오른쪽 버튼
 function info_right(){
 	
-	 console.log('인포 오른쪽 버튼 동작함');
- 	 $('.rank_list').animate({left:'+='+220},'fast',function(){
- 		
- 		 if($('.rank_list').css('left') === '-3300px'){
- 			    $('#info_left').css('display','block');
- 		 }
- 		 if($('.rank_list').css('left') === '0px'){
- 			    $('#info_right').css('display','none');
- 		 }   
- 		 
- 	 });
+	console.log('인포 오른쪽 버튼 동작함');
+	$('.rank_list').animate({left:'-='+220},'fast',function(){
+	 	
+		if($('.rank_list').css('left') === '-220px'){
+	 		    $('#info_left').css('display','block');
+	 	}
+	 	if($('.rank_list').css('left') === '-3520px'){
+	 			$('#info_right').css('display','none');
+	 	}
+  	 
+	});
+	 
 }
 
 
