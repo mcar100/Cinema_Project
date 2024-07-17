@@ -109,7 +109,9 @@
 						</ul>
 					</div>
 				</li>
-				<li class="wrap_nav_underline"><span class="nav_underline"></span></li>
+				<li class="wrap_nav_underline">
+					<span class="nav_underline"></span>
+				</li>
 			</ul>
 		</div>
 		<%@ include file="../layout/footer.jsp"%>
