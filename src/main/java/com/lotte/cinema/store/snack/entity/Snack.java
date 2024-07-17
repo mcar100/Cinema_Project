@@ -12,15 +12,14 @@ import javax.persistence.SequenceGenerator;
 import com.lotte.cinema.board.faq.entity.BaseEntity;
 import com.lotte.cinema.store.snack.enums.SnackCategory;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+
 @ToString
 @Entity
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
 @SequenceGenerator(
 		name = "SNACK_SEQ_GENERATOR"
 	    , sequenceName = "SNACK_SEQ"

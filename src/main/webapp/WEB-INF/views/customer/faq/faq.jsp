@@ -8,17 +8,16 @@
  %>
 <div class="tab_con ty2">
 	<h3 class="hidden">FAQ</h3>
-	<div class="faq_icon_wrap bx_category_slct lotcipassfaq container">
+	<div class="faq_icon_wrap bx_category_slct lotcipassfaq">
 		<%
 	  			if(fcList!=null){
 					for (FaqCategory fc : fcList) { %>
-                    	<button class="active ico_0<%=fc.getId()%> link-btn" data-id="<%=fc.getId()%>">
-                    		<a href="/customer/faq/<%=fc.getId()%>"><%= fc.getName() %></a>
-                    	</button>
+                    	<button class="ico_0<%=fc.getId()%> link-btn" data-id="<%=fc.getId()%>"><%= fc.getName() %></button>
      
             	<% } 
 	  			}
 	  		%>
+	  		<div>${pageContext.request.contextPath}</div>
 	</div>
 </div>
 			
@@ -27,14 +26,9 @@
 			
 <!-- Table -->
 <div id="faqTable">
-	<jsp:include page="../commons/table.jsp" />
+	<jsp:include page="../commons/collapseTable.jsp" />
 </div>
 
-
-			
-<!-- pagination -->
-<jsp:include page="../commons/pagination.jsp"/>
-
-<a href="/customer/faqWrite">faqWrite 이동</a>
+<a href="/admin">관리자 페이지 이동 ></a>
 <!-- my script -->
 <script type="module" src="/resources/static/js/customer/faq.js"></script>

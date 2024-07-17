@@ -9,45 +9,51 @@
 	<jsp:include page="../commons/vendorHead.jsp"/>
 
 	<link
-  		href="/resources/static/css/default.css"
+  		href="/resources/static/css/customer/customer.css"
   		rel="stylesheet"
   		type="text/css"
 	/>
   </head>
   <body>
-	<div id="contents" class="container" >
+  
+  	<!-- Header -->
+  	<%@ include file="../layout/header.jsp"%>
+  
+  	<!--  Contents -->
+	<div id="contents" class="contents_customer area__movingbar litype5" >
 		<div class="title_top">
 			<h2 class="tit">고객센터</h2>
 		</div>
+		<ul class="tab_wrap outer actionmovingbar">
+			<li class="active">
+				<button type="button" class="tab_tit" style="width:20%; left: 0%;">
+					<span>FAQ</span>
+				</button>
+				<jsp:include page="./faq/faq.jsp"/>	
+			</li>
+			<li>
+				<button type="button" class="tab_tit" style="width:20%; left:20%;">
+					<span>공지사항</span>
+				</button>
+			</li>
+			<li>
+				<button type="button" class="tab_tit" style="width:20%; left:40%;">
+					<span>1:1문의</span>
+				</button>
+			</li>
+			<li>
+				<button type="button" class="tab_tit" style="width:20%; left:60%;">
+					<span>단체관람/대관문의</span>
+				</button>
+			</li>
+			<li>
+				<button type="button" class="tab_tit" style="width:20%; left:80%;">
+					<span>분실물문의</span>
+				</button>
+			</li>
+		</ul>
 	</div>
-	<ul class="tab_wrap outer actionmovingbar container">
-		<li class="active">
-			<button type="button" class="tab_tit" style="width:20%; left: 0%;">
-				<span>FAQ</span>
-			</button>
-			<jsp:include page="./faq/faq.jsp"/>	
-		</li>
-		<li>
-			<button type="button" class="tab_tit" style="width:20%; left:20%;">
-				<span>공지사항</span>
-			</button>
-		</li>
-				<li>
-			<button type="button" class="tab_tit" style="width:20%; left:40%;">
-				<span>1:1문의</span>
-			</button>
-		</li>
-				<li>
-			<button type="button" class="tab_tit" style="width:20%; left:60%;">
-				<span>단체관람/대관문의</span>
-			</button>
-		</li>
-				<li>
-			<button type="button" class="tab_tit" style="width:20%; left:80%;">
-				<span>분실물문의</span>
-			</button>
-		</li>
-	</ul>
+	<jsp:include page="../layout/footer.jsp"/>
 	<jsp:include page="../commons/vendorBody.jsp"/>
   </body>
 </html>

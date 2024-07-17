@@ -11,12 +11,8 @@ import com.lotte.cinema.board.faq.repository.FaqCategoryRepository;
 @Component
 public class FaqInitializer implements  ApplicationRunner {
 
-	private final FaqCategoryRepository faqCategoryRepository;
-	
 	@Autowired
-	public FaqInitializer(FaqCategoryRepository faqCategoryRepository) {
-		this.faqCategoryRepository = faqCategoryRepository;
-	}
+	private  FaqCategoryRepository faqCategoryRepository;
 	
     @Override
     public void run(ApplicationArguments args) throws Exception {

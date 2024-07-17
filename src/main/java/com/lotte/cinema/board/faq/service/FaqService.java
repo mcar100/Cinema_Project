@@ -2,14 +2,18 @@ package com.lotte.cinema.board.faq.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.lotte.cinema.board.faq.dto.FaqDTO;
+import com.lotte.cinema.board.faq.dto.FaqPageDTO;
+import com.lotte.cinema.board.faq.dto.PaginationDTO;
 import com.lotte.cinema.board.faq.entity.FaqBoard;
 import com.lotte.cinema.board.faq.entity.FaqCategory;
 import com.lotte.cinema.board.faq.repository.FaqCategoryRepository;
@@ -18,15 +22,11 @@ import com.lotte.cinema.board.faq.repository.FaqRepository;
 @Service
 public class FaqService {
 	
-	private final FaqRepository fr;
-	private final FaqCategoryRepository fcr;
-	
 	@Autowired
-	public FaqService(FaqRepository fr, FaqCategoryRepository fcr) {
-		this.fr = fr;
-		this.fcr = fcr;
-		
-	}
+	private FaqRepository fr;
+	@Autowired
+	private FaqCategoryRepository fcr;
+	private final int PAGE_SIZE = 10;
 	
 	public List<FaqCategory> getCategoryList(){
 		return fcr.findAll();
@@ -45,22 +45,60 @@ public class FaqService {
 		return savedFaqBoard.getId();
 	}
 	
-	public List<FaqDTO> getFaqByCategoryId(Long categoryId) throws Exception{
-		if(categoryId==null) {
-			categoryId = (long)1;
-		}
-		List<FaqBoard> faqBoards = fr.findByCategoryId(categoryId);
+	public FaqPageDTO getFaqByCategoryId(Long categoryId, int pageNo) throws Exception{
+		if(categoryId==null) categoryId = (long)1;
+		
+		Pageable pageable = PageRequest.of(pageNo, PAGE_SIZE, Sort.by("id").ascending());
+		Page<FaqBoard> faqPage = fr.findByCategoryId(categoryId, pageable);
+		
+		List<FaqBoard> faqBoards = faqPage.getContent();
 		List<FaqDTO> faqDTOs = new ArrayList<FaqDTO>();
-		FaqCategory category = fcr.findById(categoryId).orElseThrow(()-> new Exception("category not found"));
+		for(FaqBoard origin: faqBoards){
+			FaqDTO target = new FaqDTO();
+			BeanUtils.copyProperties(origin, target);
+			target.setCategoryName(origin.getCategory().getName());
+			faqDTOs.add(target);
+		}
+		
+		PaginationDTO pagDTO = new PaginationDTO();
+		pagDTO.setPageNo(pageNo);
+		pagDTO.setPageSize(PAGE_SIZE);
+		pagDTO.setLastPageNo(faqPage.getTotalPages());
+		
+		FaqPageDTO fpDTO = new FaqPageDTO();
+		fpDTO.setFaqDTOs(faqDTOs);
+		fpDTO.setPagDTO(pagDTO);
+		
+		return fpDTO;
+	}
+	
+	public FaqPageDTO searchFaqByTitle(String title, int pageNo) throws Exception{
+		if(title==null) title="";
+		
+		Pageable pageable = PageRequest.of(pageNo, PAGE_SIZE, Sort.by("id").ascending());
+		Page<FaqBoard> faqPage =  fr.findByTitleContaining(title, pageable);
+		
+		List<FaqBoard> faqBoards = faqPage.getContent();
+		List<FaqDTO> faqDTOs = new ArrayList<FaqDTO>();
 		
 		for(FaqBoard origin: faqBoards){
 			FaqDTO target = new FaqDTO();
 			BeanUtils.copyProperties(origin, target);
-			target.setCategoryName(category.getName());
+			target.setCategoryName(origin.getCategory().getName());
 			faqDTOs.add(target);
 		}
 		
-		return faqDTOs;
+		PaginationDTO pagDTO = new PaginationDTO();
+		pagDTO.setPageNo(pageNo);
+		pagDTO.setPageSize(PAGE_SIZE);
+		pagDTO.setLastPageNo(faqPage.getTotalPages());
+		
+		FaqPageDTO fpDTO = new FaqPageDTO();
+		fpDTO.setFaqDTOs(faqDTOs);
+		fpDTO.setPagDTO(pagDTO);
+		
+		return fpDTO;
+		
 	}
 	
 }
