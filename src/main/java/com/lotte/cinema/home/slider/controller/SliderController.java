@@ -24,7 +24,6 @@ public class SliderController {
 		List<HomeEntity.MainSlider> info = homeService.getMainSliderInfo();
 		List<MovieImgDto> subInfo = homeService.getSubImgInfo();
 		
-		
 		view.setViewName("home/home");
 		view.addObject("info",info);
 		view.addObject("subInfo",subInfo);

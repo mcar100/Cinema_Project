@@ -12,10 +12,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>스토어 목록 - 롯데시네마</title>
-<link rel="stylesheet" type="text/css"
-	href="/resources/static/css/store/detail-common.css">
-<link rel="stylesheet" type="text/css"
-	href="/resources/static/css/default.css">
+<link rel="stylesheet" type="text/css" 	href="/resources/static/css/store/detail-common.css">
+<link rel="stylesheet" type="text/css" 	href="/resources/static/css/default.css">
+
+<!-- jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<!-- iamport.payment.js -->
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+
+
 </head>
 <body>
 
@@ -79,7 +84,7 @@
 					</div>
 					<div class="btn_wrap">
 						<button class="btn_col2 ty7">선물하기</button>
-						<button class="btn_col1 ty7">구매하기</button>
+						<button class="btn_col1 ty7" onclick="requestPay()">구매하기</button>
 					</div>
 				</div>
 			</div>
@@ -109,8 +114,7 @@
 						</ul>
 					</div>
 				</li>
-				<li class="wrap_nav_underline">
-					<span class="nav_underline"></span>
+				<li class="wrap_nav_underline"><span class="nav_underline"></span>
 				</li>
 			</ul>
 		</div>
@@ -118,5 +122,7 @@
 		<%@ include file="../commons/vendorBody.jsp"%>
 	</div>
 	<script src="${contextPath}/resources/static/js/store/store-detail.js"></script>
+	<script src="${contextPath}/resources/static/js/store/order.js"></script>
+-
 </body>
 </html>

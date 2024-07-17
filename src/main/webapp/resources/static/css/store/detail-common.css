@@ -272,15 +272,14 @@ table {
 	left: 490px;
 }
 
-.area__movingbar.litype2 .tab_wrap.outer.actionmovingbar .nav_underline
-	{
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	width: 490px;
-	height: 2px;
-	background: #111;
-	transition: all .3s ease-in-out;
+.area__movingbar.litype2 .tab_wrap.outer.actionmovingbar .nav_underline {
+    position: absolute;
+    left: 0;
+    width: 490px;
+    height: 2px;
+    background: #111;
+    top: 49px;
+    transition: all .3s ease-in-out;
 }
 
 .area__movingbar .tab_wrap.outer.actionmovingbar .nav_underline {
