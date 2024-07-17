@@ -1,4 +1,4 @@
-package com.lotte.cinema.board.faq.controller;
+package com.lotte.cinema.board.notice.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

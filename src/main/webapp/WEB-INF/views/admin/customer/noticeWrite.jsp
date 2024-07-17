@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.*" %>
-<%@ page import="com.lotte.cinema.board.faq.entity.FaqCategory" %>
- <%
-  	List<FaqCategory> fcList = (List<FaqCategory>)request.getAttribute("faqCategoryList");
-  %>
+<%@ page import="com.lotte.cinema.theater.dto.TheaterGroupDTO" %>
   <body>
 	<div class="container">
 		<h3 class="con_tit ty2">공지사항</h3>
@@ -29,14 +26,10 @@
 					<th scope="row" class="req"><label for="categorySelect">지역/영화관</label></th>
 					<td>
 						<select id="regionSelect" name="region">
-							<option value="">지역</option>
-							<option value="서울">서울</option>
-							<option value="경기/인천">경기/인천</option>
+						
 						</select>	
 						<select id="theaterSelect" name="theaterName">
-							<option value="">영화관명</option>	
-							<option value="광교아울렛">광교아울렛</option>
-							<option value="광명(광명사거리)">광명(광명사거리)</option>
+	
 						</select>	
 					</td>
 				</tr>
@@ -86,15 +79,50 @@
 	</script>
 	<script>
 		$(document).ready(function(){
-			$("#categorySelect").change(handleSelectBoxChange);
+			$("#categorySelect").change(handleCategoryChange);
+			$("#regionSelect").change(handleRegionChange);
 		})
-		function handleSelectBoxChange(){
+		function handleCategoryChange(){
 			const value = $(this).val();
 			if(value==="theater"){
 				$("#customerForm .selectbox-hidden").removeClass("hidden");
+				load();
 			}
 			else{
 				$("#customerForm .selectbox-hidden").addClass("hidden");
+				$("#regionSelect").html("");
+				$("#theaterSelect").html("");
+			}
+		}
+		
+		const map = {}
+		<c:forEach var="entry" items="${theaterGroupList}">
+				if(!map["${entry.key}"]){
+					map["${entry.key}"]=[];
+				}
+				<c:forEach var="item" items="${entry.value}">
+				    map["${entry.key}"].push("<option value='${item.name}'>${item.name}</option>");
+				</c:forEach>
+		</c:forEach>
+		
+		function load(){
+			$("#regionSelect").append("<option value=''>지역명</option>");
+			$("#theaterSelect").append("<option value=''>영화관명</option>");
+			<c:forEach var="entry" items="${theaterGroupList}">
+				$("#regionSelect").append("<option value='${entry.key}'>${entry.key}</option>");								
+			</c:forEach>	
+		}
+		
+		function handleRegionChange(){
+			const value = $(this).val();
+			const options = map[value];
+			$("#theaterSelect").html("");
+			if(value===""){
+				$("#theaterSelect").append("<option value=''>영화관명</option>");	
+				return;
+			}
+			for(let i=0; i<options.length; i++){
+				$("#theaterSelect").append(options[i]);	
 			}
 		}
 	</script>

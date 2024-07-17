@@ -12,6 +12,7 @@ function handleFormSubmit(e, callbackApi){
 	const formData = $(e.target).serializeArray();
 	const formObj = convertFormDataToObj(formData);
 	const formUrl = $(e.target).data('url');
+	console.log(formObj);
 	callbackApi(formUrl,formObj);
 }
 

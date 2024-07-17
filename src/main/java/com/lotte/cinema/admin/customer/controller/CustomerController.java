@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.lotte.cinema.board.faq.dto.FaqDTO;
 import com.lotte.cinema.board.faq.entity.FaqCategory;
 import com.lotte.cinema.board.faq.service.FaqService;
+import com.lotte.cinema.theater.dto.TheaterGroupDTO;
+import com.lotte.cinema.theater.service.TheaterService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -26,6 +28,8 @@ public class CustomerController {
 	
 	@Autowired
 	private FaqService faqService;
+	@Autowired
+	private TheaterService theaterSerivce;
 	 
 		@GetMapping("/faq")
 		public String goFaqWrite(HttpServletRequest request, Model model) {
@@ -70,12 +74,16 @@ public class CustomerController {
 		public String goNoticeWrite(HttpServletRequest request, Model model) {
 			log.info(request.getMethod()+" "+request.getRequestURI()+"");
 			try {
-				
+				TheaterGroupDTO theaterGroupList = theaterSerivce.getRegionAll();
+				if(theaterGroupList == null) {
+					throw new Exception("failed to get theater group list");
+				}
+				model.addAttribute("theaterGroupList", theaterGroupList.getTheaterGroup());
 			}
 			
 			catch(Exception e) {
 				log.error(e.getMessage());
-
+				model.addAttribute("theaterGroupList", null);
 			}
 			return "/admin/customer/noticeWrite";
 		}
