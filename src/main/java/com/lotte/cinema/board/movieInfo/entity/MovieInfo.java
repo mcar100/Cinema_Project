@@ -3,12 +3,14 @@ package com.lotte.cinema.board.movieInfo.entity;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.PrePersist;
 import javax.persistence.SequenceGenerator;
@@ -39,12 +41,25 @@ public class MovieInfo {
 
     @Column(nullable = false)
     private int playTime;
+    
+    @ColumnDefault("0.0")
+    @Column(nullable = false)
+    private double reservation;
+    
+    @ColumnDefault("0.0")
+    @Column(nullable = false)
+    private double score;
 
     @Column(nullable = false)
     private String poster;
     
-    @Column(nullable = false)
     private String slidePoster;
+    
+    @Column
+    private String video;
+    
+    @Column(nullable = false)
+    private String explanation;
 
     @Column(nullable = false)
     private String grade;
@@ -69,16 +84,20 @@ public class MovieInfo {
     private String arte;
 
     @Lob
-    @Column(nullable = false)
+    @Column
     private String content;
 
     @ElementCollection
+    @CollectionTable(name = "MOVIE_GENRES", joinColumns = @JoinColumn(name = "movie_no"))
+    @Column(name = "genre")
     private List<String> genres;
 
-    @Column(nullable = false)
+    @Column
     private String director;
 
     @ElementCollection
+    @CollectionTable(name = "MOVIE_CAST", joinColumns = @JoinColumn(name = "movie_no"))
+    @Column(name = "cast_member")
     private List<String> cast;
 
     @PrePersist
@@ -91,6 +110,12 @@ public class MovieInfo {
         }
         if (likes == 0) {
             likes = 0;
+        }
+        if (reservation == 0.0) {
+        	reservation = 0.0;
+        }
+        if (score == 0.0) {
+        	score = 0.0;
         }
         if (arte == null) {
             arte = "N";

@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>영화 - 롯데시네마</title>
+<link href="../../../resources/static/img/common/favicon.ico" rel="shortcut icon" type="image/x-icon">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/static/css/movieInfo/MovieInfo.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
@@ -17,30 +18,32 @@
 				<div class="owl-carousel owl-loaded owl-drag">
 					<div class="owl-stage-outer">
 						<div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); width: 13440px; transition: all 0.5s ease 0s;">							
+							<c:forEach var="m" items="${mainSlide}">
 							<div class="owl-item cloned" style="width: 1920px;">
 								<div class="item">
 									<a title="화면이동" href="#none">
-										<img id="checkvideo" src="https://cf2.lottecinema.co.kr/lotte_image/2024/Beautyfool/Beautyfool_1920420.jpg" data-video="https://cf2.lottecinema.co.kr/lotte_image/2024/Beautyfool/Beautyfool_1280720.mp4" alt="다큐 황은정 스마트폰이 뭐길래 2024년 7월 3일 롯데시네마 단독 선개봉 12세이상관람가">
+										<img id="checkvideo" src="../../../resources/static/img/movieInfo/${m.slidePoster}" data-video="../../../resources/static/video/movieInfo/${m.video}" alt="${m.explanation}">
 									</a>
 								</div>
 							</div>
-							<div class="owl-item cloned" style="width: 1920px;">
+						</c:forEach>
+							<!-- <div class="owl-item cloned" style="width: 1920px;">
 								<div class="item">
 									<a title="화면이동" href="#none">
 										<img src="https://cf2.lottecinema.co.kr/lotte_image/2024/LoveLiesBleeding/LoveLiesBleeding_19204202.jpg" data-video="https://cf2.lottecinema.co.kr/lotte_image/2024/LoveLiesBleeding/LoveLiesBleeding_1280720.mp4" alt="추락한 비행기 상어의 공격 목숨을 건 서바이벌 노웨이업 6월 19일 대개봉 15세이상관람가">
 									</a>
 								</div>
-							</div>
-							<div class="owl-item cloned" style="width: 1920px;">
+							</div> -->
+							<!-- <div class="owl-item cloned" style="width: 1920px;">
 								<div class="item">
 									<a title="화면이동" href="#none">
 										<img src="https://cf2.lottecinema.co.kr/lotte_image/2024/Junsu/Junsu_19204202.jpg" data-video="https://cf2.lottecinema.co.kr/lotte_image/2024/Junsu/Junsu_12807202.mp4" alt="에스파: 마이 퍼스트 페이지 절찬상영중 전체관람가 ‘에스파’의 찬란한 꿈의 기록. 그 첫 페이지가 스크린에서 펼쳐진다!">
 									</a>
 								</div>
-							</div>												
+							</div>												 -->
 						</div>
 					</div>
-					<div class="owl-nav" style="width: 1519px; margin-left: -759.5px;">
+					<div class="owl-nav" style="width: 100%; margin-left: -50%;">
 						<button type="button" role="presentation" class="owl-prev">
 							<span aria-label="Previous"><</span>
 						</button>
@@ -86,11 +89,12 @@
 				<strong class="t5">TOP 5</strong>
 			</h3>
 			<ul class="movie_list">
+				<c:forEach var="cm" items="${currentMovieTop5}">
 				<li class>
 					<div class="top_info">
 						<span class="poster_info">
-							<img src="<%=request.getContextPath()%>/resources/static/img/movieInfo/인사이드아웃2.jpg" alt="인사이드 아웃2">
-							<em class="num_info">1</em>
+							<img src="../../../resources/static/img/movieInfo/${cm.poster}" alt="${cm.explanation}">
+							<em class="num_info">${cm.number}</em>
 						</span>
 						<div class="over_box">
 							<div class="inner" style="margin-top: -33px;">
@@ -101,18 +105,19 @@
 					</div>
 					<div class="btm_info">
 						<strong class="tit_info">
-							<span class="ic_grade gr_all"></span>
-							인사이드 아웃 2
+							<span class="ic_grade ${cm.grade}"></span>
+							${cm.title}
 						</strong>
 						<span class="sub_info1">
 							<span class="time blacktype">
-								<span class="roboto">96</span>
+								<span class="roboto">${cm.playTime}</span>
 								분
 							</span>
 						</span>
 					</div>
 				</li>
-				<li class>
+			</c:forEach>
+				<!-- <li class>
 					<div class="top_info">
 						<span class="poster_info">
 							<img src="<%=request.getContextPath()%>/resources/static/img/movieInfo/콰이어트 플레이스.jpg" alt="콰이어트 플레이스">
@@ -215,7 +220,7 @@
 							</span>
 						</span>
 					</div>
-				</li>
+				</li> -->
 			</ul>
 			<a class="btn_txt_more ty2" href="https://www.lottecinema.co.kr/NLCHS/Movie/List?flag=1">더보기</a>
 		</div>
@@ -225,10 +230,11 @@
 				<strong class="t5">TOP 5</strong>
 			</h3>
 			<ul class="movie_list">
+				<c:forEach var="um" items="${upcomingMovieTop5}">
 				<li class>
 					<div class="top_info">
 						<span class="poster_info">
-							<img src="<%=request.getContextPath()%>/resources/static/img/movieInfo/스물한번째.jpg" alt="스물한번째">							
+							<img src="../../../resources/static/img/movieInfo/${um.poster}" alt="${um.explanation}">							
 						</span>
 						<div class="over_box">
 							<div class="inner" style="margin-top: -33px;">							
@@ -238,18 +244,21 @@
 					</div>
 					<div class="btm_info">
 						<strong class="tit_info">
-							<span class="ic_grade gr_all"></span>
-							스물한 번째 계절이 널 기다릴 테니까
+							<span class="ic_grade ${um.grade}"></span>
+							${um.title}
 						</strong>
 						<span class="sub_info1">
 							<span class="time blacktype">
-								<span class="roboto">5</span>
+								<span class="roboto">${um.playTime}</span>
 								분
+							</span>
+							<span class="remain_info">
+								${um.daysUntilRelease}
 							</span>
 						</span>
 					</div>
 				</li>
-				<li class>
+				<!-- <li class>
 					<div class="top_info">
 						<span class="poster_info">
 							<img src="<%=request.getContextPath()%>/resources/static/img/movieInfo/탈주.jpg" alt="탈주">							
@@ -361,7 +370,8 @@
 							</span>
 						</span>
 					</div>
-				</li>
+				</li> -->
+			</c:forEach>
 			</ul>
 			<a class="btn_txt_more ty2" href="https://www.lottecinema.co.kr/NLCHS/Movie/List?flag=1">더보기</a>
 		</div>
@@ -371,11 +381,12 @@
 				<strong class="t5">TOP 5</strong>
 			</h3>
 			<ul class="movie_list">
+				<c:forEach var="am" items="${arteMovieTop5}">
 				<li class>
 					<div class="top_info">
 						<span class="poster_info">
-							<img src="<%=request.getContextPath()%>/resources/static/img/movieInfo/그시절.jpg" alt="그시절">
-							<em class="num_info">1</em>
+							<img src="../../../resources/static/img/movieInfo/${am.poster}" alt="${am.explanation}">
+							<em class="num_info">${am.number}</em>
 						</span>
 						<div class="over_box">
 							<div class="inner" style="margin-top: -33px;">
@@ -386,22 +397,21 @@
 					</div>
 					<div class="btm_info">
 						<strong class="tit_info">
-							<span class="ic_grade gr_15"></span>
-							[그시절특가]소년시절의 너
+							<span class="ic_grade ${am.grade}"></span>
+							${am.title}
 						</strong>
 						<span class="sub_info1">
 							<span class="time blacktype">
-								<span class="roboto">135</span>
+								<span class="roboto">${am.playTime}</span>
 								분
 							</span>
 							<span class="remain_info">
-								D-
-								0
+								${am.daysUntilRelease}
 							</span>
 						</span>
 					</div>
 				</li>
-				<li class>
+				<!-- <li class>
 					<div class="top_info">
 						<span class="poster_info">
 							<img src="<%=request.getContextPath()%>/resources/static/img/movieInfo/존오브.jpg" alt="존오브">
@@ -520,7 +530,8 @@
 							</span>
 						</span>
 					</div>
-				</li>
+				</li> -->
+			</c:forEach>
 			</ul>
 			<a class="btn_txt_more ty2" href="https://www.lottecinema.co.kr/NLCHS/Movie/List?flag=1">더보기</a>
 		</div>
