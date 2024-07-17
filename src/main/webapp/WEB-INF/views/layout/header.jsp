@@ -21,7 +21,7 @@
 <body>
 	<div id="header_section" class="header">
 		<h1 class="logo">
-			<a href="https://www.lottecinema.co.kr/NLCHS/">
+			<a href="/home">
 				LOTTE CINEMA
 			</a>
 		</h1>
@@ -46,7 +46,7 @@
 			<ul class="g_menu2">
 				<li><a
 					href="https://www.lottecinema.co.kr/NLCHS/Mypage/MemberVipzone">멤버십</a></li>
-				<li><a href="https://www.lottecinema.co.kr/NLCHS/Customer">고객센터</a></li>
+				<li><a href="/customer/faq">고객센터</a></li>
 				<li><a
 					href="https://www.lottecinema.co.kr/NLCHS/Customer/GroupViewingRegistration">단체관람/대관문의</a></li>
 				<li><a href="https://www.lottecinema.co.kr/NLCHS/Member/login">로그인</a></li>
@@ -86,7 +86,7 @@
 						</ul>
 					</div></li>
 				<li class=""><a
-					href="https://www.lottecinema.co.kr/NLCHS/Movie">영화</a>
+					href="/movieInfo">영화</a>
 					<div style="display: none;">
 						<ul style="opacity: 0;">
 							<li class=""><a
