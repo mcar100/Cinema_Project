@@ -17,24 +17,8 @@
 <link rel="stylesheet" type="text/css"
 	href="/resources/static/css/default.css">
 </head>
-
 <body>
-<script type="text/javascript">
-// 페이지 로드 시 tabMenu 함수 호출
-$(document).ready(function() {
-    tabMenu();
-});
-//tab : event
-function tabMenu() {
-  $(".tab_wrap > li:not(.active) .tab_wrap.inner > li .tab_tit").attr("tabindex", "-1");
-  $(".tab_wrap .tab_tit").off().on("click focusin", function () {
-      $(this).parent("li").addClass("active").siblings("li").removeClass("active");
-      if ($(this).siblings(".tab_con").find(".tab_wrap.inner").length > 0) {
-          $(this).parents(".tab_wrap").find(".tab_wrap.inner > li .tab_tit").attr("tabindex", "-1");
-          $(this).siblings(".tab_con").find(".tab_wrap.inner > li .tab_tit").attr("tabindex", "0");
-      }
-};
-</script>
+
 	<%@ include file="../layout/header.jsp"%>
 	<div id="sub_section">
 		<div id="contents"
@@ -101,8 +85,7 @@ function tabMenu() {
 			</div>
 			<ul class="tab_wrap outer pd_tab actionmovingbar">
 				<li class="active">
-					<button type="button" onclick="tabMenu()" class="tab_tit"
-						style="width: 50%; left: 0%;">
+					<button type="button" class="tab_tit" style="width: 50%; left: 0%;">
 						<span>사용방법</span>
 					</button>
 					<div class="tab_con">
@@ -114,7 +97,7 @@ function tabMenu() {
 					</div>
 				</li>
 				<li class="">
-					<button type="button" onclick="tabMenu()" class="tab_tit"
+					<button type="button" class="tab_tit"
 						style="width: 50%; left: 50%;">
 						<span>유의사항</span>
 					</button>
@@ -126,10 +109,14 @@ function tabMenu() {
 						</ul>
 					</div>
 				</li>
-				<li class="wrap_nav_underline"><span class="nav_underline"></span></li>
+				<li class="wrap_nav_underline">
+					<span class="nav_underline"></span>
+				</li>
 			</ul>
 		</div>
-
+		<%@ include file="../layout/footer.jsp"%>
+		<%@ include file="../commons/vendorBody.jsp"%>
 	</div>
+	<script src="${contextPath}/resources/static/js/store/store-detail.js"></script>
 </body>
 </html>
