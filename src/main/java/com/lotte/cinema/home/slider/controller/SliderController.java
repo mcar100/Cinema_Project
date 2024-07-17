@@ -22,7 +22,7 @@ public class SliderController {
 	public ModelAndView home() {
 		ModelAndView view = new ModelAndView();
 		List<HomeEntity.MainSlider> info = homeService.getMainSliderInfo();
-		List<MovieImgDto> subInfo = homeService.getSubImg();
+		List<MovieImgDto> subInfo = homeService.getSubImgInfo();
 		
 		
 		view.setViewName("home/home");

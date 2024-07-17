@@ -9,6 +9,7 @@ import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.lotte.cinema.home.slider.dto.HomeDto.MovieImgDto;
 import com.lotte.cinema.home.slider.dto.HomeDto.MovieRankDto;
@@ -23,90 +24,178 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class HomeService {
 
+//	private final HomeRepository homeRepository;
+//	private final SubSliderRepository subSliderRepository;
+//	private final CacheManager cacheManager;
+//	
+//	public List<HomeEntity.MainSlider> getMainSliderInfo() {
+//		System.out.println("===================== 메인가져옴 =====================");
+//		return homeRepository.findAll();
+//	}
+//	
+////	// 5분단위 조회
+////	private boolean checkTime() {
+////		
+////		// 현재 시간
+////		LocalTime now = LocalTime.now();
+////		int minute = now.getMinute();
+////		if( (minute%5) == 0 ) {
+////			return false;
+////		}
+////		return true;
+////	}
+//	
+//	
+//	// 조회된 리스트(캐시에 저장된 데이터)  반환
+//	// 캐시객체가 없을 경우도 처리하면 좋을것 같긴한데...
+//	public List<MovieImgDto> getSubImgInfo(){
+//		 System.out.println("지점1");
+//		 Cache cache = cacheManager.getCache("cacheData");
+//		 
+//		 if(cache.get("rankCache") != null) {
+//			 System.out.println("지점2");
+//			 return (List<MovieImgDto>) cache.get("rankCache");
+//		 }else {
+//			 System.out.println("지점3");
+//			 cache.put("rankCache", getSubImg());
+//			 return getSubImg();
+//		 }
+//		
+//	}
+//	
+//	
+////	@Cacheable(value="rankCache")
+//	@Scheduled(cron = "0 */1 * * * *") // 매 5분마다 실행
+//	public void saveCacheImg(){
+//		System.out.println("!!!!!!!!!!  스케쥴러 실행됨  !!!!!!!!!!");
+//		
+//		// 캐시에 저장
+//        Cache cache = cacheManager.getCache("cacheData");
+//        if (cache != null) {
+//        	System.out.println("지점4");
+//            cache.put("rankCache", getSubImg());
+//            System.out.println("데이터가 캐시에 저장 되었습니다.");
+//        } else {
+//        	System.out.println("지점5");
+//            System.out.println("캐시객체를 찾을 수 없습니다.");
+//        }
+//	}
+//	
+//	
+//	@Transactional
+//	public List<MovieImgDto> getSubImg(){
+//		System.out.println("지점6");
+////		List<MovieImg> ImgList = subSliderRepository.findByMovieRankIsNotNullOrderByMovieRankMovieCountAsc();
+//		
+//		List<MovieImg> ImgList = subSliderRepository.findByMovieRankIsNotNullOrderByMovieRankMovieCountDesc();
+//		List<MovieImgDto> dtoList = new ArrayList<>();
+//		
+//		int startNum = 1;
+//		
+//		for(MovieImg Imgs : ImgList) {
+//			MovieImgDto dto = new MovieImgDto();
+//			MovieRankDto rankDto = new MovieRankDto();
+//			
+//			dto.setMovieImgName(Imgs.getMovieImgName());
+//			System.out.println("지점7");
+//			dto.setMovieImgPath(Imgs.getMovieImgPath());
+//			System.out.println("지점8");
+//			dto.setMovieName(Imgs.getMovieName());
+//			System.out.println("지점9");
+//			rankDto.setMovieCount(Imgs.getMovieRank().getMovieCount());
+//			System.out.println("지점10");
+//			rankDto.setMovieStar(Imgs.getMovieRank().getMovieStar());
+//			System.out.println("지점11");
+//			rankDto.setMovieGrade(Imgs.getMovieRank().getMovieGrade());
+//			System.out.println("지점12");
+//			rankDto.setMovieRank(startNum++);
+//			System.out.println("지점13");
+//			dto.setRankDto(rankDto);
+//			System.out.println("지점14");
+//			dtoList.add(dto);
+//			System.out.println("지점15");
+//		}
+//		
+////		return subSliderRepository.findByMovieRankIsNotNull();
+////		return subSliderRepository.findByMovieRankIsNotNullOrderByMovieRankMovieCountDesc();
+//		return dtoList;	
+//	}
 	private final HomeRepository homeRepository;
 	private final SubSliderRepository subSliderRepository;
 	private final CacheManager cacheManager;
 	
 	public List<HomeEntity.MainSlider> getMainSliderInfo() {
-		System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& 메인가져옴&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+		System.out.println("===================== 메인가져옴 =====================");
 		return homeRepository.findAll();
 	}
 	
-//	// 5분단위 조회
-//	private boolean checkTime() {
-//		
-//		// 현재 시간
-//		LocalTime now = LocalTime.now();
-//		int minute = now.getMinute();
-//		if( (minute%5) == 0 ) {
-//			return false;
-//		}
-//		return true;
-//	}
-	
-	
-	
-//	public List<MovieImgDto> getSubImg(){
-//		Cache cache = cacheManager.getCache("rankCache");
-//		 	if ((cache == null) || ) {
-//		        // 데이터베이스에서 직접 조회
-//		        System.out.println("----------- 데이터베이스에서 조회합니다 -----------");
-//		        return searchDB();
-//		    } else {
-//		        // 캐시를 사용반환
-//		        System.out.println("Fetching from cache");
-//		        return cachedData();
-//		    }
-//	}
-//	
-	
-//	private List<MovieImgDto> getSubImg(){
+	public List<MovieImgDto> getSubImgInfo(){
+		System.out.println("지점1");
+		Cache cache = cacheManager.getCache("cacheData");
 		
-//		Cache cache = cacheManager.getCache("rankCache");
-//	    if (cache != null && cache.get("getSubImg") != null) {
-//	        return  (List<MovieImgDto>)cache.get("getSubImg").get();
-//	    }
-//	    return new ArrayList<>();
-//	}
+		if (cache != null && cache.get("rankCache") != null) {
+			System.out.println("지점2");
+			return (List<MovieImgDto>) cache.get("rankCache").get();
+		} else {
+			System.out.println("지점3");
+			List<MovieImgDto> imgDtos = getSubImg();
+			if (cache != null) {
+				cache.put("rankCache", imgDtos);
+			}
+			return imgDtos;
+		}
+	}
 	
+	@Scheduled(cron = "0 */1 * * * *") // 매 1분마다 실행
+	@Transactional
+	public void saveCacheImg() {
+		System.out.println("!!!!!!!!!!  스케쥴러 실행됨  !!!!!!!!!!");
+		
+		Cache cache = cacheManager.getCache("cacheData");
+		if (cache != null) {
+			System.out.println("지점4");
+			List<MovieImgDto> imgDtos = getSubImg();
+			cache.put("rankCache", imgDtos);
+			System.out.println("데이터가 캐시에 저장 되었습니다.");
+		} else {
+			System.out.println("지점5");
+			System.out.println("캐시객체를 찾을 수 없습니다.");
+		}
+	}
 	
-	@Cacheable(value="rankCache")
-	@Scheduled(cron = "0 */5 * * * *") // 매 5분마다 실행
-	private List<MovieImgDto> getSubImg(){
-		System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& 캐시값임&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
-//		List<MovieImg> ImgList = subSliderRepository.findByMovieRankIsNotNullOrderByMovieRankMovieCountAsc();
+	@Transactional
+	public List<MovieImgDto> getSubImg() {
+		System.out.println("지점6");
 		
 		List<MovieImg> ImgList = subSliderRepository.findByMovieRankIsNotNullOrderByMovieRankMovieCountDesc();
 		List<MovieImgDto> dtoList = new ArrayList<>();
 		
 		int startNum = 1;
 		
-		for(MovieImg Imgs : ImgList) {
+		for (MovieImg Imgs : ImgList) {
 			MovieImgDto dto = new MovieImgDto();
 			MovieRankDto rankDto = new MovieRankDto();
 			
 			dto.setMovieImgName(Imgs.getMovieImgName());
+			System.out.println("지점7");
 			dto.setMovieImgPath(Imgs.getMovieImgPath());
+			System.out.println("지점8");
 			dto.setMovieName(Imgs.getMovieName());
+			System.out.println("지점9");
 			rankDto.setMovieCount(Imgs.getMovieRank().getMovieCount());
+			System.out.println("지점10");
 			rankDto.setMovieStar(Imgs.getMovieRank().getMovieStar());
+			System.out.println("지점11");
 			rankDto.setMovieGrade(Imgs.getMovieRank().getMovieGrade());
+			System.out.println("지점12");
 			rankDto.setMovieRank(startNum++);
+			System.out.println("지점13");
 			dto.setRankDto(rankDto);
+			System.out.println("지점14");
 			dtoList.add(dto);
+			System.out.println("지점15");
 		}
 		
-		// 캐시에 저장
-        Cache cache = cacheManager.getCache("cacheData");
-        if (cache != null) {
-            cache.put("dataList", dtoList);
-            System.out.println("Data cached successfully.");
-        } else {
-            System.out.println("Cache 'cacheData' not found.");
-        }
-//		return subSliderRepository.findByMovieRankIsNotNull();
-//		return subSliderRepository.findByMovieRankIsNotNullOrderByMovieRankMovieCountDesc();
-		return dtoList;		
+		return dtoList;	
 	}
-	
 }
