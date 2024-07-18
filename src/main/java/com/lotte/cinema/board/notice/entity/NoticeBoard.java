@@ -15,6 +15,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.lotte.cinema.board.faq.entity.BaseEntity;
+import com.lotte.cinema.board.notice.dto.NoticeDTO;
 import com.lotte.cinema.board.notice.enums.BoardStatus;
 import com.lotte.cinema.board.notice.enums.NoticeCategory;
 import com.lotte.cinema.theater.entity.Theater;
@@ -70,5 +71,22 @@ public class NoticeBoard extends BaseEntity {
 	
 	public void setContent(String content) {
 		this.content = content;
+	}
+	
+	public void setTheater(Theater theater) {
+		this.theater = theater;
+	}
+	
+	public NoticeBoard(NoticeDTO noticeDTO, Theater theater, NoticeCategory category) {
+		this.title = noticeDTO.getTitle();
+		this.content = noticeDTO.getContent();
+		this.category = category;
+		this.theater = theater;
+	}
+	
+	public NoticeBoard(NoticeDTO noticeDTO, NoticeCategory category) {
+		this.title = noticeDTO.getTitle();
+		this.content = noticeDTO.getContent();
+		this.category = category;
 	}
 }

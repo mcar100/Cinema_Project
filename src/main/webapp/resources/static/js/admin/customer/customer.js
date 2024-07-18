@@ -29,7 +29,6 @@ async function writeBoard(url, formObj){
 		}
 		
 		const result = await callAjax('POST',url, formObj);
-		console.log(result);
 		if(!result){
 			throw new Error('등록에 실패했습니다.');
 		}

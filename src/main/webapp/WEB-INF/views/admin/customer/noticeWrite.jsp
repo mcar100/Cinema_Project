@@ -17,8 +17,8 @@
 					<th scope="row" class="req"><label for="categorySelect">공지 유형</label></th>
 					<td>
 						<select id="categorySelect" name="categoryName" data-kor="공지 유형">
-							<option value="entire">전체 공지</option>
-							<option value="theater">영화관 공지</option>
+							<option value="general">전체 공지</option>
+							<option value="cinema">영화관 공지</option>
 						</select>	
 					</td>
 				</tr>
@@ -84,7 +84,7 @@
 		})
 		function handleCategoryChange(){
 			const value = $(this).val();
-			if(value==="theater"){
+			if(value==="cinema"){
 				$("#customerForm .selectbox-hidden").removeClass("hidden");
 				load();
 			}
@@ -95,7 +95,7 @@
 			}
 		}
 		
-		const map = {}
+		var map = {}
 		<c:forEach var="entry" items="${theaterGroupList}">
 				if(!map["${entry.key}"]){
 					map["${entry.key}"]=[];
