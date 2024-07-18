@@ -59,8 +59,10 @@
 						<div class="poster-container" style="text-align: center;"> 
 						
 							<div class="image-container">
+							
 								<img src="${subItem.movieImgPath}${subItem.movieImgName}">
 								<em class="overlay">${subItem.rankDto.movieRank}</em> <!-- 이미지 위에 위치할 overlay div -->
+							
 								<div class="over_box">
 									<div class="inner">
 										<a href="#" class="btn_col3 ty3" title="화면이동" style="display: block; margin-top: 100px; ">예매하기</a>
@@ -161,6 +163,7 @@ function leftBtn() {
 	
 }
 
+
 // 포스터 슬라이드 오른쪽 버튼
 function rightBtn() {
 	
@@ -173,41 +176,63 @@ function rightBtn() {
 	}    
 }
 
-//영화순위 왼쪽 버튼
+
+let buttonNum = 0;
+
 function info_left(){
-		
+	
+	buttonNum -= 1;
+	if(buttonNum === 0){
+		$('#info_left').css('display','none');
+	}	
 	console.log('인포 왼쪽 버튼 동작함');
-	 $('.rank_list').animate({left:'+='+220},'fast',function(){
-		 /* console.log($('.rank_list').css('left')); */
-	/* 	 let leftPosition = parseInt($('.rank_list').css('left'),10);
-		 console.log(leftPosition);
- */		 if($('.rank_list').css('left') === '-3300px'){
+	 $('.rank_list').animate({left:'+='+220},150,function(){
+		 
+		 if($('.rank_list').css('left') === '-3300px'){
 			    $('#info_right').css('display','block');
-		 }
-		
-		  if($('.rank_list').css('left') === '0px'){
-			    $('#info_left').css('display','none');
-		 }    
+		 }	 
 		 
 	 });
 }
 
-// 영화순위 오른쪽 버튼
+//영화순위 오른쪽 버튼
 function info_right(){
 	
+	buttonNum += 1;
+	if(buttonNum === 16){
+		$('#info_right').css('display','none');
+	}	
 	console.log('인포 오른쪽 버튼 동작함');
-	$('.rank_list').animate({left:'-='+220},'fast',function(){
+	$('.rank_list').animate({left:'-='+220},150,function(){
 	 	
 		if($('.rank_list').css('left') === '-220px'){
 	 		    $('#info_left').css('display','block');
 	 	}
-	 	if($('.rank_list').css('left') === '-3520px'){
-	 			$('#info_right').css('display','none');
-	 	}
   	 
-	});
-	 
+	}); 
 }
+
+//영화순위 왼쪽 버튼
+/* function info_left(){
+	buttonNum -= 1;
+	if(buttonNum === 0){
+		$('#info_left').css('display','none');
+	}	
+	console.log('인포 왼쪽 버튼 동작함');
+	 $('.rank_list').animate({left:'+='+220},'fast',function(){
+		
+		 if($('.rank_list').css('left') === '-3300px'){
+			    $('#info_right').css('display','block');
+		 }	 
+	 });
+} */
+
+
+
+
+
+
+
 
 
 //모달 열기 함수
