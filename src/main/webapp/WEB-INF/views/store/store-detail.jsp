@@ -32,7 +32,7 @@
 				<div class="pd_img">
 					<div class="main_img">
 						<img class=""
-							src="${serverUrl}/da4287a3a4354ae38a8d35cddd5a52e2.png" alt="산리오">
+							src="${serverUrl}/${snackDetail.imageUUID}" alt="${snackDetail.snackName}">
 					</div>
 				</div>
 				<div class="pd_detail">
@@ -53,7 +53,7 @@
 							</tr>
 							<tr>
 								<td></td>
-								<td><span class="txt_price">${snackDetail.price}<em>원</em></span></td>
+								<td><span class="txt_price">${snackDetail.price}</span><em>원</em></td>
 							</tr>
 							<tr>
 								<th scope="row">구성품</th>
@@ -80,7 +80,7 @@
 						<button class="btn_plus">추가</button>
 					</div>
 					<div class="txt_price_wrap">
-						총 상품금액<strong class="txt_price_str">13,000<em>원</em></strong>
+						총 상품금액<strong class="txt_price_str">${snackDetail.price}<em>원</em></strong>
 					</div>
 					<div class="btn_wrap">
 						<button class="btn_col2 ty7">선물하기</button>
