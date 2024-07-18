@@ -15,15 +15,23 @@ function requestPay() {
 document.addEventListener('DOMContentLoaded', function() {
 	console.log("addEventListener 입니다.")
 
+
+
 	const btnPlus = document.querySelector('.btn_plus');
 	const btnMins = document.querySelector('.btn_mins');
 	const txtNum = document.querySelector('.txt_num');
-
+	
+	// 상세보기 정보 가격 
+	const priceInfo = document.querySelector('.txt_price');
+	const priceInfoNum = priceInfo.textContent;
+	const fmtPrice = priceToString(priceInfoNum)
+	priceInfo.textContent = fmtPrice + ' 원';
+	
 	// 상품 하나의 가격 
-	const txtPrice = document.querySelector('.txt_price_str');
-	const priceStr = txtPrice.textContent;
+	const txtPrice = document.querySelector('.txt_price_str'); // 가격 
+	const priceStr = txtPrice.textContent; // 가격 
 	const price = parseInt(priceStr.replace(/[^\d]/g, ''), 10);
-    console.log("price : ", price);
+	txtPrice.textContent = priceToString(price) + '원';
 
 
 	// 총 상품 금액 
@@ -31,9 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		const quantity = parseInt(txtNum.textContent, 10);
 		console.log("quantity :", quantity);
 		const totalPrice = quantity * price;
-		console.log("totalPrice : ", totalPrice.toLocaleString());
 		txtPrice.textContent = priceToString(totalPrice) + '원';
-		console.log(txtPrice.textContent);
 	}
 
 	btnPlus.addEventListener('click', function() {

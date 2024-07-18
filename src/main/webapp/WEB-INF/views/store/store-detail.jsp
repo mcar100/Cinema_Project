@@ -53,7 +53,7 @@
 							</tr>
 							<tr>
 								<td></td>
-								<td><span class="txt_price">${snackDetail.price}</span><em>원</em></td>
+								<td><span class="txt_price">${snackDetail.price}</span></td>
 							</tr>
 							<tr>
 								<th scope="row">구성품</th>
