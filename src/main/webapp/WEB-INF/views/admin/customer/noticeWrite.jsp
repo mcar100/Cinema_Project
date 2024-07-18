@@ -16,7 +16,7 @@
 				<tr>
 					<th scope="row" class="req"><label for="categorySelect">공지 유형</label></th>
 					<td>
-						<select id="categorySelect" name="categoryName">
+						<select id="categorySelect" name="categoryName" data-kor="공지 유형">
 							<option value="entire">전체 공지</option>
 							<option value="theater">영화관 공지</option>
 						</select>	
@@ -25,10 +25,10 @@
 				<tr class="selectbox-hidden hidden">
 					<th scope="row" class="req"><label for="categorySelect">지역/영화관</label></th>
 					<td>
-						<select id="regionSelect" name="region">
+						<select id="regionSelect" name="region" data-kor="지역명">
 						
 						</select>	
-						<select id="theaterSelect" name="theaterName">
+						<select id="theaterSelect" name="theaterName" data-kor="영화관명">
 	
 						</select>	
 					</td>
@@ -37,13 +37,13 @@
 					<th scope="row" class="req">공지 제목</th>
 					<td>
 						<div class="bx_textarea">
-							<input type="text" class="ty2 w_full" name="title" placeholder="공지 제목" />
+							<input type="text" class="ty2 w_full" name="title" placeholder="공지 제목" data-kor="공지 제목"/>
 						</div>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row" class="req">공지 내용</th>
-					<td><textarea id="editor" class="ty2" name="content" placeholder="공지 내용" ></textarea></td>
+					<td><textarea id="editor" class="ty2" name="content" placeholder="공지 내용" data-kor="공지 내용"></textarea></td>
 				</tr>
 			</tbody>
 		</table>

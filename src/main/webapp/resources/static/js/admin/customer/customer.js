@@ -1,5 +1,6 @@
 import { callAjax } from "../../api/ajax.js";
 import { convertFormDataToObj } from "../../utils/convertor.js";
+import { checkFormBlank } from "../../utils/validator.js";
 
 $(document).ready(function(){
 	$("#adminContent").on("submit","#customerForm",function(e){
@@ -18,6 +19,11 @@ function handleFormSubmit(e, callbackApi){
 
 async function writeBoard(url, formObj){
 	try{
+		const checkBlank = checkFormBlank(formObj);
+		if(!checkBlank.result){
+			throw new Error(checkBlank.message);
+		}
+		
 		if(url===undefined){
 			throw new Error('url이 없습니다.');
 		}
