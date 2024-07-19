@@ -1,32 +1,19 @@
-IMP.init('imp38580524'); // 예: 'imp00000000'
-
-
-function requestPay() {
-	IMP.request_pay({
-		pg: "payco.store-e7232d62-4827-40d0-b395-618282fe4103",
-		pay_method: "card",
-		merchant_uid: "test_lypji6xn",
-		name: "테스트 결제",
-		amount: 100,
-		buyer_tel: "010-0000-0000",
-	});
-}
 
 document.addEventListener('DOMContentLoaded', function() {
+
 	console.log("addEventListener 입니다.")
-
-
 
 	const btnPlus = document.querySelector('.btn_plus');
 	const btnMins = document.querySelector('.btn_mins');
 	const txtNum = document.querySelector('.txt_num');
-	
+	const btnPay = document.querySelector('.btn_col1');
+
 	// 상세보기 정보 가격 
 	const priceInfo = document.querySelector('.txt_price');
 	const priceInfoNum = priceInfo.textContent;
 	const fmtPrice = priceToString(priceInfoNum)
 	priceInfo.textContent = fmtPrice + ' 원';
-	
+
 	// 상품 하나의 가격 
 	const txtPrice = document.querySelector('.txt_price_str'); // 가격 
 	const priceStr = txtPrice.textContent; // 가격 
@@ -62,5 +49,48 @@ document.addEventListener('DOMContentLoaded', function() {
 	function priceToString(price) {
 		return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 	}
+
+	function requestPay() {
+		console.log("requestPay call");
+	
+		IMP.init('imp38580524'); // 예: 'imp00000000'
+		IMP.request_pay({
+			pg: "tosspayments",
+			pay_method: "card",
+			merchant_uid: "1234578",
+			name: "스파게티면 500g",
+			amount: 200,
+			buyer_email: "gildong@gmail.com",
+			buyer_name: "홍길동",
+			buyer_tel: "010-4242-4242",
+			buyer_addr: "서울특별시 강남구 신사동",
+			buyer_postcode: "01181"
+		}, rsp => {
+			if (rsp.success) {
+				// 결제 성공 시 로직
+				console.log('Payment succeeded');
+				// 추가로 실행할 로직을 여기에 작성
+			} else {
+				// 결제 실패 시 로직
+				console.log('Payment failed : ', rsp.error_msg);
+				// 추가로 실행할 로직을 여기에 작성
+			}
+		});
+	}
+
+	btnPay.addEventListener('click', function() {
+		console.log("btnPay click");
+		console.log(price);
+
+		const productId = document.getElementById('snackId').value;
+		const quantity = parseInt(txtNum.textContent, 10);
+		
+
+	})
+
+
+
+
+
 
 })

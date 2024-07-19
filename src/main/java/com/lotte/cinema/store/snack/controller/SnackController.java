@@ -24,7 +24,7 @@ public class SnackController {
 	private final SnackService snackService;
 
 	@GetMapping("/snack")
-	public String SnackPage(Model model) {
+	public String snackPage(Model model) {
 		log.info("SnackPage() 로직 실행");
 
 		List<SnackListRespDto> snackList = snackService.findAll();
@@ -34,12 +34,21 @@ public class SnackController {
 	}
 
 	@GetMapping("/snack/detail")
-	public String SnackDetailPage(@RequestParam("snackId") Long snackId, Model model) throws Exception {
+	public String snackDetailPage(@RequestParam("snackId") Long snackId, Model model) throws Exception {
 		log.info("SnackDetailPage() 로직 실행 snackId = {}", snackId);
-		
+
 		SnackRespDto snackDetail = snackService.findBySnackId(snackId);
 		log.info("snackDetail = {}", snackDetail);
 		model.addAttribute("snackDetail", snackDetail);
 		return "/store/store-detail";
+	}
+
+	@GetMapping("/snack/order-page")
+	public String snackOrderPage(@RequestParam("snackId") Long snackId, Model model) throws Exception {
+		log.info("snackOrderPage() 로직 실행");
+
+		SnackRespDto snackDetail = snackService.findBySnackId(snackId);
+		model.addAttribute("snackDetail", snackDetail);
+		return "/store/store-pay";
 	}
 }

@@ -15,10 +15,8 @@
 <link rel="stylesheet" type="text/css" 	href="/resources/static/css/store/detail-common.css">
 <link rel="stylesheet" type="text/css" 	href="/resources/static/css/default.css">
 
-<!-- jQuery -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <!-- iamport.payment.js -->
-<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+<script src="https://cdn.portone.io/v2/browser-sdk.js"></script>
 
 
 </head>
@@ -75,6 +73,7 @@
 						</tbody>
 					</table>
 					<div class="bx_num">
+					<input type="hidden" id="snackId" name="snackId" value="${snackDetail.id}"/>
 						<button class="btn_mins">삭제</button>
 						<div class="txt_num">1</div>
 						<button class="btn_plus">추가</button>
@@ -84,7 +83,9 @@
 					</div>
 					<div class="btn_wrap">
 						<button class="btn_col2 ty7">선물하기</button>
-						<button class="btn_col1 ty7" onclick="requestPay()">구매하기</button>
+						<a href="/stores/snack/order-page?snackId=${snackDetail.id}">
+							<button class="btn_col1 ty7">구매하기</button>
+						</a>
 					</div>
 				</div>
 			</div>

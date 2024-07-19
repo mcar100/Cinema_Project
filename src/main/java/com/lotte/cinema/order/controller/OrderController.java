@@ -8,18 +8,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.lotte.cinema.order.utils.CreateOrderNum;
 
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 @Controller
 public class OrderController {
 
-	@GetMapping("/order")
+	@GetMapping("/orderPage")
 	public String order(HttpSession session, Model model) {
-
-//		CartListDto cartListDto = (CartListDto) session.getAttribute("cartList");
-//		
-//		model.addAttribute("cartList", cartListDto);
-
-		String orderNum = CreateOrderNum.createOrderNum();
-		model.addAttribute("orderNum", orderNum);
-		return "order/order";
+		log.info("order 로직 실행");
+		
+		return "store/store-detail";
 	}
+	
+	
 }
