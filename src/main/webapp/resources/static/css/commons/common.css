@@ -29,6 +29,7 @@
 	-webkit-border-radius: 4px;
 	font-size: 0;
 }
+.search_wrap select{ margin-right: 8px; }
 .search_wrap.ty2 input[type="text"]{ width: 440px; margin-right: 8px; }
 .search_wrap [class^="btn_col"]{
 	width: 86px;
@@ -68,6 +69,7 @@
 .tb_acc_wrap th,
 .tb_acc_wrap td{ position: relative; border-bottom: 1px solid #eee; padding: 15px 0; font-size: 15px; text-align: center; line-height: 24px; }
 .tb_acc_wrap td.text_l{ padding: 20px; }
+.text_l{ text-align: left !important; }
 .tb_acc_wrap tbody tr.acc_head{ cursor: pointer; }
 .tb_acc_wrap tbody .ic_q{ padding: 0 0 0 30px; }
 
@@ -103,6 +105,18 @@
 .bx_textarea{ position: relative;}
 .bx_textarea textarea { margin-bottom: 5px; }
 .w_full{ width: 100%; }
+
+/*=== Table + Icon ===*/
+.ico_imp { 
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	margin-left: 5px;
+	vertical-align: middle;
+	background: url(../../img/icon/caution_15_2.png) no-repeat 0 0;
+ }
+.ico_imp span{ display: block; text-indent: -9999em; }
+.tbl_list td .ico_imp { margin-top: -2px; }
 
 /*==== Bootstrap Collapse + Table====*/
 .tb_acc_wrap tbody tr.acc_head td:last-child a:after{ 
@@ -140,4 +154,3 @@
 	box-sizing: content-box;
 }
 .brd_paginate ol li a.active, .brd_paginate ol li a:hover, .brd_paginate ol li strong{ text-decoration: underline; opacity: 1; }
-

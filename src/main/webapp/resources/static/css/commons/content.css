@@ -20,6 +20,8 @@
 .tab_wrap.outer > li >.tab_tit{ height: 50px; line-height: 50px; border-bottom: 1px solid #CCC; font-size: 15px; color: #7F7F7F; }
 .tab_wrap.outer > li.active > .tab_tit{ border-bottom: 2px solid #111; color: #000; } 
 
+.tab_wrap.inner > li > .tab_tit{ line-height: 30px; font-size: 13px; color: #7f7f7f; }
+.tab_wrap.inner > li.active > .tab_tit{ color: #000; }
 
 /*==== Tab-animation ====*/
 /* .area__movingbar .tab_wrap.outer > li.active > .tab_tit{ border-bottom: 0; } */

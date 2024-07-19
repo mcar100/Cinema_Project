@@ -12,8 +12,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.lotte.cinema.board.faq.dto.FaqDTO;
-import com.lotte.cinema.board.faq.dto.FaqPageDTO;
 import com.lotte.cinema.board.faq.dto.PaginationDTO;
+import com.lotte.cinema.board.faq.dto.ResponseDTO;
 import com.lotte.cinema.board.faq.entity.FaqBoard;
 import com.lotte.cinema.board.faq.entity.FaqCategory;
 import com.lotte.cinema.board.faq.repository.FaqCategoryRepository;
@@ -45,7 +45,7 @@ public class FaqService {
 		return savedFaqBoard.getId();
 	}
 	
-	public FaqPageDTO getFaqByCategoryId(Long categoryId, int pageNo) throws Exception{
+	public ResponseDTO<FaqDTO> getFaqByCategoryId(Long categoryId, int pageNo) throws Exception{
 		if(categoryId==null) categoryId = (long)1;
 		
 		Pageable pageable = PageRequest.of(pageNo, PAGE_SIZE, Sort.by("id").ascending());
@@ -65,14 +65,14 @@ public class FaqService {
 		pagDTO.setPageSize(PAGE_SIZE);
 		pagDTO.setLastPageNo(faqPage.getTotalPages());
 		
-		FaqPageDTO fpDTO = new FaqPageDTO();
-		fpDTO.setFaqDTOs(faqDTOs);
-		fpDTO.setPagDTO(pagDTO);
+		ResponseDTO<FaqDTO> responseDTO = new ResponseDTO<FaqDTO>();
+		responseDTO.setDataList(faqDTOs);
+		responseDTO.setPagDTO(pagDTO);
 		
-		return fpDTO;
+		return responseDTO;
 	}
 	
-	public FaqPageDTO searchFaqByTitle(String title, int pageNo) throws Exception{
+	public ResponseDTO<FaqDTO> searchFaqByTitle(String title, int pageNo) throws Exception{
 		if(title==null) title="";
 		
 		Pageable pageable = PageRequest.of(pageNo, PAGE_SIZE, Sort.by("id").ascending());
@@ -93,11 +93,11 @@ public class FaqService {
 		pagDTO.setPageSize(PAGE_SIZE);
 		pagDTO.setLastPageNo(faqPage.getTotalPages());
 		
-		FaqPageDTO fpDTO = new FaqPageDTO();
-		fpDTO.setFaqDTOs(faqDTOs);
-		fpDTO.setPagDTO(pagDTO);
+		ResponseDTO<FaqDTO> responseDTO = new ResponseDTO<FaqDTO>();
+		responseDTO.setDataList(faqDTOs);
+		responseDTO.setPagDTO(pagDTO);
 		
-		return fpDTO;
+		return responseDTO;
 		
 	}
 	
