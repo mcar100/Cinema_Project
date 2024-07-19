@@ -50,9 +50,11 @@ document.addEventListener('DOMContentLoaded', function() {
 		return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 	}
 
-	function requestPay() {
+
+	function requestPay(data) {
 		console.log("requestPay call");
-	
+		console.log("data : ", data);
+
 		IMP.init('imp38580524'); // 예: 'imp00000000'
 		IMP.request_pay({
 			pg: "tosspayments",
@@ -80,17 +82,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	btnPay.addEventListener('click', function() {
 		console.log("btnPay click");
-		console.log(price);
-
-		const productId = document.getElementById('snackId').value;
+		const snackId = document.getElementById('snackId').value;
 		const quantity = parseInt(txtNum.textContent, 10);
-		
-
+		const data = {
+			"snackId": snackId,
+			"quantity": quantity,
+			"price": price
+		}
+		payInfo(data);
 	})
 
-
-
-
+	function payInfo(data) {
+		console.log("payInfo : ", data);
+		
+	$.ajax({
+		type:"post", 
+		url:"/stores/snack/order-page",
+		data : data,
+		success : function(resp){
+			console.log(resp);
+			// $('#').html();
+			location.href(resp);
+		}, 
+		error : function(error){
+			console.log("error : ", error)
+		}
+	})
+		
+	}
 
 
 })

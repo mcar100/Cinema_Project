@@ -5,9 +5,13 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.lotte.cinema.store.snack.dto.SnackInfoDto;
 import com.lotte.cinema.store.snack.dto.SnackListRespDto;
 import com.lotte.cinema.store.snack.dto.SnackRespDto;
 import com.lotte.cinema.store.snack.service.SnackService;
@@ -42,13 +46,26 @@ public class SnackController {
 		model.addAttribute("snackDetail", snackDetail);
 		return "/store/store-detail";
 	}
+	
+//	@GetMapping("/snack/order-page")
+//	public String snackOrderPage(@RequestParam("snackId") Long snackId, Model model) throws Exception {
+//		log.info("snackOrderPage() 로직 실행");
+//		SnackRespDto snackDetail = snackService.findBySnackId(snackId);
+//		model.addAttribute("snackDetail", snackDetail);
+//		return "/store/store-pay";
+//	}
+	
 
-	@GetMapping("/snack/order-page")
-	public String snackOrderPage(@RequestParam("snackId") Long snackId, Model model) throws Exception {
+	@PostMapping("/snack/order-page")
+	@ResponseBody
+	public String snackOrderPage(SnackInfoDto snackInfoDto, Model model) throws Exception {
 		log.info("snackOrderPage() 로직 실행");
 
-		SnackRespDto snackDetail = snackService.findBySnackId(snackId);
+		log.info("snackInfoDto = {}", snackInfoDto);
+		SnackRespDto snackDetail = snackService.findBySnackId(snackInfoDto.getSnackId());
 		model.addAttribute("snackDetail", snackDetail);
+		model.addAttribute("snackInfoDto",snackInfoDto);
+		
 		return "/store/store-pay";
 	}
 }

@@ -83,9 +83,9 @@
 					</div>
 					<div class="btn_wrap">
 						<button class="btn_col2 ty7">선물하기</button>
-						<a href="/stores/snack/order-page?snackId=${snackDetail.id}">
+				 	<%-- 	<a href="/stores/snack/order-page?snackId=${snackDetail.id}">
+						</a>  --%>
 							<button class="btn_col1 ty7">구매하기</button>
-						</a>
 					</div>
 				</div>
 			</div>
