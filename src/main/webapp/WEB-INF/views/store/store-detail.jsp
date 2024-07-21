@@ -120,5 +120,6 @@
 	</div>
 	<script src="${contextPath}/resources/static/js/store/store-detail.js"></script>
 	<script src="${contextPath}/resources/static/js/store/order.js"></script> 
+	<script src="${contextPath}/resources/static/js/store/store-utils.js"></script>
 </body>
 </html>

@@ -130,8 +130,6 @@
 		</div>
 		<%@ include file="../layout/footer.jsp"%>
 		<%@ include file="../commons/vendorBody.jsp"%>
-		
-	<script src="${contextPath}/resources/static/js/store/order.js"></script>
 </body>
 
 </html>
