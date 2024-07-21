@@ -1,15 +1,14 @@
 package com.lotte.cinema.store.snack.controller;
 
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lotte.cinema.store.snack.dto.SnackInfoDto;
 import com.lotte.cinema.store.snack.dto.SnackListRespDto;
@@ -45,16 +44,7 @@ public class SnackController {
 		log.info("snackDetail = {}", snackDetail);
 		model.addAttribute("snackDetail", snackDetail);
 		return "/store/store-detail";
-	}
-	
-//	@GetMapping("/snack/order-page")
-//	public String snackOrderPage(@RequestParam("snackId") Long snackId, Model model) throws Exception {
-//		log.info("snackOrderPage() 로직 실행");
-//		SnackRespDto snackDetail = snackService.findBySnackId(snackId);
-//		model.addAttribute("snackDetail", snackDetail);
-//		return "/store/store-pay";
-//	}
-	
+	}	
 
 	@GetMapping("/snack/order-page")
 	public String snackOrderPage(SnackInfoDto snackInfoDto, Model model) throws Exception {
@@ -63,7 +53,20 @@ public class SnackController {
 		log.info("snackInfoDto = {}", snackInfoDto);
 		SnackRespDto snackDetail = snackService.findBySnackId(snackInfoDto.getSnackId());
 		model.addAttribute("snackDetail", snackDetail);
+		
+		int price = snackInfoDto.getPrice();
+		int quantity = snackInfoDto.getQuantity();
+		int totalPrice = price * quantity;
+		
+		NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(Locale.KOREA);
+        // 금액을 한국 원화로 포매팅
+        String formattedAmount = currencyFormatter.format(totalPrice);
+        formattedAmount = formattedAmount.replace(NumberFormat.getCurrencyInstance(Locale.KOREA).getCurrency().getSymbol(), "").trim();
+        
+
+        log.info("formattedAmount = {}", formattedAmount);
 		model.addAttribute("snackInfoDto",snackInfoDto);
+		model.addAttribute("formattedAmount", formattedAmount);
 		
 		return "/store/store-pay";
 	}

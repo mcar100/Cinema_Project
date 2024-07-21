@@ -33,7 +33,7 @@
 									<dt class="hidden">내용</dt>
 									<dd>${snackDetail.snackName}</dd>
 									<dt>수량</dt>
-									<dd>1개</dd>
+									<dd>${snackInfoDto.quantity}개</dd>
 								</dl>
 							</div>
 
@@ -106,7 +106,7 @@
 								<dl>
 									<dt>상품금액</dt>
 									<dd>
-										<strong>${snackDetail.price}</strong>원
+										<strong id="product-price">${formattedAmount}</strong>원
 									</dd>
 								</dl>
 								<dl>
@@ -118,7 +118,7 @@
 								<dl>
 									<dt>결제금액</dt>
 									<dd>
-										총<strong>${snackDetail.price}</strong>원
+										총<strong id="total-price">${formattedAmount}</strong>원
 									</dd>
 								</dl>
 								<a href="#none" class="btn_col1 btn_confirm">결제하기</a>
@@ -130,5 +130,8 @@
 		</div>
 		<%@ include file="../layout/footer.jsp"%>
 		<%@ include file="../commons/vendorBody.jsp"%>
+		
+	<script src="${contextPath}/resources/static/js/store/order.js"></script>
 </body>
+
 </html>

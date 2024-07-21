@@ -11,6 +11,6 @@ import lombok.ToString;
 @NoArgsConstructor
 public class SnackInfoDto {
 	private Long snackId;
-	private String quantity;
+	private int quantity;
 	private int price;
 }

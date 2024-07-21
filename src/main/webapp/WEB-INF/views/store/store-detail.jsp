@@ -17,8 +17,6 @@
 
 <!-- iamport.payment.js -->
 <script src="https://cdn.portone.io/v2/browser-sdk.js"></script>
-
-
 </head>
 <body>
 
@@ -121,7 +119,6 @@
 		<%@ include file="../commons/vendorBody.jsp"%>
 	</div>
 	<script src="${contextPath}/resources/static/js/store/store-detail.js"></script>
-	<script src="${contextPath}/resources/static/js/store/order.js"></script>
--
+	<script src="${contextPath}/resources/static/js/store/order.js"></script> 
 </body>
 </html>
