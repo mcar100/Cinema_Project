@@ -42,10 +42,10 @@ public class NoticeController {
 			model.addAttribute("pageInfo", null);
 		}
 		finally {
-			PageTypeDTO pageType = new PageTypeDTO("Notice", "Board", "normal");
+			PageTypeDTO pageType = new PageTypeDTO("Notice", "Board", "normal", request.getRequestURI()+"");
 			model.addAttribute("pageType", pageType);
 		}
-		return "/customer/faq";
+		return "/customer/contents";
 	}
 	
 	@GetMapping("/notice/{noticeType}")

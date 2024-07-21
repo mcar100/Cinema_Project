@@ -61,6 +61,9 @@ public class NoticeService {
 		for(NoticeBoard origin: noticeBoards){
 			NoticeDTO target = new NoticeDTO();
 			BeanUtils.copyProperties(origin, target);
+			if(origin.getTheater()!=null) {
+				target.setTheaterName(origin.getTheater().getName());
+			}
 			target.setFormattedCreatedAt();
 			noticeDTOs.add(target);
 		}

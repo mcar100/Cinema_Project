@@ -43,7 +43,7 @@
 <jsp:include page="./commons/searchbar.jsp"/>
 			
 <!-- Table -->
-<div id="customerTable">
+<div id="customerTable" data-url=${page.requestUrl}>
 	<c:if test="${page.tableType == 'Collapse'}">
 		<jsp:include page="./commons/collapseTable.jsp" />
 	</c:if>
@@ -55,4 +55,4 @@
 <a href="/admin">관리자 페이지 이동 ></a>
 
 <!-- my script -->
-<script type="module" src="/resources/static/js/customer/faq.js"></script>
+<script type="module" src="/resources/static/js/customer/contents.js"></script>

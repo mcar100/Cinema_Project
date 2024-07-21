@@ -59,10 +59,10 @@ public class FaqController {
 			model.addAttribute("pageInfo", null);
 		}
 		finally {
-			PageTypeDTO pageType = new PageTypeDTO("FAQ", "Collapse", "short");
+			PageTypeDTO pageType = new PageTypeDTO("FAQ", "Collapse", "short", request.getRequestURI()+"");
 			model.addAttribute("pageType", pageType);
 		}
-		return "/customer/faq";
+		return "/customer/contents";
 	}
 	
 	@GetMapping("/faq/{faqType}")
