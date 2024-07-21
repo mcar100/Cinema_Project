@@ -34,12 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 	})
 
-	// 가격 포매팅 
-	function priceToString(price) {
-		return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-	}
-
-
 	btnPay.addEventListener('click', function() {
 		const snackId = document.getElementById('snackId').value;
 		const quantity = parseInt(txtNum.textContent, 10);
@@ -48,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			"quantity": quantity,
 			"price": price
 		}
+		
 		payInfo(data);
 	})
 
