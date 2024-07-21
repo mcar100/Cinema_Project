@@ -51,9 +51,7 @@
 	   <div class="rank_list">
 			<ul class="rank_img" style="display: flex;">
 					
-				<c:forEach var="item" items="${rankInfo}">
 				
-				</c:forEach>
 				<c:forEach var="subItem" items="${subInfo}">		
 					<li>
 						<div class="poster-container" style="text-align: center;"> 
