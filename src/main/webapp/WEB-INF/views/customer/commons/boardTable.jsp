@@ -54,7 +54,7 @@
 							</c:choose>
 						</td>
 						<td headers="thead2" class="text_l">
-							<a href="#none" data-id="${item.id}">
+							<a href="#" class="link-a" data-id="${item.id}">
 							${item.title}
 							</a>
 						</td>

@@ -2,6 +2,7 @@ package com.lotte.cinema.board.notice.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -146,5 +147,34 @@ public class NoticeService {
 		responseDTO.setPagDTO(pagDTO);
 		
 		return responseDTO;
+	}
+	
+	public NoticeDTO getNoticeBoardDetail(Long boardId) throws Exception{
+		if(boardId==null) {
+			throw new Exception("boardId Required");
+		}
+	
+		Optional<NoticeBoard> optionalNoticeBoard = nr.findById(boardId);
+		if(optionalNoticeBoard==null) {
+			throw new Exception("no board found");
+		}
+		NoticeBoard noticeBoard = optionalNoticeBoard.get();
+		NoticeDTO noticeDTO = new NoticeDTO();
+		BeanUtils.copyProperties(noticeBoard, noticeDTO);
+		noticeDTO.setFormattedCreatedAt();
+		
+		NoticeCategory noticeCategory = noticeBoard.getCategory();
+		if(noticeCategory==NoticeCategory.CINEMA) {
+			noticeDTO.setCategoryName("영화관 공지");
+			noticeDTO.setTheaterName(noticeBoard.getTheater().getName());
+		}
+		else {
+			noticeDTO.setCategoryName("전체 공지");
+		}
+		return noticeDTO;
+	}
+	
+	public Long countBoard(){
+		return nr.count();
 	}
 }

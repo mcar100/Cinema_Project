@@ -12,6 +12,7 @@
 .tab_wrap > li > .tab_tit{ position: absolute; top: 0; border: none; }
 .tab_wrap > li > .tab_tit span{ vertical-align: top; white-space: nowrap; }
 .tab_wrap > li > .tab_con.ty2{ margin-top: -8px; }
+.tab_wrap > li > .tab_con.ty4{ margin-top: 35px; }
 
 .tab_wrap > li.active > .tab_con{ overflow: inherit; position: relative; width: auto; height: auto; }
 
@@ -20,6 +21,7 @@
 .tab_wrap.outer > li >.tab_tit{ height: 50px; line-height: 50px; border-bottom: 1px solid #CCC; font-size: 15px; color: #7F7F7F; }
 .tab_wrap.outer > li.active > .tab_tit{ border-bottom: 2px solid #111; color: #000; } 
 
+.tab_wrap.inner { margin-top: -30px; padding-top: 30px;}
 .tab_wrap.inner > li > .tab_tit{ line-height: 30px; font-size: 13px; color: #7f7f7f; }
 .tab_wrap.inner > li.active > .tab_tit{ color: #000; }
 
@@ -27,7 +29,11 @@
 /* .area__movingbar .tab_wrap.outer > li.active > .tab_tit{ border-bottom: 0; } */
 
 .btn_btm_wrap{margin: 60px 0; text-align: center;}
-
+.btn_btm_wrap a, .btn_btm_wrap button {
+    margin: 0 3px;
+    min-width: 160px;
+    /* padding: 0 !important; */
+}
 
 
 

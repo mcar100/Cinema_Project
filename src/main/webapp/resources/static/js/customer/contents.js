@@ -17,9 +17,30 @@ $(document).ready(function(){
 	
 	// SelectBox Event
 	$("#pageLink").on("change", "#theaterSelect",handleNoticeTheaterChange);
+	
+	// Link Event
+	$("#pageLink").on("click", ".link-a",function(e){
+		handleBoardDetailClick.bind(this)(e);
+	});
 
 })
 
+async function handleBoardDetailClick(e){
+	e.preventDefault();
+	
+	try{
+		const boardId = $(this).data("id");
+		const url ="/customer/noticeDetail";
+		const tableContent = await callAjax('GET', url+"/"+boardId);
+		if(!tableContent){
+			throw new Error('테이블 콘텐츠 리로드에 실패했습니다.')
+		}
+		$("#pageLink > li.active > .tab_contents").html(tableContent);
+	}
+	catch(e){
+		alert(e.message);
+	}	
+}
 
 
 function handleHeaderBtnClick(e){

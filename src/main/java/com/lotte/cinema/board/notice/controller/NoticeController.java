@@ -105,5 +105,39 @@ public class NoticeController {
 		}
 		return "/customer/commons/boardTable";
 	}
+	
+	@GetMapping("/noticeDetail/{boardId}")
+	public String goNoticeDetail(@PathVariable(name="boardId", required=true) Long boardId, HttpServletRequest request, Model model) throws Exception {
+		log.info(request.getMethod()+" "+request.getRequestURI()+"");
+		try {  
+			NoticeDTO noticeDTO = noticeService.getNoticeBoardDetail(boardId);
+			if(noticeDTO==null) {
+				throw new Exception("failed to get noticeDTO");
+			}
+			
+			if(boardId>1) {
+				NoticeDTO prevDTO = noticeService.getNoticeBoardDetail(boardId-1);
+				model.addAttribute("prevBoard", prevDTO);
+			}
+			else {
+				model.addAttribute("prevBoard", null);
+			}
+			
+			if(boardId<noticeService.countBoard()) {
+				NoticeDTO nextDTO = noticeService.getNoticeBoardDetail(boardId+1);
+				model.addAttribute("nextBoard", nextDTO);
+			}
+			else {
+				model.addAttribute("nextBoard", null);
+			}
+			model.addAttribute("boardDetail",noticeDTO);
+			
+		}
+		catch(Exception e) {
+			log.error(e.getMessage());
+			model.addAttribute("boardDetail",null);
+		}
+		return "/customer/commons/boardDetail";
+	}
 
 }
