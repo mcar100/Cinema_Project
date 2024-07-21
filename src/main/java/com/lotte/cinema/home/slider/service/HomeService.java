@@ -1,6 +1,8 @@
 package com.lotte.cinema.home.slider.service;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -129,15 +131,51 @@ public class HomeService {
 		return homeRepository.findAll();
 	}
 	
+	
+	// 5분 단위 처리 (분 설정) 
+	private String customRound(int minute) {
+		
+		int firstNumber = minute % 10;
+		int secondNumber = (minute / 10) * 10;
+
+		if(firstNumber < 5) {
+			firstNumber = 0;
+		}else {
+			firstNumber = 5;
+		}
+		String sum = String.valueOf(firstNumber + secondNumber);
+		if(sum.length() < 2) {
+			sum = "0"+sum;
+		}
+		return sum;
+	}
+	
+	
+	
+	// 시간 나타내기
+	public String checkTime() {
+		LocalDate nowDay = LocalDate.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM.dd");
+		String formatedNow = nowDay.format(formatter);
+		
+		
+		// 현재 시간
+		LocalTime now = LocalTime.now();
+		DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("HH");
+		String hour = now.format(formatter2);
+		
+		int minute = now.getMinute();
+		String afterMinute = customRound(minute);
+		
+		return formatedNow + " " + hour + ":" + afterMinute; 
+	}
+	
 	public List<MovieImgDto> getSubImgInfo(){
-		System.out.println("지점1");
 		Cache cache = cacheManager.getCache("cacheData");
 		
 		if (cache != null && cache.get("rankCache") != null) {
-			System.out.println("지점2");
 			return (List<MovieImgDto>) cache.get("rankCache").get();
 		} else {
-			System.out.println("지점3");
 			List<MovieImgDto> imgDtos = getSubImg();
 			if (cache != null) {
 				cache.put("rankCache", imgDtos);
@@ -146,26 +184,24 @@ public class HomeService {
 		}
 	}
 	
-	@Scheduled(cron = "0 */5 * * * *") // 매 1분마다 실행
+
+	@Scheduled(cron = "0 */5 * * * *") // 매 5분마다 실행
 	@Transactional
 	public void saveCacheImg() {
 		System.out.println("!!!!!!!!!!  스케쥴러 실행됨  !!!!!!!!!!");
 		
 		Cache cache = cacheManager.getCache("cacheData");
 		if (cache != null) {
-			System.out.println("지점4");
 			List<MovieImgDto> imgDtos = getSubImg();
 			cache.put("rankCache", imgDtos);
 			System.out.println("데이터가 캐시에 저장 되었습니다.");
 		} else {
-			System.out.println("지점5");
 			System.out.println("캐시객체를 찾을 수 없습니다.");
 		}
 	}
 	
 	@Transactional
 	public List<MovieImgDto> getSubImg() {
-		System.out.println("지점6");
 		
 		List<MovieImg> ImgList = subSliderRepository.findByMovieRankIsNotNullOrderByMovieRankMovieCountDesc();
 		List<MovieImgDto> dtoList = new ArrayList<>();
@@ -177,23 +213,14 @@ public class HomeService {
 			MovieRankDto rankDto = new MovieRankDto();
 			
 			dto.setMovieImgName(Imgs.getMovieImgName());
-			System.out.println("지점7");
 			dto.setMovieImgPath(Imgs.getMovieImgPath());
-			System.out.println("지점8");
 			dto.setMovieName(Imgs.getMovieName());
-			System.out.println("지점9");
 			rankDto.setMovieCount(Imgs.getMovieRank().getMovieCount());
-			System.out.println("지점10");
 			rankDto.setMovieStar(Imgs.getMovieRank().getMovieStar());
-			System.out.println("지점11");
 			rankDto.setMovieGrade(Imgs.getMovieRank().getMovieGrade());
-			System.out.println("지점12");
 			rankDto.setMovieRank(startNum++);
-			System.out.println("지점13");
 			dto.setRankDto(rankDto);
-			System.out.println("지점14");
 			dtoList.add(dto);
-			System.out.println("지점15");
 		}
 		
 		return dtoList;	

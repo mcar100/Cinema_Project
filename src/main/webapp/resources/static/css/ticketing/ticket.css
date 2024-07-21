@@ -1,0 +1,90 @@
+@charset "EUC-KR";
+
+*{
+	margin:0px;
+}
+
+ div{
+	 border: 1px solid red; 
+} 
+
+
+.ticket.mainArea{
+	height:990px;
+	padding: 50px 70px 0 0;
+	background-color: #444;
+}
+
+.ticket .contentsArea{
+	width:1280px;
+	height:870px;
+	position: relative;
+	margin:0 auto; 
+	background-color: #FFF;
+}
+
+.ticket .sideArea{
+	width:78px; 
+	height:870px;
+	position:absolute;
+}
+
+.ticket .sideMenu{
+	height: 100%;
+	list-style: none;
+	padding: 0;
+}
+
+.ticket .sideMenu > li {
+	height: 25%;
+	border: 1px solid #666;
+    box-sizing: border-box;
+}
+
+.ticket .sideMenu > li strong{
+	display:block;
+	padding-top: 80px;
+	text-align: center;
+}
+
+.ticket .contentsArea .pickArea{
+	width:1210px;
+	height:870px;
+	margin-left: 78px;
+}  
+
+.ticket .contentsArea .pickArea .cinemaLocation{
+	width: 351px;
+	height: 100%;
+	float: left;
+}
+
+.ticket .contentsArea .pickArea .cinemaPick{
+	width: 351px;
+	height: 100%;
+	float: left;
+	background-color: #F8F8F8;
+}
+
+.ticket .contentsArea .pickArea .cinemaLocation .titBox{
+	height: 55px;
+	border-right: 1px solid #222;
+	text-align: center;
+	background-color: #000;
+    line-height: 55px;
+}
+
+.ticket .contentsArea .pickArea .cinemaLocation .titBox .tit{
+	font-size: 18px;
+	color: #FFF;
+}
+
+.ticket .contentsArea .pickArea .cinemaLocation .LocationArea{
+	height: 815px;
+	border-right: 1px solid #DDD;
+}
+
+.ticket .contentsArea .pickArea .cinemaLocation .LocationArea > ul {
+	list-style: none;
+	padding-left:0;
+}

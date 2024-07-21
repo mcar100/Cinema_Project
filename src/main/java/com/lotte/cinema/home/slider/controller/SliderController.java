@@ -23,10 +23,11 @@ public class SliderController {
 		ModelAndView view = new ModelAndView();
 		List<HomeEntity.MainSlider> info = homeService.getMainSliderInfo();
 		List<MovieImgDto> subInfo = homeService.getSubImgInfo();
-		
+		String timeInfo = homeService.checkTime();	
 		view.setViewName("home/home");
 		view.addObject("info",info);
 		view.addObject("subInfo",subInfo);
+		view.addObject("timeInfo",timeInfo);
 		System.out.println("====================================================");
 		
 		return view;
