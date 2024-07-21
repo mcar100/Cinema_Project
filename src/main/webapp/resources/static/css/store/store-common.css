@@ -104,3 +104,35 @@ a, a:link, a:visited, a:active, a:hover {
     width: 100%;
     background-color: #000;
 }
+
+.contents_mall_home .lc_wrap .lc_itm .itm_cont .itm_tit h4 {
+    margin: 5px 0;
+    font-size: 17px;
+}
+
+.contents_mall_home .lc_wrap .lc_itm .itm_tit p {
+    height: 28px;
+    line-height: 1.2;
+    font-size: 11px;
+    color: #999;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    width: 320px;
+}
+
+txt_price {
+    display: inline-block;
+    font-family: 'Roboto', 'Noto Sans KR';
+    font-weight: bold;
+    color: #000;
+}
+
+.contents_mall_home .lc_itm .txt_price_wrap {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+

@@ -142,4 +142,6 @@
 	</div>
 	<%@ include file="../layout/footer.jsp"%>
 </body>
+<script src="${contextPath}/resources/static/js/store/store-list.js"></script>
+<script src="${contextPath}/resources/static/js/store/store-utils.js"></script>
 </html>
