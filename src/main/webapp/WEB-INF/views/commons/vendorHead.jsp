@@ -1,5 +1,6 @@
 <!-- Custom fonts for this template -->
  <meta charset="UTF-8">
+ <link href="../../../resources/static/img/common/favicon.ico" rel="shortcut icon" type="image/x-icon">
 <link
   href="/resources/static/vendor/fontawesome-free/css/all.min.css"
   rel="stylesheet"

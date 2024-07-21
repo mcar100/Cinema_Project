@@ -27,7 +27,7 @@
 		<div id="adminContent">
 	
 		</div>
-		<a href="/customer/faq">홈페이지 이동 ></a>
+		<a href="/customer">고객센터 페이지 이동 ></a>
   	</div>
     <script type="importmap">
 		{
