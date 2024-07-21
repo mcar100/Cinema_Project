@@ -56,8 +56,7 @@ public class SnackController {
 //	}
 	
 
-	@PostMapping("/snack/order-page")
-	@ResponseBody
+	@GetMapping("/snack/order-page")
 	public String snackOrderPage(SnackInfoDto snackInfoDto, Model model) throws Exception {
 		log.info("snackOrderPage() 로직 실행");
 

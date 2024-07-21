@@ -94,21 +94,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	function payInfo(data) {
 		console.log("payInfo : ", data);
-		
-	$.ajax({
-		type:"post", 
-		url:"/stores/snack/order-page",
-		data : data,
-		success : function(resp){
-			console.log(resp);
-			// $('#').html();
-			location.href(resp);
-		}, 
-		error : function(error){
-			console.log("error : ", error)
-		}
-	})
-		
+
+		$.ajax({
+			type: "get",
+			url: "/stores/snack/order-page",
+			data: data,
+			success: function(resp) {
+				console.log(resp);
+				$('#sub_section').html(resp);
+				location.href(resp);
+			},
+			error: function(error) {
+				console.log("error : ", error)
+			}
+		})
+
 	}
 
 

@@ -15,8 +15,6 @@
 <link rel="stylesheet" type="text/css" href="${contextPath}/resources/static/css/store/store-pay.css">
 </head>
 <body>
-	<%@ include file="../layout/header.jsp"%>
-	<div id="sub_section">
 		<div id="contents" class="contents_full contents_reserve">
 			<div class="wrap_reserve mall">
 				<h2 class="hidden">예매하기</h2>
@@ -130,7 +128,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
-
+		<%@ include file="../layout/footer.jsp"%>
+		<%@ include file="../commons/vendorBody.jsp"%>
 </body>
 </html>
