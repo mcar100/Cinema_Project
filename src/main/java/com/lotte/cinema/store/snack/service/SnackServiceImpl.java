@@ -55,6 +55,8 @@ public class SnackServiceImpl implements SnackService {
 				.price(snack.getPrice())
 				.maxPurchase(snack.getMaxPurchase())
 				.expiryDate(snack.getExpiryDate())
+				.guide(snack.getGuide())
+				.notes(snack.getNotes())
 				.category(snack.getCategory().toString())
 				.salesRate(snack.getSalesRate())
 				.build();

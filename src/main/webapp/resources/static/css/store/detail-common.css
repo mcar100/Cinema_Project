@@ -41,11 +41,6 @@
 	font-size: 25px;
 }
 
-.contents_mall_detail .pd_wrap .pd_detail .btn_col4 {
-	padding: 0 25px;
-	margin-right: 5px;
-}
-
 .contents_mall_detail .pd_wrap .pd_img .main_img {
 	position: relative;
 	margin-bottom: 20px;
@@ -94,13 +89,13 @@ table {
 }
 
 .contents_mall_detail .pd_wrap .pd_detail .btn_col4 {
-	padding: 0 25px;
-	margin-right: 5px;
+	padding: 0 29px;
+	margin-bottom: 5px;
 }
 
 .contents_mall_detail .pd_wrap .pd_detail .btn_col4 {
-	padding: 0 29px;
-	margin-bottom: 5px;
+	padding: 0 25px;
+	margin-right: 5px;
 }
 
 .contents_mall_detail .pd_wrap .pd_detail .bx_num .txt_num {
@@ -276,10 +271,10 @@ table {
 	{
 	position: absolute;
 	left: 0;
-	bottom: 0;
 	width: 490px;
 	height: 2px;
 	background: #111;
+	top: 49px;
 	transition: all .3s ease-in-out;
 }
 
@@ -294,8 +289,9 @@ table {
 	height: 0;
 }
 
-.area__movingbar.litype2 .tab_wrap.outer.actionmovingbar > li:nth-child(2).active ~ .wrap_nav_underline .nav_underline {
-    left: 490px;
+.area__movingbar.litype2 .tab_wrap.outer.actionmovingbar>li:nth-child(2).active 
+	 ~ .wrap_nav_underline .nav_underline {
+	left: 490px;
 }
 
 .contents_mall_detail .pd_tab .active .tab_con {
@@ -309,3 +305,41 @@ table {
 	height: auto;
 }
 
+.tab_wrap.outer>li>.tab_tit {
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #CCC;
+	font-size: 15px;
+	color: #7F7F7F;
+}
+
+.tab_wrap.outer>li.active>.tab_tit {
+	border-bottom: 2px solid #111;
+	color: #000;
+}
+
+.btn_col4 {
+	display: inline-block;
+	box-sizing: border-box;
+	border-radius: 4px;
+	border: 1px solid #dddddd;
+	font-size: 14px;
+	color: #000000 !important;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #ffffff;
+}
+
+.btn_col1.ty3, .btn_col2.ty3, .btn_col3.ty3, .btn_col4.ty3, .btn_col5.ty3,
+	.btn_col6.ty3, .btn_col7.ty3, .btn_col8.ty3, .btn_col9.ty3, .btn_col10.ty3
+	{
+	height: 28px;
+	line-height: 26px;
+	padding: 0 14px;
+}
+
+.btn_col1.rnd, .btn_col2.rnd, .btn_col3.rnd, .btn_col4.rnd, .btn_col5.rnd,
+	.btn_col6.rnd, .btn_col7.rnd, .btn_col8.rnd, .btn_col9.rnd, .btn_col10.rnd
+	{
+	border-radius: 52px;
+}

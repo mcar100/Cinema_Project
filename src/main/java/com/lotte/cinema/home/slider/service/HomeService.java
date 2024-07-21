@@ -184,7 +184,7 @@ public class HomeService {
 		}
 	}
 	
-	@Scheduled(cron = "0 */5 * * * *") // 매 1분마다 실행
+	@Scheduled(cron = "0 */5 * * * *") // 매 5분마다 실행
 	@Transactional
 	public void saveCacheImg() {
 		System.out.println("!!!!!!!!!!  스케쥴러 실행됨  !!!!!!!!!!");

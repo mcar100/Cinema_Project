@@ -20,44 +20,37 @@ import lombok.ToString;
 @Entity
 @Getter
 @NoArgsConstructor
-@SequenceGenerator(
-		name = "SNACK_SEQ_GENERATOR"
-	    , sequenceName = "SNACK_SEQ"
-	    , initialValue = 1
-	    , allocationSize = 1)
-public class Snack extends BaseEntity{
+@SequenceGenerator(name = "SNACK_SEQ_GENERATOR", sequenceName = "SNACK_SEQ", initialValue = 1, allocationSize = 1)
+public class Snack extends BaseEntity {
 
 	@Id
-    @GeneratedValue(
-        	strategy = GenerationType.SEQUENCE
-        	, generator = "SNACK_SEQ_GENERATOR"
-        )
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SNACK_SEQ_GENERATOR")
 	private Long snackId; // 스넥아이디
-	
+
 	@Column(unique = true)
 	private String snackName; // 이름
-	
+
 	@Column(unique = true)
-	private String imageUUID; 
-	
+	private String imageUUID;
+
 	private String price; // 가격
-	
+
 	private String expiryDate; // 유효기간
-	
+
 	private String maxPurchase; // 구매제한
-	
+
 	private String items; // 구성품
-	
+
 	private String availableTheaters; // 상영가능 영화관
-	
-	private String guide; // 사용방법 
-	
+
+	private String guide; // 사용방법
+
 	private String notes; // 유의사항
-	
+
 	private Long salesRate; // 판매량
-	
+
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
-	private SnackCategory category; 	
+	private SnackCategory category;
 
 }

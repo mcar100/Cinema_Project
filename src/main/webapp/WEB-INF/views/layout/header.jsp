@@ -71,7 +71,7 @@
 		<div id="nav" class="area__gnbmovingbar">
 			<ul>
 				<li class=""><a
-					href="https://www.lottecinema.co.kr/NLCHS/Ticketing">예매</a>
+					href="/ticket">예매</a>
 					<div style="display: none;">
 						<ul style="opacity: 0;">
 							<li class=""><a
