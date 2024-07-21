@@ -45,7 +45,7 @@ public class NoticeService {
 		return savedNoticeBoard.getId();
 	}
 	
-	public ResponseDTO<NoticeDTO> getNotice(Long categoryType,int pageNo) throws Exception{
+	public ResponseDTO<NoticeDTO> getNoticeByCategory(Long categoryType,int pageNo) throws Exception{
 		NoticeCategory category = null;
 		if(categoryType==1) {
 			category = NoticeCategory.GENERAL;
@@ -56,15 +56,23 @@ public class NoticeService {
 		Pageable pageable = PageRequest.of(pageNo, PAGE_SIZE, Sort.by("id").ascending());
 		Page<NoticeBoard> noticePage = nr.findByCategory(category, pageable);
 		
+		if(noticePage==null) {
+			throw new Exception("fail to find data");
+		}
+		
 		List<NoticeBoard> noticeBoards = noticePage.getContent();
 		List<NoticeDTO> noticeDTOs = new ArrayList<NoticeDTO>();
-		for(NoticeBoard origin: noticeBoards){
+		
+		int startRowNum = pageNo * PAGE_SIZE + 1;
+		for(int i=noticeBoards.size()-1; i>=0; i--){
+			NoticeBoard origin = noticeBoards.get(i);
 			NoticeDTO target = new NoticeDTO();
 			BeanUtils.copyProperties(origin, target);
 			if(origin.getTheater()!=null) {
 				target.setTheaterName(origin.getTheater().getName());
 			}
 			target.setFormattedCreatedAt();
+			target.setRowNum((long) (startRowNum+i));
 			noticeDTOs.add(target);
 		}
 		
@@ -80,17 +88,42 @@ public class NoticeService {
 		return responseDTO;
 	}
 	
-	public ResponseDTO<NoticeDTO> getTheaterNotice(int pageNo) throws Exception{
-		NoticeCategory category = NoticeCategory.CINEMA;
+	public ResponseDTO<NoticeDTO> searchNotice(Long categoryType, String title, String content, int pageNo) throws Exception{
+		NoticeCategory category = null;
+		if(categoryType==1) {
+			category = NoticeCategory.GENERAL;
+		}
+		else if(categoryType==2){
+			category = NoticeCategory.CINEMA;
+		}
+		
 		Pageable pageable = PageRequest.of(pageNo, PAGE_SIZE, Sort.by("id").ascending());
-		Page<NoticeBoard> noticePage = nr.findByCategory(category, pageable);
+		Page<NoticeBoard> noticePage = null;
+		if(title!=null&&content!=null) {
+			noticePage = nr.findByCategoryAndTitleContainingAndContentContaining(category, title, content, pageable);
+		}
+		else if(content==null) {
+			noticePage = nr.findByCategoryAndContentContaining(category, content, pageable);
+		}
+		else if(title==null) {
+			noticePage = nr.findByCategoryAndTitleContaining(category, title, pageable);
+		}
+		if(noticePage==null) {
+			throw new Exception("fail to find data");
+		}
 		
 		List<NoticeBoard> noticeBoards = noticePage.getContent();
 		List<NoticeDTO> noticeDTOs = new ArrayList<NoticeDTO>();
-		for(NoticeBoard origin: noticeBoards){
+		int startRowNum = pageNo * PAGE_SIZE + 1;
+		for(int i=noticeBoards.size()-1; i>=0; i--){
+			NoticeBoard origin = noticeBoards.get(i);
 			NoticeDTO target = new NoticeDTO();
 			BeanUtils.copyProperties(origin, target);
+			if(origin.getTheater()!=null) {
+				target.setTheaterName(origin.getTheater().getName());
+			}
 			target.setFormattedCreatedAt();
+			target.setRowNum((long) (startRowNum+i));
 			noticeDTOs.add(target);
 		}
 		

@@ -8,9 +8,9 @@
 	</c:if>
 	<c:if test="${page.pageType != 'FAQ'}">
 		<select class="ty3" title="검색조건 제목 선택" id="selectCondition1">
-			<option value="1" selected>제목</option>
-			<option value="2">내용</option>
-			<option value="3">제목+내용</option>
+			<option value="title" selected>제목</option>
+			<option value="content">내용</option>
+			<option value="titleAndContent">제목+내용</option>
 		</select>
 	</c:if>
 	<input type="text" placeholder="검색어를 입력해주세요." id="searchKeyword" 
