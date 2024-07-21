@@ -70,4 +70,11 @@ public class SnackController {
 		
 		return "/store/store-pay";
 	}
+	
+	
+	@GetMapping("/snack/admin")
+	public String snackAdminPage() {
+		log.info("snackAdminPage() 로직 실행");
+		return "/store/admin/store-add";
+	}
 }
