@@ -14,6 +14,8 @@ import com.lotte.cinema.board.faq.dto.PageTypeDTO;
 import com.lotte.cinema.board.faq.dto.ResponseDTO;
 import com.lotte.cinema.board.notice.dto.NoticeDTO;
 import com.lotte.cinema.board.notice.service.NoticeService;
+import com.lotte.cinema.theater.dto.TheaterGroupDTO;
+import com.lotte.cinema.theater.service.TheaterService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -24,15 +26,23 @@ public class NoticeController {
 	
     @Autowired
 	private NoticeService noticeService;
+    @Autowired
+    private TheaterService theaterService;
 	
 	@GetMapping("/notice")
-	public String goNotice(HttpServletRequest request, Model model) {
+	public String goNotice(HttpServletRequest request, Model model) throws Exception {
 		log.info(request.getMethod()+" "+request.getRequestURI()+"");
 		try {  
-			ResponseDTO<NoticeDTO> responseDTO = noticeService.getNoticeByCategory((long) 1, 0);
+			ResponseDTO<NoticeDTO> responseDTO = noticeService.getNoticeByCategory((long) 1, null, 0);
 			if(responseDTO==null) {
 				throw new Exception("failed to get ResponseDTO");
 			}
+			
+			TheaterGroupDTO theaterGroupList = theaterService.getRegionAll();
+			if(theaterGroupList == null) {
+				throw new Exception("failed to get theater group list");
+			}
+			model.addAttribute("theaterGroupList", theaterGroupList.getTheaterGroup());
 			
 			model.addAttribute("tableList", responseDTO.getDataList());
 			model.addAttribute("pageInfo", responseDTO.getPagDTO());
@@ -41,6 +51,7 @@ public class NoticeController {
 			log.error(e.getMessage());
 			model.addAttribute("tableList", null);
 			model.addAttribute("pageInfo", null);
+			model.addAttribute("theaterGroupList", null);
 		}
 		finally {
 			PageTypeDTO pageType = new PageTypeDTO("Notice", "Board", "normal", request.getRequestURI()+"");
@@ -50,14 +61,14 @@ public class NoticeController {
 	}
 	
 	@GetMapping("/notice/{noticeType}")
-	public String getNotice(@PathVariable(name="noticeType", required=false) Long noticeType, @RequestParam(value="pageNo", required=true, defaultValue="1") String pageNo, HttpServletRequest request, Model model) {
+	public String getNotice(@PathVariable(name="noticeType", required=false) Long noticeType, @RequestParam(value="theater", required=false) String theater,@RequestParam(value="pageNo", required=true, defaultValue="1") String pageNo, HttpServletRequest request, Model model) {
 		log.info(request.getMethod()+" "+request.getRequestURI()+"");
 		try {
 			if(noticeType==null) {
 				noticeType = (long) 1;
 			}
 			
-			ResponseDTO<NoticeDTO> responseDTO = noticeService.getNoticeByCategory(noticeType, Integer.parseInt(pageNo)-1);
+			ResponseDTO<NoticeDTO> responseDTO = noticeService.getNoticeByCategory(noticeType, theater,Integer.parseInt(pageNo)-1);
 			
 			if(responseDTO==null) {
 				throw new Exception("failed to get ResponseDTO");
@@ -75,14 +86,10 @@ public class NoticeController {
 	}
 	
 	@GetMapping("/notice/search/{noticeType}")
-	public String searchNotice(@PathVariable(name="noticeType", required=false) Long noticeType, @PathVariable(name="title", required=false) String title, @PathVariable(name="content", required=false) String content, @RequestParam(value="pageNo", required=true, defaultValue="1") String pageNo, HttpServletRequest request, Model model) {
+	public String searchNotice(@PathVariable(name="noticeType", required=false) Long noticeType,@RequestParam(name="searchKeyword", required=false) String keyword, @RequestParam(name="scope", required=false) String scope, @RequestParam(value="pageNo", required=true, defaultValue="1") String pageNo, HttpServletRequest request, Model model) {
 		log.info(request.getMethod()+" "+request.getRequestURI()+"");
 		try {  
-			if(noticeType==null) {
-				noticeType = (long) 1;
-			}
-			
-			ResponseDTO<NoticeDTO> responseDTO = noticeService.searchNotice(noticeType,title,content,0);
+			ResponseDTO<NoticeDTO> responseDTO = noticeService.searchNotice(noticeType,keyword, scope,0);
 			
 			if(responseDTO==null) {
 				throw new Exception("failed to get ResponseDTO");
@@ -92,7 +99,7 @@ public class NoticeController {
 			model.addAttribute("pageInfo", responseDTO.getPagDTO());
 		}
 		catch(Exception e) {
-			log.error(e.getMessage());
+			log.error(e.getMessage()+""+request.getRequestURI());
 			model.addAttribute("tableList", null);
 			model.addAttribute("pageInfo", null);
 		}

@@ -134,8 +134,6 @@ li{ display: list-item; text-align: -webkit-match-parent; unicode-bidi: isolate;
 /*==== Notice ====*/
 .tab_header { height: 20px; }
 .tab_header .tab_wrap.inner{ position: absolute; top: 48px; }
-.tab_header .tab_wrap.inner .tab_tit{ }
-.tab_header .tab_wrap.inner .tab_tit span{  }
 
 /*==== Customer Admin ===*/
 .container > .con_tit { font-size: 20px; margin: 20px 0; }

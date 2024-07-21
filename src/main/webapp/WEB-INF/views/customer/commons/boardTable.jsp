@@ -22,10 +22,11 @@
 		<c:choose>
 			<c:when test="${empty tableList}">
 				<tr>
-				</tr>
-				<tr>
-					<td headers="thead1 row0" class="text_l">
-						등록된 글이 없습니다.
+					<td colspan="4">
+						<div class="bx_nodata">
+							<img src="/resources/static/img/icon/nodata_80_01.png" alt>
+							<p class="tit">등록된 글이 없습니다.</p>
+						</div>
 					</td>
 				</tr>
 			</c:when>

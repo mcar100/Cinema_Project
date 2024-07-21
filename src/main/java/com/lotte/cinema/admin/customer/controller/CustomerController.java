@@ -31,7 +31,7 @@ public class CustomerController {
 	@Autowired
 	private FaqService faqService;
 	@Autowired
-	private TheaterService theaterSerivce;
+	private TheaterService theaterService;
 	@Autowired
 	private NoticeService noticeService;
 	 
@@ -80,7 +80,7 @@ public class CustomerController {
 		public String goNoticeWrite(HttpServletRequest request, Model model) {
 			log.info(request.getMethod()+" "+request.getRequestURI()+"");
 			try {
-				TheaterGroupDTO theaterGroupList = theaterSerivce.getRegionAll();
+				TheaterGroupDTO theaterGroupList = theaterService.getRegionAll();
 				if(theaterGroupList == null) {
 					throw new Exception("failed to get theater group list");
 				}

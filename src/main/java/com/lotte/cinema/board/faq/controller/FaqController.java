@@ -90,14 +90,14 @@ public class FaqController {
 	}
 
 	@GetMapping("/faq/search")
-	public String searchFaq(@RequestParam(value="title", required=true) String title, @RequestParam(value="pageNo", required=true, defaultValue="1") String pageNo, HttpServletRequest request, Model model) throws Exception {
+	public String searchFaq(@RequestParam(value="searchKeyword", required=true) String keyword, @RequestParam(value="pageNo", required=true, defaultValue="1") String pageNo, HttpServletRequest request, Model model) throws Exception {
 		log.info(request.getMethod()+" "+request.getRequestURI()+"");
 		try {
-			if(title==null) {
-				throw new Exception("no title");
+			if(keyword==null) {
+				throw new Exception("no keyword");
 			}
 			
-			ResponseDTO<FaqDTO> responseDTO = faqService.searchFaqByTitle(title, Integer.parseInt(pageNo)-1);
+			ResponseDTO<FaqDTO> responseDTO = faqService.searchFaqByTitle(keyword, Integer.parseInt(pageNo)-1);
 			if(responseDTO==null) {
 				throw new Exception("no searched data");
 			}

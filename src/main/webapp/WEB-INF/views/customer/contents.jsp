@@ -6,12 +6,12 @@
 <c:if test="${page.pageType == 'Notice'}">
 	<div class="tab_header tab_con ty3">
 		<ul class="tab_wrap inner">
-			<li class="active">
+			<li class="link-btn active" data-id="1">
 				<button class="tab_tit sub_btn" data-id="1" style="left: 0px; margin-top: 3px; margin-left: 217.350px">
 					<span>전체 공지</span>
 				</button>
 			</li>
-			<li>
+			<li class="link-btn" data-id="2">
 				<button class="tab_tit sub_btn" data-id="2" style="left: 71px; margin-top: 3px; margin-left: 217.350px">
 					<span>영화관 공지</span>
 				</button>

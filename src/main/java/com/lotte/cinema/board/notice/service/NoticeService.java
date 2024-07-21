@@ -45,7 +45,7 @@ public class NoticeService {
 		return savedNoticeBoard.getId();
 	}
 	
-	public ResponseDTO<NoticeDTO> getNoticeByCategory(Long categoryType,int pageNo) throws Exception{
+	public ResponseDTO<NoticeDTO> getNoticeByCategory(Long categoryType, String theater, int pageNo) throws Exception{
 		NoticeCategory category = null;
 		if(categoryType==1) {
 			category = NoticeCategory.GENERAL;
@@ -54,7 +54,15 @@ public class NoticeService {
 			category = NoticeCategory.CINEMA;
 		}
 		Pageable pageable = PageRequest.of(pageNo, PAGE_SIZE, Sort.by("id").ascending());
-		Page<NoticeBoard> noticePage = nr.findByCategory(category, pageable);
+		Page<NoticeBoard> noticePage = null;
+		
+		if(theater!=null) {
+			Theater t = tr.findByName(theater);
+			noticePage = nr.findByTheater(t, pageable);
+		}
+		else {
+			noticePage = nr.findByCategory(category, pageable);
+		}
 		
 		if(noticePage==null) {
 			throw new Exception("fail to find data");
@@ -63,8 +71,8 @@ public class NoticeService {
 		List<NoticeBoard> noticeBoards = noticePage.getContent();
 		List<NoticeDTO> noticeDTOs = new ArrayList<NoticeDTO>();
 		
-		int startRowNum = pageNo * PAGE_SIZE + 1;
-		for(int i=noticeBoards.size()-1; i>=0; i--){
+		int startRowNum = (pageNo) * PAGE_SIZE + 1;
+		for(int i=0; i<noticeBoards.size(); i++){
 			NoticeBoard origin = noticeBoards.get(i);
 			NoticeDTO target = new NoticeDTO();
 			BeanUtils.copyProperties(origin, target);
@@ -88,34 +96,35 @@ public class NoticeService {
 		return responseDTO;
 	}
 	
-	public ResponseDTO<NoticeDTO> searchNotice(Long categoryType, String title, String content, int pageNo) throws Exception{
+	public ResponseDTO<NoticeDTO> searchNotice(Long categoryType, String keyword, String scope, int pageNo) throws Exception{
 		NoticeCategory category = null;
-		if(categoryType==1) {
+		if(categoryType==(long)1) {
 			category = NoticeCategory.GENERAL;
 		}
-		else if(categoryType==2){
+		else if(categoryType==(long)2){
 			category = NoticeCategory.CINEMA;
 		}
 		
 		Pageable pageable = PageRequest.of(pageNo, PAGE_SIZE, Sort.by("id").ascending());
 		Page<NoticeBoard> noticePage = null;
-		if(title!=null&&content!=null) {
-			noticePage = nr.findByCategoryAndTitleContainingAndContentContaining(category, title, content, pageable);
+		if(scope.equals("both")) {
+			noticePage = nr.findByCategoryAndTitleContainingOrContentContaining(category, keyword, keyword, pageable);
 		}
-		else if(content==null) {
-			noticePage = nr.findByCategoryAndContentContaining(category, content, pageable);
+		else if(scope.equals("title")) {
+			noticePage = nr.findByCategoryAndTitleContaining(category, keyword, pageable);
 		}
-		else if(title==null) {
-			noticePage = nr.findByCategoryAndTitleContaining(category, title, pageable);
+		else if(scope.equals("content")) {
+			noticePage = nr.findByCategoryAndContentContaining(category, keyword, pageable);
 		}
 		if(noticePage==null) {
 			throw new Exception("fail to find data");
 		}
-		
+	
 		List<NoticeBoard> noticeBoards = noticePage.getContent();
 		List<NoticeDTO> noticeDTOs = new ArrayList<NoticeDTO>();
-		int startRowNum = pageNo * PAGE_SIZE + 1;
-		for(int i=noticeBoards.size()-1; i>=0; i--){
+		
+		int startRowNum = (noticePage.getTotalPages()-pageNo-1) * PAGE_SIZE + 1;
+		for(int i=0; i<noticeBoards.size(); i++){
 			NoticeBoard origin = noticeBoards.get(i);
 			NoticeDTO target = new NoticeDTO();
 			BeanUtils.copyProperties(origin, target);
@@ -123,7 +132,7 @@ public class NoticeService {
 				target.setTheaterName(origin.getTheater().getName());
 			}
 			target.setFormattedCreatedAt();
-			target.setRowNum((long) (startRowNum+i));
+			target.setRowNum((long) (startRowNum-i));
 			noticeDTOs.add(target);
 		}
 		
