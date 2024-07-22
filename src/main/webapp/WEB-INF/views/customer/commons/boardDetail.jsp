@@ -23,7 +23,14 @@
 					<tr class="tb_info">
 						<td>
 							<span class="tit">영화관</span>
-							<span class="cont">${board.theaterName}</span>
+							<c:choose>
+								<c:when test="${empty board.theaterName}">
+									<span class="cont">전체</span>
+								</c:when>
+								<c:otherwise>
+									<span class="cont">${board.theaterName}</span>
+								</c:otherwise>
+							</c:choose>
 							<span class="tit">등록일</span>
 							<span class="cont">${board.createdAt}</span>
 							<span class="tit">조회수</span>

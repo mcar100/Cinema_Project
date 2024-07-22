@@ -21,6 +21,9 @@ import com.lotte.cinema.board.notice.repository.NoticeRepository;
 import com.lotte.cinema.theater.entity.Theater;
 import com.lotte.cinema.theater.repository.TheaterRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class NoticeService {
 	@Autowired
@@ -150,28 +153,34 @@ public class NoticeService {
 	}
 	
 	public NoticeDTO getNoticeBoardDetail(Long boardId) throws Exception{
-		if(boardId==null) {
-			throw new Exception("boardId Required");
-		}
-	
-		Optional<NoticeBoard> optionalNoticeBoard = nr.findById(boardId);
-		if(optionalNoticeBoard==null) {
-			throw new Exception("no board found");
-		}
-		NoticeBoard noticeBoard = optionalNoticeBoard.get();
-		NoticeDTO noticeDTO = new NoticeDTO();
-		BeanUtils.copyProperties(noticeBoard, noticeDTO);
-		noticeDTO.setFormattedCreatedAt();
+		try {
+			if(boardId==null) {
+				throw new Exception("boardId Required");
+			}
 		
-		NoticeCategory noticeCategory = noticeBoard.getCategory();
-		if(noticeCategory==NoticeCategory.CINEMA) {
-			noticeDTO.setCategoryName("영화관 공지");
-			noticeDTO.setTheaterName(noticeBoard.getTheater().getName());
+			Optional<NoticeBoard> optionalNoticeBoard = nr.findById(boardId);
+			if(optionalNoticeBoard==null) {
+				throw new Exception("no board found");
+			}
+			NoticeBoard noticeBoard = optionalNoticeBoard.get();
+			NoticeDTO noticeDTO = new NoticeDTO();
+			BeanUtils.copyProperties(noticeBoard, noticeDTO);
+			noticeDTO.setFormattedCreatedAt();
+			
+			NoticeCategory noticeCategory = noticeBoard.getCategory();
+			if(noticeCategory==NoticeCategory.CINEMA) {
+				noticeDTO.setCategoryName("영화관 공지");
+				noticeDTO.setTheaterName(noticeBoard.getTheater().getName());
+			}
+			else {
+				noticeDTO.setCategoryName("전체 공지");
+			}
+			return noticeDTO;
 		}
-		else {
-			noticeDTO.setCategoryName("전체 공지");
+		catch(Exception e) {
+			log.error(e.getMessage());
+			return null;
 		}
-		return noticeDTO;
 	}
 	
 	public Long countBoard(){
