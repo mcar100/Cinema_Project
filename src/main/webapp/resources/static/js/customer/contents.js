@@ -29,6 +29,9 @@ async function handleBoardDetailClick(e){
 	
 	try{
 		const boardId = $(this).data("id");
+		if(!boardId){
+			return;
+		}
 		const url ="/customer/noticeDetail";
 		const tableContent = await callAjax('GET', url+"/"+boardId);
 		if(!tableContent){
