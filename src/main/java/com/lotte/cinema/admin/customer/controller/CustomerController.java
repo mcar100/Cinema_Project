@@ -16,6 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.lotte.cinema.board.faq.dto.FaqDTO;
 import com.lotte.cinema.board.faq.entity.FaqCategory;
 import com.lotte.cinema.board.faq.service.FaqService;
+import com.lotte.cinema.board.notice.dto.NoticeDTO;
+import com.lotte.cinema.board.notice.service.NoticeService;
+import com.lotte.cinema.theater.dto.TheaterGroupDTO;
+import com.lotte.cinema.theater.service.TheaterService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -26,6 +30,10 @@ public class CustomerController {
 	
 	@Autowired
 	private FaqService faqService;
+	@Autowired
+	private TheaterService theaterService;
+	@Autowired
+	private NoticeService noticeService;
 	 
 		@GetMapping("/faq")
 		public String goFaqWrite(HttpServletRequest request, Model model) {
@@ -48,7 +56,8 @@ public class CustomerController {
 		
 		@PostMapping("/faqWrite")
 		public ResponseEntity<Boolean> writeFaq(@RequestBody FaqDTO faqDTO, HttpServletRequest request) throws Exception {
-			log.info(request.getMethod()+" "+request.getRequestURI()+" data: "+faqDTO.getCategoryName()+" "+faqDTO.getTitle()+" "+faqDTO.getContent());
+			log.info(request.getMethod()+" "+request.getRequestURI());
+			log.info("Requested data: "+faqDTO.getCategoryName()+" "+faqDTO.getTitle()+" "+faqDTO.getContent());
 			try {
 				if(faqDTO.getTitle()==null||faqDTO.getContent()==null) {
 					throw new Exception("내용을 입력해주세요.");
@@ -58,10 +67,11 @@ public class CustomerController {
 				if(result==0) {
 					throw new Exception("저장 결과 실패");
 				}
+				log.info("insert success faq_board id: "+result);
 				return ResponseEntity.ok().body(true);	
 			}
 			catch(Exception e) {
-				log.error("failed to insert faq"+e.getMessage());
+				log.error("failed to insert faq_Board"+e.getMessage());
 				return ResponseEntity.ok().body(false);	
 			}
 		}
@@ -70,13 +80,41 @@ public class CustomerController {
 		public String goNoticeWrite(HttpServletRequest request, Model model) {
 			log.info(request.getMethod()+" "+request.getRequestURI()+"");
 			try {
-				
+				TheaterGroupDTO theaterGroupList = theaterService.getRegionAll();
+				if(theaterGroupList == null) {
+					throw new Exception("failed to get theater group list");
+				}
+				model.addAttribute("theaterGroupList", theaterGroupList.getTheaterGroup());
 			}
 			
 			catch(Exception e) {
 				log.error(e.getMessage());
-
+				model.addAttribute("theaterGroupList", null);
 			}
 			return "/admin/customer/noticeWrite";
+		}
+		
+		@PostMapping("/noticeWrite")
+		public ResponseEntity<Boolean> writeNotice(@RequestBody NoticeDTO noticeDTO, HttpServletRequest request) throws Exception{
+			log.info(request.getMethod()+" "+request.getRequestURI());
+			log.info("Requested data: "+noticeDTO.getCategoryName()+" "+noticeDTO.getTitle()+" "+noticeDTO.getContent());
+			try {
+				if(noticeDTO.getTitle()==null||noticeDTO.getContent()==null||noticeDTO.getCategoryName()==null) {
+					throw new Exception("내용을 입력해주세요.");
+				}
+				if(noticeDTO.getCategoryName()=="cinema"&&noticeDTO.getRegion()==null&&noticeDTO.getTheaterName()==null) {
+					throw new Exception("영화관 정보를  입력해주세요.");
+				}
+				long result = noticeService.saveNotice(noticeDTO);
+				if(result==0) {
+					throw new Exception("저장 결과 실패");
+				}
+				log.info("insert success notice_board id: "+result);
+				return ResponseEntity.ok().body(true);	
+			}
+			catch(Exception e) {
+				log.error("failed to insert notice_board: "+e.getMessage());
+				return ResponseEntity.ok().body(false);	
+			}
 		}
 }

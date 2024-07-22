@@ -46,7 +46,7 @@
 			<ul class="g_menu2">
 				<li><a
 					href="https://www.lottecinema.co.kr/NLCHS/Mypage/MemberVipzone">멤버십</a></li>
-				<li><a href="/customer/faq">고객센터</a></li>
+				<li><a href="/customer">고객센터</a></li>
 				<li><a
 					href="https://www.lottecinema.co.kr/NLCHS/Customer/GroupViewingRegistration">단체관람/대관문의</a></li>
 				<li><a href="https://www.lottecinema.co.kr/NLCHS/Member/login">로그인</a></li>
@@ -71,7 +71,7 @@
 		<div id="nav" class="area__gnbmovingbar">
 			<ul>
 				<li class=""><a
-					href="https://www.lottecinema.co.kr/NLCHS/Ticketing">예매</a>
+					href="/ticket">예매</a>
 					<div style="display: none;">
 						<ul style="opacity: 0;">
 							<li class=""><a

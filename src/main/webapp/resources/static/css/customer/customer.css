@@ -7,7 +7,6 @@
 ver : 1.00
 ============================== */
 
-
 div{ display: block; unicode-bidi: isolate; }
 
 h2{
@@ -35,7 +34,10 @@ h2{
 
 li{ display: list-item; text-align: -webkit-match-parent; unicode-bidi: isolate; }
 
-/*==== faq icon ====*/
+/*==== Searchbar ==== */
+.search_wrap #searchKeyword.normal{ width: 579.6px; }
+
+/*==== Faq Icon ====*/
 .faq_icon_wrap{
 	position: relative;
 	background: #f5f5f5;
@@ -129,10 +131,20 @@ li{ display: list-item; text-align: -webkit-match-parent; unicode-bidi: isolate;
 	padding-left: 10px;
 }
 
+/*==== Notice ====*/
+.tab_header { height: 20px; }
+.tab_header .tab_wrap.inner{ position: absolute; top: 78px; }
+
 /*==== Customer Admin ===*/
-.container > .con_tit {
-	font-size: 20px;
-	margin: 20px 0;
-}
+.container > .con_tit { font-size: 20px; margin: 20px 0; }
 
 #adminContent .btn_col2{ min-width: 120px; margin: 0 3px; }
+
+/*==== Skeleton-UI ==== */
+.skeleton_box{
+	width: 980px;
+	height: 1000px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
