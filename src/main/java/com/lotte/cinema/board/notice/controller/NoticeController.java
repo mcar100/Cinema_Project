@@ -89,6 +89,9 @@ public class NoticeController {
 	public String searchNotice(@PathVariable(name="noticeType", required=false) Long noticeType,@RequestParam(name="searchKeyword", required=false) String keyword, @RequestParam(name="scope", required=false) String scope, @RequestParam(value="pageNo", required=true, defaultValue="1") String pageNo, HttpServletRequest request, Model model) {
 		log.info(request.getMethod()+" "+request.getRequestURI()+"");
 		try {  
+			if(noticeType==null) {
+				noticeType = (long)1;
+			}
 			ResponseDTO<NoticeDTO> responseDTO = noticeService.searchNotice(noticeType,keyword, scope,0);
 			
 			if(responseDTO==null) {
