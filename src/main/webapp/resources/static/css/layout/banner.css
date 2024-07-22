@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+.banner_wrap {
+    padding-top: 70px;
+    text-align: center;
+}
+
+.banner_wrap .banner_01 {
+    margin-bottom: 50px;
+}
+
+.banner_wrap a {
+    display: block;
+    width: 980px;
+    margin: 0 auto;
+}

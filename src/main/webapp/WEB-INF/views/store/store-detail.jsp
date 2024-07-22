@@ -12,11 +12,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>스토어 목록 - 롯데시네마</title>
+<link href="../../../resources/static/img/common/favicon.ico" rel="shortcut icon" type="image/x-icon">
 <link rel="stylesheet" type="text/css" 	href="/resources/static/css/store/detail-common.css">
 <link rel="stylesheet" type="text/css" 	href="/resources/static/css/default.css">
 
+ <!-- jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 <!-- iamport.payment.js -->
-<script src="https://cdn.portone.io/v2/browser-sdk.js"></script>
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
 </head>
 <body>
 
@@ -121,5 +124,7 @@
 	<script src="${contextPath}/resources/static/js/store/store-detail.js"></script>
 	<script src="${contextPath}/resources/static/js/store/order.js"></script> 
 	<script src="${contextPath}/resources/static/js/store/store-utils.js"></script>
+	<script src="${contextPath}/resources/static/js/store/store-pay.js"></script>
+
 </body>
 </html>

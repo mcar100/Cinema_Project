@@ -793,3 +793,250 @@ strong {
     width: 980px;
     margin: 0 auto;
 }
+
+/* banner side section ------------------------------------------------------------------------------ */
+
+.banner_side_wrap {
+    position: absolute;
+    top: 220px;
+    left: 50%;
+    margin-left: -660px;
+    z-index: 10;
+}
+
+.banner_side_wrap .banner_01 a {
+    display: block;
+    overflow: hidden;
+    width: 145px;
+    height: 145px;
+}
+
+.banner_side_wrap .banner_01 a img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.banner_side_wrap .btn_close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 13px;
+    height: 13px;
+    border: 0;
+    text-indent: -9999em;
+    background: transparent url(../../img/movieInfo/close_13_gry.png) no-repeat 0 0;
+}
+
+/* banner head section ------------------------------------------------------------------------------ */
+.banner_top_wrap {
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    z-index: 10;
+}
+
+.banner_top_wrap>.inner {
+    position: relative;
+    width: 980px;
+    height: 80px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.banner_top_wrap>.inner>a {
+    display: block;
+}
+
+.banner_top_wrap>.inner>a>img {
+    width: 980px;
+    height: 80px;
+}
+
+.banner_top_wrap>.inner>.btn_close {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    background: url(../../img/movieInfo/close_13_gry.png) no-repeat 50% 50%;
+    border: 0 none;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    text-indent: -9999em;
+}
+
+
+/* main allMovie section ------------------------------------------------------------------------------ */
+
+.movie_screen_box {
+    position: relative;
+}
+
+.tab_btn_type1 {
+    margin-bottom: 17px;
+}
+
+.tab_btn_type1 > li {
+    float: left;
+    margin-right: 30px;
+}
+
+.tab_btn_type1 > li button {
+    padding: 0;
+    border: none;
+}
+
+.tab_btn_type1 > li.active button > span {
+    border-bottom: 1px solid #000;
+    opacity: 1;
+}
+
+.tab_btn_type1 > li button > span {
+    display: block;
+    height: 32px;
+    line-height: 32px;
+    font-size: 18px;
+    color: #000;
+    opacity: 0.6;
+}
+
+.tab_btn_type1:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.movie_screen_box .list_lnk {
+    position: absolute;
+    top: 15px;
+    right: 0;
+}
+
+.list_lnk li:first-child {
+    padding-left: 0;
+}
+
+.list_lnk li {
+    position: relative;
+    float: left;
+    padding: 0 14px;
+}
+
+.movie_screen_box .list_lnk li.on a {
+    color: #000;
+    font-weight: bold;
+}
+
+.movie_screen_box .list_lnk li a {
+    font-size: 14px;
+    color: #666;
+}
+
+.list_lnk li a {
+    display: block;
+    font-size: 15px;
+    color: #666;
+}
+
+.list_lnk li:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    height: 14px;
+    border-left: 1px solid #CCC;
+}
+
+.list_lnk:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.movie_list.type2 {
+    margin-bottom: 0;
+}
+
+.movie_list {
+    overflow: hidden;
+    margin-bottom: 50px;
+    margin: 0 -7.5px;
+}
+
+.movie_list.type2 li {
+    height: 310px;
+    margin-bottom: 42px;
+}
+
+.movie_list li {
+    float: left;
+    position: relative;
+    width: 184px;
+    margin: 0 7.5px;
+    text-align: center;
+}
+
+.movie_list li .top_info {
+    overflow: hidden;
+    position: relative;
+    height: 262px;
+    border-radius: 4px;
+}
+
+.movie_list li .top_info .poster_info {
+    display: block;
+    height: 262px;
+}
+
+.screen_add_box>a {
+    display: block;
+    width: 184px;
+    height: 310px;
+    overflow: hidden;
+}
+
+.screen_add_box>a>img {
+    width: 100%;
+    min-height: 100%;
+    border-radius: 4px;
+}
+
+.screen_add_box>a>.num_info {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 0 0 4px 4px;
+    height: 23px;
+    padding-left: 10px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 26px;
+    font-style: italic;
+    font-family: 'Roboto', "Noto Sans KR";
+    text-align: left;
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.15) 40%, rgba(0, 0, 0, 0.5) 100%);
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.15) 40%, rgba(0, 0, 0, 0.5) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.15) 40%, rgba(0, 0, 0, 0.5) 100%);
+    -webkit-border-radius: 0 0 4px 4px;
+    -moz-border-radius: 0 0 4px 4px;
+    -ms-border-radius: 0 0 4px 4px;
+    -o-border-radius: 0 0 4px 4px;
+}
+
+.btn_txt_more {
+    width: 100%;
+    padding: 8px 0;
+    border: 1px solid #ECECEC;
+    background-color: #ffffff;
+}
+
+.btn_txt_more span {
+    padding-right: 20px;
+    background: url(../../img/movieInfo/arr_dw_9) no-repeat right center;
+}
+
+.list_lnk li:first-child:before {
+    content: none;
+}

@@ -21,4 +21,22 @@ public interface MovieInfoRepository extends JpaRepository<MovieInfo, Long>{
 	
 	// 아르떼 탑5
 	List<MovieInfo> findByArteOrderByReservationDesc(String arte, Pageable pageable);
+	
+	// 현재상영작
+	List<MovieInfo> findByReleaseDateLessThanEqualOrderByReservationDesc(LocalDate currentDate);
+	
+	List<MovieInfo> findByReleaseDateAfterOrderByReleaseDateAsc(LocalDate currentDate);
+	
+	List<MovieInfo> findByReleaseDateLessThanEqualOrderByLikesDesc(LocalDate currentDate);
+	
+	List<MovieInfo> findByReleaseDateLessThanEqualOrderByScoreDesc(LocalDate currentDate);
+	
+	List<MovieInfo> findByReleaseDateAfterOrderByReservationDesc(LocalDate currentDate);
+	
+	List<MovieInfo> findByReleaseDateAfterOrderByScoreDesc(LocalDate currentDate);
+	
+	
+	
+	
+	
 }

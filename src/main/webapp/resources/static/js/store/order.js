@@ -1,6 +1,6 @@
 
 document.addEventListener('DOMContentLoaded', function() {
-	
+
 	const btnPlus = document.querySelector('.btn_plus');
 	const btnMins = document.querySelector('.btn_mins');
 	const txtNum = document.querySelector('.txt_num');
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			"quantity": quantity,
 			"price": price
 		}
-		
+
 		payInfo(data);
 	})
 
@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
 })
 
 function payInfo(data) {
-	console.log("payInfo : ", data);
 
 	$.ajax({
 		type: "get",
@@ -72,32 +71,152 @@ function payInfo(data) {
 	})
 }
 
+const priceAmount = $('#totalPrice').val();
+const buyerMemberEmail = $('#memberEmail').val();
+const buyerMemberName = $('#memberName').val();
 
-function requestPay(data) {
-	console.log("requestPay call");
-	console.log("data : ", data);
 
-	IMP.init('imp38580524'); // 예: 'imp00000000'
-	IMP.request_pay({
-		pg: "tosspayments",
+const IMP = window.IMP;
+IMP.init('imp38580524');
+
+
+function requestToss() {
+	console.log("requestPay()호출");
+	// IMP.request_pay(param, callback) 결제창 호출
+	IMP.request_pay({ // param
+		pg: "tosspay.tosstest",
 		pay_method: "card",
-		merchant_uid: "1234578",
-		name: "스파게티면 500g",
-		amount: 200,
-		buyer_email: "gildong@gmail.com",
-		buyer_name: "홍길동",
-		buyer_tel: "010-4242-4242",
-		buyer_addr: "서울특별시 강남구 신사동",
-		buyer_postcode: "01181"
-	}, rsp => {
-		if (rsp.success) {
-			// 결제 성공 시 로직
-			console.log('Payment succeeded');
-			// 추가로 실행할 로직을 여기에 작성
-		} else {
-			// 결제 실패 시 로직
-			console.log('Payment failed : ', rsp.error_msg);
-			// 추가로 실행할 로직을 여기에 작성
-		}
+		merchant_uid: 'cart_' + new Date().getTime(),
+		name: "Helpring 강의",
+		amount: "10000",
+		buyer_email: "alsgml@naver.com",
+		buyer_name: "강민희",
+
+	}, function(rsp) { // callback
+
+		console.log("rsp : ", rsp);
+		/** 결제 검증 **/
+		$.ajax({
+			type: 'POST',
+			url: '/verifyIamport/' + rsp.imp_uid,
+			beforeSend: function(xhr) {
+				xhr.setRequestHeader(header, token);
+			}
+		}).done(function(result) {
+
+			// rsp.paid_amount와 result.response.amount(서버 검증) 비교 후 로직 실행
+			if (rsp.paid_amount === result.response.amount) {
+				alert("결제가 완료되었습니다.");
+				$.ajax({
+					type: 'POST',
+					url: '/lecture/payment',
+					beforeSend: function(xhr) {
+						xhr.setRequestHeader(header, token);
+					}
+				}).done(function() {
+					window.location.reload();
+				}).fail(function(error) {
+					alert(JSON.stringify(error));
+				})
+			} else {
+				alert("결제에 실패했습니다." + "에러코드 : " + rsp.error_code + "에러 메시지 : " + rsp.error_message);
+
+			}
+		})
 	});
+};
+
+function requestKaKao() {
+
+	// IMP.request_pay(param, callback) 결제창 호출
+	IMP.request_pay({ // param
+		pg: "kakaopay.TC0ONETIME",
+		pay_method: "card",
+		merchant_uid: 'cart_' + new Date().getTime(),
+		name: "Helpring 강의",
+		amount: "10000",
+		buyer_email: "alsgml@naver.com",
+		buyer_name: "강민희",
+
+	}, function(rsp) { // callback
+
+		console.log("rsp : ", rsp);
+		/** 결제 검증 **/
+		$.ajax({
+			type: 'POST',
+			url: '/verifyIamport/' + rsp.imp_uid,
+			beforeSend: function(xhr) {
+				xhr.setRequestHeader(header, token);
+			}
+		}).done(function(result) {
+
+			// rsp.paid_amount와 result.response.amount(서버 검증) 비교 후 로직 실행
+			if (rsp.paid_amount === result.response.amount) {
+				alert("결제가 완료되었습니다.");
+				$.ajax({
+					type: 'POST',
+					url: '/lecture/payment',
+					beforeSend: function(xhr) {
+						xhr.setRequestHeader(header, token);
+					}
+				}).done(function() {
+					window.location.reload();
+				}).fail(function(error) {
+					alert(JSON.stringify(error));
+				})
+			} else {
+				alert("결제에 실패했습니다." + "에러코드 : " + rsp.error_code + "에러 메시지 : " + rsp.error_message);
+
+			}
+		})
+	});
+};
+
+function requestPayco() {
+
+	// IMP.request_pay(param, callback) 결제창 호출
+	IMP.request_pay({ // param
+		pg: "payco.AUTOPAY",
+		pay_method: "card",
+		merchant_uid: 'cart_' + new Date().getTime(),
+		name: "Helpring 강의",
+		amount: "10000",
+		buyer_email: "alsgml@naver.com",
+		buyer_name: "강민희",
+
+	}, function(rsp) { // callback
+
+		/** 결제 검증 **/
+		$.ajax({
+			type: 'POST',
+			url: '/verifyIamport/' + rsp.imp_uid,
+			beforeSend: function(xhr) {
+				xhr.setRequestHeader(header, token);
+			}
+		}).done(function(result) {
+
+			// rsp.paid_amount와 result.response.amount(서버 검증) 비교 후 로직 실행
+			if (rsp.paid_amount === result.response.amount) {
+				alert("결제가 완료되었습니다.");
+				$.ajax({
+					type: 'POST',
+					url: '/lecture/payment',
+					beforeSend: function(xhr) {
+						xhr.setRequestHeader(header, token);
+					}
+				}).done(function() {
+					window.location.reload();
+				}).fail(function(error) {
+					alert(JSON.stringify(error));
+				})
+			} else {
+				alert("결제에 실패했습니다." + "에러코드 : " + rsp.error_code + "에러 메시지 : " + rsp.error_message);
+
+			}
+		})
+	});
+};
+
+function reqeustNaverPay(){
+	alert("아직 준비중인 결제 시스템입니다. 다른 결제 수단을 이용해주세요.");
 }
