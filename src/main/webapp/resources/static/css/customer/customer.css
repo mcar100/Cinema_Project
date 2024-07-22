@@ -1,0 +1,150 @@
+@charset "utf-8";
+
+@import url("../default.css");
+@import url("../commons/common.css");
+@import url("../commons/content.css");
+/* ==============================
+ver : 1.00
+============================== */
+
+div{ display: block; unicode-bidi: isolate; }
+
+h2{
+	display: block;
+	font-size: 1.5em;
+	margin-block-start: 0.83em;
+	margin-block-end: 0.83em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+	font-weight: bold;
+	unicode-bidi: isolate;
+}
+
+.contents_customer ul{
+	display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    unicode-bidi: isolate;
+    padding: 0;
+    margin: 0;
+}
+
+li{ display: list-item; text-align: -webkit-match-parent; unicode-bidi: isolate; }
+
+/*==== Searchbar ==== */
+.search_wrap #searchKeyword.normal{ width: 579.6px; }
+
+/*==== Faq Icon ====*/
+.faq_icon_wrap{
+	position: relative;
+	background: #f5f5f5;
+	padding: 12px 13px;
+	margin-bottom: 48px;
+	white-space: nowrap;
+	text-align: center;
+}
+
+.faq_icon_wrap button{
+	display: inline-block;
+	border: 1px solid #eee;
+	border-radius: 4px;
+	background: transparent no-repeat top 23px center;
+	width: 98px;
+	padding: 57px 0 19px;
+	margin-left: 6px;
+	font-size: 13px;
+	text-align: center;
+	-webkit-border-radius: 4px;
+}
+
+.faq_icon_wrap.lotcipassfaq{ padding: 12px; }
+
+.faq_icon_wrap.lotcipassfaq button{
+	width: 90px;
+	margin-left: 4px;
+	padding: 54px 0 14px;
+}
+
+.faq_icon_wrap button.active{
+	background-color: #fff;
+	border-color: #c9c9c9;
+}
+
+.faq_icon_wrap.lotcipassfaq .ico_01{ 
+	background-image: url("../../img/customer/ic_faq_cate_01_202209.png");
+	background-position: center 20px;
+	margin-left: 0;
+}
+
+.faq_icon_wrap.lotcipassfaq .ico_02{
+	background-image: url("../../img/customer/ic_faq_cate_02_202209.png");
+	background-position: center 20px;
+}
+
+.faq_icon_wrap.lotcipassfaq .ico_03{
+	background-image: url("../../img/customer/ic_faq_cate_03_202209.png");
+	background-position: center 20px;
+}
+
+.faq_icon_wrap.lotcipassfaq .ico_04{
+	background-image: url("../../img/customer/ic_faq_cate_04_202209.png");
+	background-position: center 20px;
+}
+
+.faq_icon_wrap.lotcipassfaq .ico_05{
+	background-image: url("../../img/customer/ic_faq_cate_05_202209.png");
+	background-position: center 20px;
+}
+
+.faq_icon_wrap.lotcipassfaq .ico_06{
+	background-image: url("../../img/customer/ic_faq_cate_06_202209.png");
+	background-position: center 20px;
+}
+
+.faq_icon_wrap.lotcipassfaq .ico_07{
+	background-image: url("../../img/customer/ic_faq_cate_07_202209.png");
+	background-position: center 20px;
+}
+
+.faq_icon_wrap.lotcipassfaq .ico_08{
+	background-image: url("../../img/customer/ic_faq_cate_08_202209.png");
+	background-position: center 20px;
+}
+
+.faq_icon_wrap.lotcipassfaq .ico_09{
+	background-image: url("../../img/customer/ic_faq_cate_09_202209.png");
+	background-position: center 20px;
+}
+
+.faq_icon_wrap.lotcipassfaq .ico_010{
+	background-image: url("../../img/customer/ic_faq_cate_10_202209.png");
+	background-position: center 20px;
+}
+
+/*==== Faq  ====*/
+.contents_customer .ic_q{
+	text-align: start;
+	width: 100%;
+	padding-left: 10px;
+}
+
+/*==== Notice ====*/
+.tab_header { height: 20px; }
+.tab_header .tab_wrap.inner{ position: absolute; top: 78px; }
+
+/*==== Customer Admin ===*/
+.container > .con_tit { font-size: 20px; margin: 20px 0; }
+
+#adminContent .btn_col2{ min-width: 120px; margin: 0 3px; }
+
+/*==== Skeleton-UI ==== */
+.skeleton_box{
+	width: 980px;
+	height: 1000px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
