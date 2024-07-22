@@ -151,10 +151,10 @@
     color: #666666;
 }
 .tbl_dtal tr.tb_link>td a .tb_next {
-    background-image: url("../../img/icon/arr_dw_13.png");
+    background-image: url("../../img/icon/arr_up_13.png");
 }
 .tbl_dtal tr.tb_link>td a .tb_prev {
-    background-image: url("../../img/icon/arr_up_13.png");
+    background-image: url("../../img/icon/arr_dw_13.png");
 }
 .tbl_dtal tr.tb_link>td a .tb_next, .tbl_dtal tr.tb_link>td a .tb_prev {
     background-repeat: no-repeat;
