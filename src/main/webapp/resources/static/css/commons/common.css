@@ -135,7 +135,7 @@
     margin: 0 20px;
     vertical-align: middle; }
 .tbl_dtal th, .tbl_dtal td{ text-align: left; }
-.tbl_dtal td{
+.tbl_dtal th, .tbl_dtal td{
 	border-bottom: 1px solid #EEEEEE;
 	padding: 18px;
 	font-size: 15px;
@@ -151,10 +151,10 @@
     color: #666666;
 }
 .tbl_dtal tr.tb_link>td a .tb_next {
-    background-image: url("../../img/icon/arr_up_13.png");
+    background-image: url("../../img/icon/arr_dw_13.png");
 }
 .tbl_dtal tr.tb_link>td a .tb_prev {
-    background-image: url("../../img/icon/arr_dw_13.png");
+    background-image: url("../../img/icon/arr_up_13.png");
 }
 .tbl_dtal tr.tb_link>td a .tb_next, .tbl_dtal tr.tb_link>td a .tb_prev {
     background-repeat: no-repeat;
@@ -163,6 +163,7 @@
     padding-right: 24px;
     color: #000;
 }
+
 
 .btn_btm_wrap {
     margin: 60px 0;

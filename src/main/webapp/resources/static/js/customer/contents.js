@@ -22,7 +22,6 @@ $(document).ready(function(){
 	$("#pageLink").on("click", ".link-a",function(e){
 		handleBoardDetailClick.bind(this)(e);
 	});
-
 })
 
 async function handleBoardDetailClick(e){
