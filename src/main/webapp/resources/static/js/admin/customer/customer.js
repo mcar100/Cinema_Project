@@ -1,5 +1,6 @@
 import { callAjax } from "../../api/ajax.js";
 import { convertFormDataToObj } from "../../utils/convertor.js";
+import { checkFormBlank } from "../../utils/validator.js";
 
 $(document).ready(function(){
 	$("#adminContent").on("submit","#customerForm",function(e){
@@ -12,17 +13,22 @@ function handleFormSubmit(e, callbackApi){
 	const formData = $(e.target).serializeArray();
 	const formObj = convertFormDataToObj(formData);
 	const formUrl = $(e.target).data('url');
+	console.log(formObj);
 	callbackApi(formUrl,formObj);
 }
 
 async function writeBoard(url, formObj){
 	try{
+		const checkBlank = checkFormBlank(formObj);
+		if(!checkBlank.result){
+			throw new Error(checkBlank.message);
+		}
+		
 		if(url===undefined){
 			throw new Error('url이 없습니다.');
 		}
 		
 		const result = await callAjax('POST',url, formObj);
-		console.log(result);
 		if(!result){
 			throw new Error('등록에 실패했습니다.');
 		}

@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-public class FaqPageDTO {
-	private List<FaqDTO> faqDTOs;
+public class ResponseDTO<T> {
+	private List<T> dataList;
 	private PaginationDTO pagDTO;
 }

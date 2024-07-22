@@ -12,10 +12,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>스토어 목록 - 롯데시네마</title>
-<link rel="stylesheet" type="text/css"
-	href="/resources/static/css/store/detail-common.css">
-<link rel="stylesheet" type="text/css"
-	href="/resources/static/css/default.css">
+<link href="../../../resources/static/img/common/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<link rel="stylesheet" type="text/css" 	href="/resources/static/css/store/detail-common.css">
+<link rel="stylesheet" type="text/css" 	href="/resources/static/css/default.css">
+
+ <!-- jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+<!-- iamport.payment.js -->
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
 </head>
 <body>
 
@@ -27,7 +31,7 @@
 				<div class="pd_img">
 					<div class="main_img">
 						<img class=""
-							src="${serverUrl}/da4287a3a4354ae38a8d35cddd5a52e2.png" alt="산리오">
+							src="${serverUrl}/${snackDetail.imageUUID}" alt="${snackDetail.snackName}">
 					</div>
 				</div>
 				<div class="pd_detail">
@@ -48,7 +52,7 @@
 							</tr>
 							<tr>
 								<td></td>
-								<td><span class="txt_price">${snackDetail.price}<em>원</em></span></td>
+								<td><span class="txt_price">${snackDetail.price}</span></td>
 							</tr>
 							<tr>
 								<th scope="row">구성품</th>
@@ -70,12 +74,13 @@
 						</tbody>
 					</table>
 					<div class="bx_num">
+					<input type="hidden" id="snackId" name="snackId" value="${snackDetail.id}"/>
 						<button class="btn_mins">삭제</button>
 						<div class="txt_num">1</div>
 						<button class="btn_plus">추가</button>
 					</div>
 					<div class="txt_price_wrap">
-						총 상품금액<strong class="txt_price_str">13,000<em>원</em></strong>
+						총 상품금액<strong class="txt_price_str">${snackDetail.price}<em>원</em></strong>
 					</div>
 					<div class="btn_wrap">
 						<button class="btn_col2 ty7">선물하기</button>
@@ -109,8 +114,7 @@
 						</ul>
 					</div>
 				</li>
-				<li class="wrap_nav_underline">
-					<span class="nav_underline"></span>
+				<li class="wrap_nav_underline"><span class="nav_underline"></span>
 				</li>
 			</ul>
 		</div>
@@ -118,5 +122,9 @@
 		<%@ include file="../commons/vendorBody.jsp"%>
 	</div>
 	<script src="${contextPath}/resources/static/js/store/store-detail.js"></script>
+	<script src="${contextPath}/resources/static/js/store/order.js"></script> 
+	<script src="${contextPath}/resources/static/js/store/store-utils.js"></script>
+	<script src="${contextPath}/resources/static/js/store/store-pay.js"></script>
+
 </body>
 </html>

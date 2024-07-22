@@ -13,6 +13,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>스토어 목록 - 롯데시네마</title>
+<link href="../../../resources/static/img/common/favicon.ico" rel="shortcut icon" type="image/x-icon">
 <link rel="stylesheet" type="text/css"
 	href="${contextPath}/resources/static/css/store/store-common.css">
 <link rel="stylesheet" type="text/css"
@@ -140,5 +141,8 @@
 			</div>
 		</div>
 	</div>
+	<%@ include file="../layout/footer.jsp"%>
 </body>
+<script src="${contextPath}/resources/static/js/store/store-list.js"></script>
+<script src="${contextPath}/resources/static/js/store/store-utils.js"></script>
 </html>

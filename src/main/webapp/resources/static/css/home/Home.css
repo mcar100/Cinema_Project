@@ -123,6 +123,7 @@ li{
 .home .rank_img img{
 	width: 200px;
 	height: 286px;
+	border-radius: 10xp;
 }
 	
 .home .rank_img img.active{
@@ -141,6 +142,8 @@ li{
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    border-radius: 10px; 
     /* display: inline-block; */ /* 이미지 크기에 맞게 div를 설정 */
 }
 	
@@ -377,7 +380,7 @@ li{
 .home .info_left{
 	width: 31px;
 	height: 60px;
-	
+	display: none;
 	background-image: url(/resources/static/img/home/leftBtn.png); 
 	background-color: rgba(0,0,0,0);
 	border: none;	

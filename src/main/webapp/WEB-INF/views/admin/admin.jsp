@@ -21,12 +21,13 @@
 		<ul id="pageLink" class="tab_wrap outer">
 			<li class="active"><button class="tab_tit" data-id="1" data-link="/admin/customer/faq" style="width: 20%; left: 0%;"><span>FAQ</span></button></li>
 			<li><button class="tab_tit" data-id="2" data-link="/admin/customer/notice" style="width: 20%; left:20%;"><span>공지사항</span></button></li>
+			<li><button class="tab_tit" data-id="3" data-link="/stores/snack/admin" style="width: 20%; left:40%;"><span>물품 등록</span></button></li>
 		</ul>
 		<hr/>
 		<div id="adminContent">
 	
 		</div>
-		<a href="/customer/faq">홈페이지 이동 ></a>
+		<a href="/customer">고객센터 페이지 이동 ></a>
   	</div>
     <script type="importmap">
 		{
