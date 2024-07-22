@@ -54,6 +54,20 @@ public class MovieDTO {
 		private String daysUntilRelease;
 	}
 	
+	@Data
+	public static class MovieAllDTO{
+		private long movieNo;
+		private String title;
+		private int playTime;
+		private String poster;
+		private String grade;
+		private String explanation;
+		private int number;
+		private LocalDate releaseDate;
+		private String daysUntilRelease;
+	}
+	
+	
 	
 	
 }

@@ -11,6 +11,14 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+	<div id="main_top_of_top_banner" class="banner_top_wrap banner_type01" style="background-color: rgb(36, 19, 63);">
+		<div class="inner">
+			<a href="https://nvapi.feeldmc.com:443/ad/p/in/v1_0/clk?slotid=stw_lottelotte_32&adgroupid=adg_lottecinema_20240702_17&adid=adi_lottecinema_20240702_21" target title="화면이동">
+				<img src="../../../resources/static/img/movieInfo/BOL4_98080.jpg" alt="볼빨간사춘기 메리고라운드 더 무비 7월 12일 롯데시네마 전체관람가">
+			</a>
+			<button class="btn_close btn_clone_close">닫기</button>
+		</div>
+	</div>
 	<%@ include file="/WEB-INF/views/layout/header.jsp" %>
 	<div id="visual_top" class="visual_top visual_movie_home">
 		<div class="inner">
@@ -27,23 +35,10 @@
 								</div>
 							</div>
 						</c:forEach>
-							<!-- <div class="owl-item cloned" style="width: 1920px;">
-								<div class="item">
-									<a title="화면이동" href="#none">
-										<img src="https://cf2.lottecinema.co.kr/lotte_image/2024/LoveLiesBleeding/LoveLiesBleeding_19204202.jpg" data-video="https://cf2.lottecinema.co.kr/lotte_image/2024/LoveLiesBleeding/LoveLiesBleeding_1280720.mp4" alt="추락한 비행기 상어의 공격 목숨을 건 서바이벌 노웨이업 6월 19일 대개봉 15세이상관람가">
-									</a>
-								</div>
-							</div> -->
-							<!-- <div class="owl-item cloned" style="width: 1920px;">
-								<div class="item">
-									<a title="화면이동" href="#none">
-										<img src="https://cf2.lottecinema.co.kr/lotte_image/2024/Junsu/Junsu_19204202.jpg" data-video="https://cf2.lottecinema.co.kr/lotte_image/2024/Junsu/Junsu_12807202.mp4" alt="에스파: 마이 퍼스트 페이지 절찬상영중 전체관람가 ‘에스파’의 찬란한 꿈의 기록. 그 첫 페이지가 스크린에서 펼쳐진다!">
-									</a>
-								</div>
-							</div>												 -->
+	
 						</div>
 					</div>
-					<div class="owl-nav" style="width: 100%; margin-left: -50%;">
+					<div class="owl-nav" style="width: 80%; margin-left: -40%;">
 						<button type="button" role="presentation" class="owl-prev">
 							<span aria-label="Previous"><</span>
 						</button>
@@ -83,6 +78,7 @@
 
 
 	<div id="contents">
+
 		<div class="movie_current_list">
 			<h3 class="movie_title">
 				현재 상영작
@@ -117,112 +113,9 @@
 					</div>
 				</li>
 			</c:forEach>
-				<!-- <li class>
-					<div class="top_info">
-						<span class="poster_info">
-							<img src="<%=request.getContextPath()%>/resources/static/img/movieInfo/콰이어트 플레이스.jpg" alt="콰이어트 플레이스">
-							<em class="num_info">2</em>
-						</span>
-						<div class="over_box">
-							<div class="inner" style="margin-top: -33px;">
-								<a class="btn_col3 ty3" href="https://www.lottecinema.co.kr/NLCHS/ticketing?movieCd=21204&movieName=%EC%BD%B0%EC%9D%B4%EC%96%B4%ED%8A%B8%20%ED%94%8C%EB%A0%88%EC%9D%B4%EC%8A%A4%3A%20%EC%B2%AB%EC%A7%B8%20%EB%82%A0">예매하기</a>
-								<a class="btn_col3 ty3" href="https://www.lottecinema.co.kr/NLCHS/Movie/MovieDetailView?movie=21204">상세정보</a>
-							</div>
-						</div>
-					</div>
-					<div class="btm_info">
-						<strong class="tit_info">
-							<span class="ic_grade gr_15"></span>
-							콰이어트 플레이스:첫째 날
-						</strong>
-						<span class="sub_info1">
-							<span class="time blacktype">
-								<span class="roboto">99</span>
-								분
-							</span>
-						</span>
-					</div>
-				</li>
-				<li class>
-					<div class="top_info">
-						<span class="poster_info">
-							<img src="<%=request.getContextPath()%>/resources/static/img/movieInfo/핸섬가이즈.jpg" alt="핸섬가이즈">
-							<em class="num_info">3</em>
-						</span>
-						<div class="over_box">
-							<div class="inner" style="margin-top: -33px;">
-								<a class="btn_col3 ty3" href="https://www.lottecinema.co.kr/NLCHS/ticketing?movieCd=21170&movieName=%ED%95%B8%EC%84%AC%EA%B0%80%EC%9D%B4%EC%A6%88">예매하기</a>
-								<a class="btn_col3 ty3" href="https://www.lottecinema.co.kr/NLCHS/Movie/MovieDetailView?movie=21170">상세정보</a>
-							</div>
-						</div>
-					</div>
-					<div class="btm_info">
-						<strong class="tit_info">
-							<span class="ic_grade gr_15"></span>
-							핸섬가이즈
-						</strong>
-						<span class="sub_info1">
-							<span class="time blacktype">
-								<span class="roboto">101</span>
-								분
-							</span>
-						</span>
-					</div>
-				</li>
-				<li class>
-					<div class="top_info">
-						<span class="poster_info">
-							<img src="<%=request.getContextPath()%>/resources/static/img/movieInfo/하이재킹.jpg" alt="하이재킹">
-							<em class="num_info">4</em>
-						</span>
-						<div class="over_box">
-							<div class="inner" style="margin-top: -33px;">
-								<a class="btn_col3 ty3" href="https://www.lottecinema.co.kr/NLCHS/ticketing?movieCd=21173&movieName=%ED%95%98%EC%9D%B4%EC%9E%AC%ED%82%B9">예매하기</a>
-								<a class="btn_col3 ty3" href="https://www.lottecinema.co.kr/NLCHS/Movie/MovieDetailView?movie=21173">상세정보</a>
-							</div>
-						</div>
-					</div>
-					<div class="btm_info">
-						<strong class="tit_info">
-							<span class="ic_grade gr_12"></span>
-							하이재킹
-						</strong>
-						<span class="sub_info1">
-							<span class="time blacktype">
-								<span class="roboto">100</span>
-								분
-							</span>
-						</span>
-					</div>
-				</li>
-				<li class>
-					<div class="top_info">
-						<span class="poster_info">
-							<img src="<%=request.getContextPath()%>/resources/static/img/movieInfo/김준수 콘서트.jpg" alt="김준수 콘서트">
-							<em class="num_info">5</em>
-						</span>
-						<div class="over_box">
-							<div class="inner" style="margin-top: -33px;">
-								<a class="btn_col3 ty3" href="https://www.lottecinema.co.kr/NLCHS/ticketing?movieCd=21179&movieName=%EA%B9%80%EC%A4%80%EC%88%98%20%EC%BD%98%EC%84%9C%ED%8A%B8%20%EB%AC%B4%EB%B9%84%20%EC%B1%95%ED%84%B0%20%EC%9B%90%20%3A%20%EB%A0%88%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%EC%85%98">예매하기</a>
-								<a class="btn_col3 ty3" href="https://www.lottecinema.co.kr/NLCHS/Movie/MovieDetailView?movie=21179">상세정보</a>
-							</div>
-						</div>
-					</div>
-					<div class="btm_info">
-						<strong class="tit_info">
-							<span class="ic_grade gr_all"></span>
-							김준수 콘서트 무비 챕터 원 : 레크리에이션
-						</strong>
-						<span class="sub_info1">
-							<span class="time blacktype">
-								<span class="roboto">114</span>
-								분
-							</span>
-						</span>
-					</div>
-				</li> -->
+			
 			</ul>
-			<a class="btn_txt_more ty2" href="https://www.lottecinema.co.kr/NLCHS/Movie/List?flag=1">더보기</a>
+			<a class="btn_txt_more ty2" href="/movieInfo/detail" data-id="a" data-flag="2">더보기</a>
 		</div>
 		<div class="movie_pre_list">
 			<h3 class="movie_title">
@@ -258,122 +151,10 @@
 						</span>
 					</div>
 				</li>
-				<!-- <li class>
-					<div class="top_info">
-						<span class="poster_info">
-							<img src="<%=request.getContextPath()%>/resources/static/img/movieInfo/탈주.jpg" alt="탈주">							
-						</span>
-						<div class="over_box">
-							<div class="inner" style="margin-top: -33px;">
-								<a class="btn_col3 ty3" href="https://www.lottecinema.co.kr/NLCHS/ticketing?movieCd=21144&movieName=%ED%83%88%EC%A3%BC">예매하기</a>
-								<a class="btn_col3 ty3" href="https://www.lottecinema.co.kr/NLCHS/Movie/MovieDetailView?movie=21144">상세정보</a>
-							</div>
-						</div>
-					</div>
-					<div class="btm_info">
-						<strong class="tit_info">
-							<span class="ic_grade gr_12"></span>
-							탈주
-						</strong>
-						<span class="sub_info1">
-							<span class="time blacktype">
-								<span class="roboto">94</span>
-								분
-							</span>
-							<span class="remain_info">
-								D-
-								6
-							</span>
-						</span>
-					</div>
-				</li>
-				<li class>
-					<div class="top_info">
-						<span class="poster_info">
-							<img src="<%=request.getContextPath()%>/resources/static/img/movieInfo/스마트폰.jpg" alt="스마트폰">
-							
-						</span>
-						<div class="over_box">
-							<div class="inner" style="margin-top: -33px;">
-								<a class="btn_col3 ty3" href="https://www.lottecinema.co.kr/NLCHS/ticketing?movieCd=21303&movieName=%EB%8B%A4%ED%81%90%20%ED%99%A9%EC%9D%80%EC%A0%95%20%3A%20%EC%8A%A4%EB%A7%88%ED%8A%B8%ED%8F%B0%EC%9D%B4%20%EB%AD%90%EA%B8%B8%EB%9E%98">예매하기</a>
-								<a class="btn_col3 ty3" href="https://www.lottecinema.co.kr/NLCHS/Movie/MovieDetailView?movie=21303">상세정보</a>
-							</div>
-						</div>
-					</div>
-					<div class="btm_info">
-						<strong class="tit_info">
-							<span class="ic_grade gr_12"></span>
-							다큐 황은정 : 스마트폰이 뭐길래
-						</strong>
-						<span class="sub_info1">
-							<span class="time blacktype">
-								<span class="roboto">69</span>
-								분
-							</span>
-							<span class="remain_info">
-								D-
-								6
-							</span>
-						</span>
-					</div>
-				</li>
-				<li class>
-					<div class="top_info">
-						<span class="poster_info">
-							<img src="<%=request.getContextPath()%>/resources/static/img/movieInfo/퍼펙트데이즈.jpg" alt="퍼펙트데이즈">
-							
-						</span>
-						<div class="over_box">
-							<div class="inner" style="margin-top: -33px;">
-								<a class="btn_col3 ty3" href="https://www.lottecinema.co.kr/NLCHS/Movie/MovieDetailView?movie=21187">상세정보</a>
-							</div>
-						</div>
-					</div>
-					<div class="btm_info">
-						<strong class="tit_info">
-							<span class="ic_grade gr_12"></span>
-							퍼펙트 데이즈
-						</strong>
-						<span class="sub_info1">
-							<span class="time blacktype">
-								<span class="roboto">124</span>
-								분
-							</span>
-							<span class="remain_info">
-								D-
-								6
-							</span>
-						</span>
-					</div>
-				</li>
-				<li class>
-					<div class="top_info">
-						<span class="poster_info">
-							<img src="<%=request.getContextPath()%>/resources/static/img/movieInfo/바이올렛.jpg" alt="바이올렛">
-							
-						</span>
-						<div class="over_box">
-							<div class="inner" style="margin-top: -33px;">							
-								<a class="btn_col3 ty3" href="https://www.lottecinema.co.kr/NLCHS/Movie/MovieDetailView?movie=15666">상세정보</a>
-							</div>
-						</div>
-					</div>
-					<div class="btm_info">
-						<strong class="tit_info">
-							<span class="ic_grade gr_all"></span>
-							[보석특가]바이올렛 에버가든 - 영원과 자동 수기 인형 -
-						</strong>
-						<span class="sub_info1">
-							<span class="time blacktype">
-								<span class="roboto">91</span>
-								분
-							</span>
-						</span>
-					</div>
-				</li> -->
+
 			</c:forEach>
 			</ul>
-			<a class="btn_txt_more ty2" href="https://www.lottecinema.co.kr/NLCHS/Movie/List?flag=1">더보기</a>
+			<a class="btn_txt_more ty2" href="/movieInfo/detail">더보기</a>
 		</div>
 		<div class="movie_pre_list">
 			<h3 class="movie_title">
@@ -411,143 +192,23 @@
 						</span>
 					</div>
 				</li>
-				<!-- <li class>
-					<div class="top_info">
-						<span class="poster_info">
-							<img src="<%=request.getContextPath()%>/resources/static/img/movieInfo/존오브.jpg" alt="존오브">
-							<em class="num_info">2</em>
-						</span>
-						<div class="over_box">
-							<div class="inner" style="margin-top: -33px;">
-								<a class="btn_col3 ty3" href="https://www.lottecinema.co.kr/NLCHS/ticketing?movieCd=21159&movieName=%EC%A1%B4%20%EC%98%A4%EB%B8%8C%20%EC%9D%B8%ED%84%B0%EB%A0%88%EC%8A%A4%ED%8A%B8">예매하기</a>
-								<a class="btn_col3 ty3" href="https://www.lottecinema.co.kr/NLCHS/Movie/MovieDetailView?movie=21159">상세정보</a>
-							</div>
-						</div>
-					</div>
-					<div class="btm_info">
-						<strong class="tit_info">
-							<span class="ic_grade gr_12"></span>
-							존 오브 인터레스트
-						</strong>
-						<span class="sub_info1">
-							<span class="time blacktype">
-								<span class="roboto">105</span>
-								분
-							</span>
-							<span class="remain_info">
-								D-
-								0
-							</span>
-						</span>
-					</div>
-				</li>
-				<li class>
-					<div class="top_info">
-						<span class="poster_info">
-							<img src="<%=request.getContextPath()%>/resources/static/img/movieInfo/판문점.jpg" alt="판문점">
-							<em class="num_info">3</em>
-						</span>
-						<div class="over_box">
-							<div class="inner" style="margin-top: -33px;">
-								<a class="btn_col3 ty3" href="https://www.lottecinema.co.kr/NLCHS/ticketing?movieCd=21197&movieName=%ED%8C%90%EB%AC%B8%EC%A0%90">예매하기</a>
-								<a class="btn_col3 ty3" href="https://www.lottecinema.co.kr/NLCHS/Movie/MovieDetailView?movie=21197">상세정보</a>
-							</div>
-						</div>
-					</div>
-					<div class="btm_info">
-						<strong class="tit_info">
-							<span class="ic_grade gr_12"></span>
-							판문점
-						</strong>
-						<span class="sub_info1">
-							<span class="time blacktype">
-								<span class="roboto">82</span>
-								분
-							</span>
-							<span class="remain_info">
-								D-
-								0
-							</span>
-						</span>
-					</div>
-				</li>
-				<li class>
-					<div class="top_info">
-						<span class="poster_info">
-							<img src="<%=request.getContextPath()%>/resources/static/img/movieInfo/그시절.jpg" alt="그시절">
-							<em class="num_info">4</em>
-						</span>
-						<div class="over_box">
-							<div class="inner" style="margin-top: -33px;">
-								<a class="btn_col3 ty3" href="https://www.lottecinema.co.kr/NLCHS/ticketing?movieCd=17298&movieName=[%EA%B7%B8%EC%8B%9C%EC%A0%88%ED%8A%B9%EA%B0%80]%EA%B7%B8%20%EC%8B%9C%EC%A0%88,%20%EC%9A%B0%EB%A6%AC%EA%B0%80%20%EC%A2%8B%EC%95%84%ED%96%88%EB%8D%98%20%EC%86%8C%EB%85%80">예매하기</a>
-								<a class="btn_col3 ty3" href="https://www.lottecinema.co.kr/NLCHS/Movie/MovieDetailView?movie=17298">상세정보</a>
-							</div>
-						</div>
-					</div>
-					<div class="btm_info">
-						<strong class="tit_info">
-							<span class="ic_grade gr_15"></span>
-							[그시절특가]그 시절, 우리가 좋아했던 소녀
-						</strong>
-						<span class="sub_info1">
-							<span class="time blacktype">
-								<span class="roboto">107</span>
-								분
-							</span>
-							<span class="remain_info">
-								D-
-								0
-							</span>
-						</span>
-					</div>
-				</li>
-				<li class>
-					<div class="top_info">
-						<span class="poster_info">
-							<img src="<%=request.getContextPath()%>/resources/static/img/movieInfo/프렌치수프.jpg" alt="프렌치수프">
-							<em class="num_info">5</em>
-						</span>
-						<div class="over_box">
-							<div class="inner" style="margin-top: -33px;">
-								<a class="btn_col3 ty3" href="https://www.lottecinema.co.kr/NLCHS/ticketing?movieCd=21171&movieName=%ED%94%84%EB%A0%8C%EC%B9%98%20%EC%88%98%ED%94%84">예매하기</a>
-								<a class="btn_col3 ty3" href="https://www.lottecinema.co.kr/NLCHS/Movie/MovieDetailView?movie=21171">상세정보</a>
-							</div>
-						</div>
-					</div>
-					<div class="btm_info">
-						<strong class="tit_info">
-							<span class="ic_grade gr_15"></span>
-							프렌치 수프
-						</strong>
-						<span class="sub_info1">
-							<span class="time blacktype">
-								<span class="roboto">135</span>
-								분
-							</span>
-							<span class="remain_info">
-								D-
-								0
-							</span>
-						</span>
-					</div>
-				</li> -->
+
 			</c:forEach>
 			</ul>
-			<a class="btn_txt_more ty2" href="https://www.lottecinema.co.kr/NLCHS/Movie/List?flag=1">더보기</a>
+			<a class="btn_txt_more ty2" href="/movieInfo/detail">더보기</a>
 		</div>
 	</div>
-	<div id="banner_section" class="banner_wrap">
-		<div class="banner_01">
-			<a href="https://www.lottecinema.co.kr/NLCHS/Movie/MovieDetailView?movie=21179">
-				<img src="<%=request.getContextPath()%>/resources/static/img/movieInfo/김준수 배너.jpg"">
+	
+	<div id="banner_side_section" class="banner_side_wrap" style="top: 565px;">
+		<div class="banner_01" style="top: 365px;">
+			<a href="https://nvapi.feeldmc.com:443/ad/p/in/v1_0/clk?slotid=stw_lottelotte_41&adgroupid=adg_lottecinema_20240705_30&adid=adi_lottecinema_20240705_38" target title="화면이동">
+				<img src="../../../resources/static/img/movieInfo/TheBaton_145145.png" alt="그리고 바통은 넘겨졌다 7월 17일 대개봉 전체관람가">
 			</a>
-		</div>
-		<div id="footerBanner" class="banner_type02" style="background-color: rgb(255, 241, 191); background-image: url(&quot;https://cf2.lottecinema.co.kr/lotte_image/2017/bg_01.jpg&quot;); background-repeat: repeat-x; background-position: 0px 0px;">
-			<a href="https://www.lottecard.co.kr/app/LPBNFDA_V300.lc?evnBultSeq=8003">
-				<img src="<%=request.getContextPath()%>/resources/static/img/movieInfo/롯데카드.png">
-			</a>
+			<button class="btn_close btn_clone_close">광고 닫기</button>
 		</div>
 	</div>
+
+	<%@ include file="/WEB-INF/views/layout/banner.jsp" %>
 	
 	<%@ include file="/WEB-INF/views/layout/footer.jsp" %>
 	
@@ -652,6 +313,12 @@
 			$('#layerMovieTrailer').removeClass('active');
 			$('#vdoPlayer').attr('src', '');
 		});
+	});
+</script>
+<script>
+	// 슬라이드 배너 스크립트
+	$('.btn_clone_close').on('click', function() {
+		$(this).closest('div').parent().css('display', 'none');
 	});
 </script>
 
