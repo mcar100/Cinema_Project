@@ -29,6 +29,9 @@ async function handleBoardDetailClick(e){
 	
 	try{
 		const boardId = $(this).data("id");
+		if(!boardId){
+			return;
+		}
 		const url ="/customer/noticeDetail";
 		const tableContent = await callAjax('GET', url+"/"+boardId);
 		if(!tableContent){
@@ -120,14 +123,14 @@ function handlePageNoClick(e){
 		if(!url){
 			throw new Error('요청된 url이 없습니다.')
 		}
-		
+	
 		const searchKeyword =  $("#searchKeyword").val();
 		if(searchKeyword){
 			searchTableContent(url,null,searchKeyword,pageNo);
 			return;
 		}
-		
-		const categoryId = $(".link-btn.active").data('id');
+	
+		const categoryId = $(".link-btn.active").data('id');	
 		if(!categoryId){
 			throw new Error('Id가 없습니다.');			
 		}

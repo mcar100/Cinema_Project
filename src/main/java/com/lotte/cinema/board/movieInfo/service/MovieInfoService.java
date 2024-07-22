@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.lotte.cinema.board.movieInfo.dto.MovieDTO.ArteMovieTop5DTO;
 import com.lotte.cinema.board.movieInfo.dto.MovieDTO.CurrentMovieTop5DTO;
+import com.lotte.cinema.board.movieInfo.dto.MovieDTO.MovieAllDTO;
 import com.lotte.cinema.board.movieInfo.dto.MovieDTO.SlideDTO;
 import com.lotte.cinema.board.movieInfo.dto.MovieDTO.UpcomingMovieTop5DTO;
 
@@ -20,5 +21,12 @@ public interface MovieInfoService {
 	
 	// 아르떼 탑5
 	List<ArteMovieTop5DTO> getArteMovieFive();
+	
+	// 디테일 페이지 정보
+	List<MovieAllDTO> getMovieAll();
+	
+	// 모든 영화 정보
+	List<MovieAllDTO> getMovieAllByFlag(int flag);
+
 
 }

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.lotte.cinema.board.movieInfo.dto.MovieDTO.ArteMovieTop5DTO;
 import com.lotte.cinema.board.movieInfo.dto.MovieDTO.CurrentMovieTop5DTO;
+import com.lotte.cinema.board.movieInfo.dto.MovieDTO.MovieAllDTO;
 import com.lotte.cinema.board.movieInfo.dto.MovieDTO.SlideDTO;
 import com.lotte.cinema.board.movieInfo.dto.MovieDTO.UpcomingMovieTop5DTO;
 import com.lotte.cinema.board.movieInfo.entity.MovieInfo;
@@ -116,6 +117,95 @@ public class MovieInfoServiceImpl implements MovieInfoService{
 		
 	}
 	
+	// 모든영화정보
+	@Override
+	public List<MovieAllDTO> getMovieAll(){
+		
+		LocalDate currentDate = LocalDate.now();
+	    
+	    List<MovieInfo> movieInfo = mf.findByReleaseDateLessThanEqualOrderByReservationDesc(currentDate);
+	    List<MovieAllDTO> movieAllDTO = new ArrayList<>();
+	     
+	    int startNumber = 1;
+	    for (MovieInfo origin : movieInfo) {
+	    	MovieAllDTO target = new MovieAllDTO();
+	        BeanUtils.copyProperties(origin, target);
+	        LocalDate releaseDate = origin.getReleaseDate();
+			long daysUntilRelease = ChronoUnit.DAYS.between(currentDate, releaseDate);
+			 if (daysUntilRelease < 0) {
+	                target.setDaysUntilRelease("");
+	            } else {
+	                target.setDaysUntilRelease("D-" + daysUntilRelease);
+	            }
+	        movieAllDTO.add(target);
+	        target.setNumber(startNumber++);
+	    }
+	        
+	    return movieAllDTO;
+		
+	}
+	
+	@Override
+	public List<MovieAllDTO> getMovieAllByFlag(int flag) {
+		
+		LocalDate currentDate = LocalDate.now();
+        List<MovieInfo> movieInfo;
+        
+        switch (flag) {
+        	case 1:
+	        	movieInfo = mf.findByReleaseDateLessThanEqualOrderByReservationDesc(currentDate);
+	        	break;
+	        case 6:
+	        	movieInfo = mf.findByReleaseDateAfterOrderByReleaseDateAsc(currentDate);
+	        	break;
+	        case 2:
+	        	movieInfo = mf.findByReleaseDateLessThanEqualOrderByReservationDesc(currentDate);
+	        	break;
+	        case 3:
+	        	movieInfo = mf.findByReleaseDateLessThanEqualOrderByLikesDesc(currentDate);
+	        	break;
+	        case 4:
+	        	movieInfo = mf.findByReleaseDateLessThanEqualOrderByScoreDesc(currentDate);
+	        	break;
+	        case 7:
+	        	movieInfo = mf.findByReleaseDateAfterOrderByReleaseDateAsc(currentDate);
+	        	break;
+	        case 8:
+	        	movieInfo = mf.findByReleaseDateAfterOrderByReservationDesc(currentDate);
+	        	break;
+	        case 9:
+	        	movieInfo = mf.findByReleaseDateAfterOrderByScoreDesc(currentDate);
+	        	break;
+	        default:	
+	        	throw new IllegalArgumentException("Invalid movie type: " + flag);
+	        }
+
+        return convertToMovieAllDTO(movieInfo);
+    }
+	
+	
+	  public List<MovieAllDTO> convertToMovieAllDTO(List<MovieInfo> movieInfo){
+	  
+	  List<MovieAllDTO> movieAllDTO = new ArrayList<>();
+	  LocalDate currentDate = LocalDate.now();
+	  
+	  int startNumber = 1;
+	    for (MovieInfo origin : movieInfo) {
+	    	MovieAllDTO target = new MovieAllDTO();
+	        BeanUtils.copyProperties(origin, target);
+	        LocalDate releaseDate = origin.getReleaseDate();
+			long daysUntilRelease = ChronoUnit.DAYS.between(currentDate, releaseDate);
+			 if (daysUntilRelease < 0) {
+	                target.setDaysUntilRelease("");
+	            } else {
+	                target.setDaysUntilRelease("D-" + daysUntilRelease);
+	            }
+	        movieAllDTO.add(target);
+	        target.setNumber(startNumber++);
+	    }
+	        
+	    return movieAllDTO;
+	  }
 	
 	
 }

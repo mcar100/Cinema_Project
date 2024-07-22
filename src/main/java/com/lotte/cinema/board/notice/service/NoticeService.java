@@ -57,7 +57,7 @@ public class NoticeService {
 		else if(categoryType==2){
 			category = NoticeCategory.CINEMA;
 		}
-		Pageable pageable = PageRequest.of(pageNo, PAGE_SIZE, Sort.by("id").ascending());
+		Pageable pageable = PageRequest.of(pageNo, PAGE_SIZE, Sort.by("id").descending());
 		Page<NoticeBoard> noticePage = null;
 		
 		if(theater!=null) {
@@ -75,7 +75,8 @@ public class NoticeService {
 		List<NoticeBoard> noticeBoards = noticePage.getContent();
 		List<NoticeDTO> noticeDTOs = new ArrayList<NoticeDTO>();
 		
-		int startRowNum = (pageNo) * PAGE_SIZE + 1;
+		int lastPageElementCount = (int)noticePage.getTotalElements()-((noticePage.getTotalPages()-1)*PAGE_SIZE);
+		int startRowNum = (noticePage.getTotalPages()-pageNo-1) * PAGE_SIZE + lastPageElementCount;
 		for(int i=0; i<noticeBoards.size(); i++){
 			NoticeBoard origin = noticeBoards.get(i);
 			NoticeDTO target = new NoticeDTO();
@@ -84,7 +85,7 @@ public class NoticeService {
 				target.setTheaterName(origin.getTheater().getName());
 			}
 			target.setFormattedCreatedAt();
-			target.setRowNum((long) (startRowNum+i));
+			target.setRowNum((long) (startRowNum-i));
 			noticeDTOs.add(target);
 		}
 		
@@ -109,7 +110,7 @@ public class NoticeService {
 			category = NoticeCategory.CINEMA;
 		}
 		
-		Pageable pageable = PageRequest.of(pageNo, PAGE_SIZE, Sort.by("id").ascending());
+		Pageable pageable = PageRequest.of(pageNo, PAGE_SIZE, Sort.by("id").descending());
 		Page<NoticeBoard> noticePage = null;
 		if(scope.equals("both")) {
 			noticePage = nr.findByCategoryAndTitleContainingOrContentContaining(category, keyword, keyword, pageable);
@@ -127,7 +128,8 @@ public class NoticeService {
 		List<NoticeBoard> noticeBoards = noticePage.getContent();
 		List<NoticeDTO> noticeDTOs = new ArrayList<NoticeDTO>();
 		
-		int startRowNum = (noticePage.getTotalPages()-pageNo-1) * PAGE_SIZE + 1;
+		int lastPageElementCount = (int)noticePage.getTotalElements()-((noticePage.getTotalPages()-1)*PAGE_SIZE);
+		int startRowNum = (noticePage.getTotalPages()-pageNo-1) * PAGE_SIZE + lastPageElementCount;
 		for(int i=0; i<noticeBoards.size(); i++){
 			NoticeBoard origin = noticeBoards.get(i);
 			NoticeDTO target = new NoticeDTO();
@@ -139,7 +141,7 @@ public class NoticeService {
 			target.setRowNum((long) (startRowNum-i));
 			noticeDTOs.add(target);
 		}
-		
+
 		PaginationDTO pagDTO = new PaginationDTO();
 		pagDTO.setPageNo(pageNo);
 		pagDTO.setPageSize(PAGE_SIZE);

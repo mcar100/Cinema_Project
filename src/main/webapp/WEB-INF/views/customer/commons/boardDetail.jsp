@@ -47,31 +47,31 @@
 					<tr class="tb_link">
 						<td>
 							<a href="#" class="link-a" id="${prev.id}" data-id="${prev.id}">
-									<span class="tb_prev">다음글</span>
-									<c:choose>
-										<c:when test="${empty prev.title}">
-											<span>다음 글이 없습니다.</span>
-										</c:when>
-										<c:otherwise>
-											<span>${prev.title}</span>
-										</c:otherwise>
-									</c:choose>
-								</a>
+								<span class="tb_next">이전글</span>
+								<c:choose>
+									<c:when test="${empty prev.title}">
+										<span>이전 글이 없습니다.</span>
+									</c:when>
+									<c:otherwise>
+										<span>${prev.title}</span>
+									</c:otherwise>
+								</c:choose>
+							</a>
 						</td>
 					</tr>
 					<tr class="tb_link">
 						<td>
 							<a href="#" class="link-a" id="${next.id}" data-id="${next.id}">
-								<span class="tb_next">이전글</span>
-								<c:choose>
-									<c:when test="${empty next.title}">
-										<span>이전 글이 없습니다.</span>
-									</c:when>
-									<c:otherwise>
-										<span>${next.title}</span>
-									</c:otherwise>
-								</c:choose>
-							</a>
+									<span class="tb_prev">다음글</span>
+									<c:choose>
+										<c:when test="${empty next.title}">
+											<span>다음 글이 없습니다.</span>
+										</c:when>
+										<c:otherwise>
+											<span>${next.title}</span>
+										</c:otherwise>
+									</c:choose>
+								</a>
 						</td>
 					</tr>
 				</tbody>

@@ -5,9 +5,11 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.lotte.cinema.board.movieInfo.dto.MovieDTO.ArteMovieTop5DTO;
 import com.lotte.cinema.board.movieInfo.dto.MovieDTO.CurrentMovieTop5DTO;
+import com.lotte.cinema.board.movieInfo.dto.MovieDTO.MovieAllDTO;
 import com.lotte.cinema.board.movieInfo.dto.MovieDTO.SlideDTO;
 import com.lotte.cinema.board.movieInfo.dto.MovieDTO.UpcomingMovieTop5DTO;
 import com.lotte.cinema.board.movieInfo.service.MovieInfoService;
@@ -42,5 +44,33 @@ public class MovieInfo {
 		
 		return "movieInfo/movieInfo";
 	}
+	
+	@GetMapping("/movieInfo/detail")
+	public String detail(Model model) {
+		
+		List<SlideDTO> mainSlide = Ms.getSlideMovie();
+		
+		List<MovieAllDTO> movieAll = Ms.getMovieAll();
+		
+		model.addAttribute("mainSlide", mainSlide);
+		
+		model.addAttribute("movieAll", movieAll);
+		
+		return "movieInfo/movieInfoDetail";
+	}
+	
+	@GetMapping("/movieInfo/detail/contents")
+    public String detailContents(@RequestParam("flag") int flag, Model model) {
+		
+        List<MovieAllDTO> movieAll = Ms.getMovieAllByFlag(flag);
+        
+        model.addAttribute("movieAll", movieAll);
+
+        return "movieInfo/movieInfoContent";
+    }
+
+	
+	
+
 
 }
