@@ -21,12 +21,14 @@
 				</thead>
 				<tbody>
 					<tr class="tb_info">
-						<span class="tit">"영화관"</span>
-						<span class="cont">${board.theaterName}</span>
-						<span class="tit">"등록일"</span>
-						<span class="cont">${board.createdAt}</span>
-						<span class="tit">"조회수"</span>
-						<span class="cont">"0"</span>
+						<td>
+							<span class="tit">영화관</span>
+							<span class="cont">${board.theaterName}</span>
+							<span class="tit">등록일</span>
+							<span class="cont">${board.createdAt}</span>
+							<span class="tit">조회수</span>
+							<span class="cont">0</span>
+						</td>
 					</tr>
 					<tr class="tb_content">
 						<td>
@@ -37,24 +39,38 @@
 					</tr>
 					<tr class="tb_link">
 						<td>
-							<a href="#" id="${next.id}">
-								<span class="tb_next">다음글</span>
-								<span>${next.title}</span>
-							</a>
+							<a href="#" class="link-a" id="${prev.id}" data-id="${prev.id}">
+									<span class="tb_prev">다음글</span>
+									<c:choose>
+										<c:when test="${empty prev.title}">
+											<span>다음 글이 없습니다.</span>
+										</c:when>
+										<c:otherwise>
+											<span>${prev.title}</span>
+										</c:otherwise>
+									</c:choose>
+								</a>
 						</td>
 					</tr>
 					<tr class="tb_link">
 						<td>
-							<a href="#" id="${prev.id}">
-								<span class="tb_prev">이전글</span>
-								<span>${prev.title}</span>
+							<a href="#" class="link-a" id="${next.id}" data-id="${next.id}">
+								<span class="tb_next">이전글</span>
+								<c:choose>
+									<c:when test="${empty next.title}">
+										<span>이전 글이 없습니다.</span>
+									</c:when>
+									<c:otherwise>
+										<span>${next.title}</span>
+									</c:otherwise>
+								</c:choose>
 							</a>
 						</td>
 					</tr>
 				</tbody>
 			</table>
 			<div class="btn_btm_wrap">
-				<a href="#" class="btn_col2 ty6">목록</a>
+				<a href="/customer" class="btn_col2 ty6">목록</a>
 			</div>
 		</div>
 	</li>
