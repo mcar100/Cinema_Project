@@ -62,7 +62,7 @@
 											<li class="depth1">
 												<a href="#none">MY 영화관<em>(0)</em></a>
 												<div class="depth2">
-													<div class="mCustomScrollbar _mCS_10 mCS-autoHide mCS_no_scrollbar" data-mcs-theme="minimal-dark" style="position: relative; overflow: visible;">
+													<div class="mCustomScrollbar _mCS_10 mCS-autoHide mCS_no_scrollbar" data-mcs-theme="minimal-dark" style="position: relative;">
 													   <div id="mCSB_10" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" style="max-height: 753px;" tabindex="0">
 													      <div id="mCSB_10_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">
 															<div class="bx_notice">
@@ -102,7 +102,7 @@
 																<c:forEach var="infos" items="${subInfos}">
 																	<c:if test="${item.regionName eq infos.cinemaRegion}">
 																		<li class="">
-																			<a href="#none">${infos.cinemaName}</a>
+																			<a href="#none" style="width:170px;">${infos.cinemaName}</a>
 																		</li>
 																	</c:if>
 																</c:forEach>
@@ -161,33 +161,20 @@
 					   </div>
 					   
 					   <div class="cinemaPickArea">
-					   		<div class="cinemaPickAreaContainer" style="height:754px; overflow: visible; overflow: scroll;">
+					   		<div class="cinemaPickAreaContainer" style="height:754px; overflow: scroll; ">
 					   			<ul style="list-style: none; padding:0;">
 					   				<c:forEach var="movieTit" items="${allMovies}">
 						   			   <li class="">
 						   					<a href="#none">
 						   						<div class="group_info">
 						   							<div class="bx_tit">
-						   								<span class="ic_grade gr_12"></span>
+						   								<span class="ic_grade ${movieTit.grade}"></span>
 	                                               	    <strong class="tit">${movieTit.title}</strong>    
 						   							</div>
 						   						</div>
 						   					</a>
 						   				</li>	
 					   				</c:forEach>
-					   				
-					   				
-					   				<!-- <li class="">
-					   					<a href="#none">
-					   						<div class="group_info">
-					   							<div class="bx_tit">
-					   								<span class="ic_grade gr_12"></span>
-                                               	    <strong class="tit">탈주</strong>    
-					   							</div>
-					   						</div>
-					   					</a>
-					   				</li> -->
-					   				
 					   			</ul>
 					   		</div>
 					   
@@ -211,11 +198,54 @@
 							 			
 							 			</div>
 							 		</div>
-							 		<div></div>
+							 		<div><div>
 							 	</ul>
 							</div>
 						</div>
-						<ul></ul>
+						<div>
+							<ul>
+								<li>
+									<div class="roomInfo">
+										<div class="movieGroup">
+											<div class="movieTit">
+												 <span class="ic_grade gr_12"></span>
+												 <strong style="margin-left:10px;">탈주</strong>
+											</div>
+											<div class="showRoom">
+												<ul>
+													<li style="width: 23.5%;"> 
+														<a href="#none">
+															<dl>
+																<!-- <dt>상영시간</dt> -->
+																<dd style="">
+																	<strong style="								  
+																	        display: block;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center; 
+																	}">12:00</strong>
+																</dd>
+																<!-- <dt>잔여석</dt> -->
+																<dd style="font-size: 11px;">
+																	<strong style="color: #427652; font-size: 11px;">120</strong>
+																	/ 132
+																</dd>
+																<!-- <dt>상영관</dt> -->
+																<dd style="position: absolute;
+																		    right: 15px;
+																		    bottom: 3.5px;
+																		    font-size: 11px;
+																		}"> 4관	</dd>
+															</dl>
+														</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 				
