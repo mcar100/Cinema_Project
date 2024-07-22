@@ -57,7 +57,7 @@ public class NoticeService {
 		else if(categoryType==2){
 			category = NoticeCategory.CINEMA;
 		}
-		Pageable pageable = PageRequest.of(pageNo, PAGE_SIZE, Sort.by("id").ascending());
+		Pageable pageable = PageRequest.of(pageNo, PAGE_SIZE, Sort.by("id").descending());
 		Page<NoticeBoard> noticePage = null;
 		
 		if(theater!=null) {
@@ -77,9 +77,8 @@ public class NoticeService {
 		
 		int lastPageElementCount = (int)noticePage.getTotalElements()-((noticePage.getTotalPages()-1)*PAGE_SIZE);
 		int startRowNum = (noticePage.getTotalPages()-pageNo-1) * PAGE_SIZE + lastPageElementCount;
-		System.out.println(startRowNum+"/"+noticePage.getTotalPages());
 		for(int i=0; i<noticeBoards.size(); i++){
-			NoticeBoard origin = noticeBoards.get(noticeBoards.size()-i-1);
+			NoticeBoard origin = noticeBoards.get(i);
 			NoticeDTO target = new NoticeDTO();
 			BeanUtils.copyProperties(origin, target);
 			if(origin.getTheater()!=null) {
@@ -111,7 +110,7 @@ public class NoticeService {
 			category = NoticeCategory.CINEMA;
 		}
 		
-		Pageable pageable = PageRequest.of(pageNo, PAGE_SIZE, Sort.by("id").ascending());
+		Pageable pageable = PageRequest.of(pageNo, PAGE_SIZE, Sort.by("id").descending());
 		Page<NoticeBoard> noticePage = null;
 		if(scope.equals("both")) {
 			noticePage = nr.findByCategoryAndTitleContainingOrContentContaining(category, keyword, keyword, pageable);
@@ -131,9 +130,8 @@ public class NoticeService {
 		
 		int lastPageElementCount = (int)noticePage.getTotalElements()-((noticePage.getTotalPages()-1)*PAGE_SIZE);
 		int startRowNum = (noticePage.getTotalPages()-pageNo-1) * PAGE_SIZE + lastPageElementCount;
-		System.out.println(startRowNum+"/"+noticePage.getTotalPages());
 		for(int i=0; i<noticeBoards.size(); i++){
-			NoticeBoard origin = noticeBoards.get(noticeBoards.size()-i-1);
+			NoticeBoard origin = noticeBoards.get(i);
 			NoticeDTO target = new NoticeDTO();
 			BeanUtils.copyProperties(origin, target);
 			if(origin.getTheater()!=null) {
