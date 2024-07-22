@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
 })
 
 function payInfo(data) {
-	console.log("payInfo : ", data);
 
 	$.ajax({
 		type: "get",
@@ -128,7 +127,7 @@ function requestToss() {
 };
 
 function requestKaKao() {
-	console.log("requestPay()호출");
+
 	// IMP.request_pay(param, callback) 결제창 호출
 	IMP.request_pay({ // param
 		pg: "kakaopay.TC0ONETIME",
@@ -174,7 +173,7 @@ function requestKaKao() {
 };
 
 function requestPayco() {
-	console.log("requestPay()호출");
+
 	// IMP.request_pay(param, callback) 결제창 호출
 	IMP.request_pay({ // param
 		pg: "payco.AUTOPAY",
