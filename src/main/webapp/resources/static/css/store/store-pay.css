@@ -410,3 +410,48 @@ a, a:link, a:visited, a:active, a:hover {
 .ic_txt_event.active {
 	display: block;
 }
+
+.list_pay_item li button {
+	width: 100%;
+	border-radius: 4px;
+	background-color: #FFF;
+}
+
+.list_pay_item {
+	margin: 0 -1%;
+}
+
+.article_pay_simple .list_pay_item li .pay_simple_btn_box {
+	position: relative;
+	height: 55px;
+}
+
+.article_pay_simple .list_pay_item li .pay_simple_btn_box {
+	height: 55px;
+}
+
+.article_pay_simple {
+	margin: 5px 0;
+}
+
+.list_pay_item li {
+	float: left;
+	margin: 0 1% 10px;
+}
+
+.list_pay_item.cate3 li {
+	width: 31.333%;
+}
+
+.article_pay_simple .list_pay_item li {
+	text-align: center;
+}
+
+.article_pay_simple .list_pay_item li span {
+	display: block;
+	margin-top: 5px;
+	font-size: 10px;
+	color: #666;
+}
+
+
